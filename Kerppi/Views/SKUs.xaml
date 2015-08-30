@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="Kerppi.Views.SKUs"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vms="clr-namespace:Kerppi.ViewModels"
+             mc:Ignorable="d"
+             RequestBringIntoView="UserControl_RequestBringIntoView"
+             d:DesignWidth="800"
+             d:DesignHeight="400">
+    <UserControl.Resources>
+        <DataTemplate x:Key="RemoveButtonTemplate">
+            <Button Content="-" Tag="{Binding}" Click="RemoveButton_Click"/>
+        </DataTemplate>
+        <vms:DateConverter x:Key="dateConverter"/>
+        <vms:DecimalConverter x:Key="decimalConverter"/>
+        <vms:MultiplyConverter x:Key="multiplyConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Valittu nimike">
+            <Grid DataContext="{Binding CurrentSKU}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Koodi:"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Kuvaus:"/>
+                <TextBlock Grid.Row="0" Grid.Column="4" Text="Ostohinta (€):"/>
+                <TextBlock Grid.Row="1" Grid.Column="4" Text="Myyntihintakerroin:"/>
+                <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=Code, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBox_GotFocus_SelectAll"/>
+                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBox_GotFocus_SelectAll"/>
+                <!-- Using PropertyChanged here as UpdateSourceTrigger makes typing decimal numbers a pain. -->
+                <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding Path=BuyPrice, Converter={StaticResource decimalConverter}}" GotFocus="TextBox_GotFocus_SelectAll"/>
+                <TextBox Grid.Row="1" Grid.Column="6" Text="{Binding Path=SellPriceFactor, Converter={StaticResource decimalConverter}}" GotFocus="TextBox_GotFocus_CaretIndex"/>
+                <TextBlock Grid.Row="2" Grid.RowSpan="2" Grid.Column="4" Text="Myyntihinta (€):"/>
+                <TextBox Grid.Row="2" Grid.Column="6" IsEnabled="False">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{StaticResource multiplyConverter}">
+                            <Binding Path="BuyPrice"/>
+                            <Binding Path="SellPriceFactor"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+                <Button Grid.RowSpan="3" Grid.Column="7" Click="SaveButton_Click" Margin="10,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Icons/save.png"/>
+                        <Label>_Tallenna</Label>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Header="Kaikki nimikkeet" Margin="0,10,0,0">
+            <DataGrid ItemsSource="{Binding SKUHandlerInstance.SKUList}" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" SelectionMode="Single">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Koodi" Binding="{Binding Path=Code}"/>
+                    <DataGridTextColumn Header="Kuvaus" Width="*" Binding="{Binding Path=Description}"/>
+                    <DataGridTextColumn Header="Hinta" CellStyle="{StaticResource RightAlignedDataGridCell}" Binding="{Binding Path=BuyPrice, Converter={StaticResource decimalConverter}}"/>
+                    <DataGridTextColumn Header="MHK" CellStyle="{StaticResource RightAlignedDataGridCell}" Binding="{Binding Path=SellPriceFactor, Converter={StaticResource decimalConverter}}"/>
+                    <DataGridTextColumn Header="Myyntihinta" CellStyle="{StaticResource RightAlignedDataGridCell}">
+                        <DataGridTextColumn.Binding>
+                            <MultiBinding Converter="{StaticResource multiplyConverter}">
+                                <Binding Path="BuyPrice"/>
+                                <Binding Path="SellPriceFactor"/>
+                            </MultiBinding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Päiväys" CellStyle="{StaticResource RightAlignedDataGridCell}" Binding="{Binding Path=Timestamp,Mode=OneWay,Converter={StaticResource dateConverter}}"/>
+                    <DataGridTemplateColumn CellTemplate="{StaticResource RemoveButtonTemplate}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Kerppi.Views.Payers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             RequestBringIntoView="UserControl_RequestBringIntoView"
+             d:DesignWidth="800"
+             d:DesignHeight="400">
+    <UserControl.Resources>
+        <DataTemplate x:Key="RemoveButtonTemplate">
+            <Button Content="-" Tag="{Binding}" Click="RemoveButton_Click"/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*"/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.ColumnSpan="2" Margin="0,0,0,10" ItemsSource="{Binding PayerList}" AutoGenerateColumns="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nimi" Width="*" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Lähiosoite" Width="*" Binding="{Binding Path=PostalAddress}"/>
+                <DataGridTextColumn Header="Postinumero ja -toimipaikka" Width="*" Binding="{Binding Path=PostalCode}"/>
+                <DataGridTextColumn Header="Oletusyhteys(henkilö)" Width="*" Binding="{Binding Path=DefaultContact}"/>
+                <DataGridTemplateColumn CellTemplate="{StaticResource RemoveButtonTemplate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap">Ohje:<LineBreak/>Tuplaklikkaa solua muokataksesi sitä. Uuden tyhjän rivin saat valitsemalla rivin ja painamalla enter-näppäintä. Muutokset täytyy vahvistaa "Tallenna muutokset" -napista. Nimi on pakollinen kenttä.</TextBlock>
+        <Button Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" Click="ButtonSave_Click" IsEnabled="{Binding Path=IsEdited}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Icons/save.png"/>
+                <Label VerticalAlignment="Center">_Tallenna muutokset</Label>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>
