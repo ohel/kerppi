@@ -13,5 +13,5 @@ The software is written in C# using Visual Studio Express 2013 for Windows Deskt
 * System.Data.SQLite (included)
 * Dapper (included)
 * Dapper.SimpleCRUD (included)
-* .NET Framework 4.5
-* Visual C++ Redistributable for Visual Studio 2012 Update 4
+* [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
+* [Visual C++ Redistributable for Visual Studio 2012 Update 4](https://www.microsoft.com/en-us/download/details.aspx?id=30679) (32-bit version)
