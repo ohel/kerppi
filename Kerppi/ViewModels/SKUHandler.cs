@@ -1,18 +1,20 @@
-﻿using System;
+﻿/*
+    Copyright 2015, 2017 Olli Helin / GainIT
+    This file is part of Kerppi, a free software released under the terms of the
+    GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Kerppi.ViewModels
 {
     sealed class SKUHandler: INotifyPropertyChanged
     {
-        private const string IO_FILENAME = "nimikkeet.txt";
-
         private static object syncRoot = new Object();
         private static volatile SKUHandler instance;
         public static SKUHandler Instance
@@ -65,14 +67,14 @@ namespace Kerppi.ViewModels
             NotifyPropertyChanged(() => SKUList);
         }
 
-        public void Export()
+        public void Export(string filename)
         {
-            DataModel.SKU.SaveAllToFile(IO_FILENAME, SKUList);
+            DataModel.SKU.SaveAllToFile(filename, SKUList);
         }
 
-        public void Import()
+        public void Import(string filename)
         {
-            var skus = DataModel.SKU.LoadAllFromFile(IO_FILENAME);
+            var skus = DataModel.SKU.LoadAllFromFile(filename);
             foreach (var sku in skus)
             {
                 var match = SKUList.FirstOrDefault(s => s.Code == sku.Code);

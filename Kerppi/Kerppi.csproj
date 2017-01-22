@@ -104,6 +104,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AttributeHelper.cs" />
     <Compile Include="DataModel\StringConstant.cs" />
     <Compile Include="DataModel\Task.cs" />
     <Compile Include="DataModel\DBWritable.cs" />

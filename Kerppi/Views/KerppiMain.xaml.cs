@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*
+    Copyright 2015, 2017 Olli Helin / GainIT
+    This file is part of Kerppi, a free software released under the terms of the
+    GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Kerppi.Views
 {
@@ -24,6 +20,7 @@ namespace Kerppi.Views
         {
             InitializeComponent();
             Application.Current.DispatcherUnhandledException += KerppiExceptionHandler;
+            this.Title = AttributeHelper.GetAttribute<System.Reflection.AssemblyProductAttribute>().Product;
         }
 
         private void KerppiExceptionHandler(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
@@ -72,13 +69,10 @@ namespace Kerppi.Views
                 if (chosen != null)
                 {
                     var view = chosen.Content as FrameworkElement;
-                    if (view != null && view.DataContext != null)
+                    if (view?.DataContext != null)
                     {
                         var refreshable = view.DataContext as ViewModels.Refreshable;
-                        if (refreshable != null)
-                        {
-                            refreshable.Refresh();
-                        }
+                        refreshable?.Refresh();
                     }
                 }
             }
@@ -86,14 +80,11 @@ namespace Kerppi.Views
 
         private void About(object sender, RoutedEventArgs e)
         {
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            var version = assembly.GetName().Version;
-
             MessageBox.Show(
-                "Kerppi" + Environment.NewLine +
-                "Versio: " + version.ToString() + Environment.NewLine +
-                "© 2015 Olli Helin (olli.helin@iki.fi)" + Environment.NewLine +
-                "Lisenssi- ja loppukäyttäjäehdot löytyvät tiedostosta License.txt",
+                AttributeHelper.GetAttribute<System.Reflection.AssemblyProductAttribute>().Product + Environment.NewLine +
+                "Versio: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + Environment.NewLine +
+                AttributeHelper.GetAttribute<System.Reflection.AssemblyCopyrightAttribute>().Copyright + Environment.NewLine +
+                "Lisenssi- ja loppukäyttäjäehdot löytyvät tiedostosta Kerppi.txt",
                 "Tietoa sovelluksesta", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
