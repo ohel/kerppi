@@ -1,4 +1,10 @@
-﻿<Application x:Class="Kerppi.App"
+﻿<!--
+    Copyright 2015, 2017 Olli Helin / GainIT
+    This file is part of Kerppi, a free software released under the terms of the
+    GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
+-->
+
+<Application x:Class="Kerppi.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="Views/Password.xaml">
