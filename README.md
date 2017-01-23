@@ -6,7 +6,7 @@ Kerppi, or "kevyt erppi" - Finnish slang for "light ERP", is a lightweight ERP s
 
 Kerppi uses the MVVM model and Dapper with SimpleCRUD extensions. It is not asynchronous, though, as it uses System.Data.SQLite for database with encryption so normally there's really no waiting time anyway. Although the encryption feature of the SQLite lib seems to be sort of a hack, it works. Other code features include your usual visual tree walker and time conversion classes along with a bunch of converters.
 
-The software was originally written in C# using Visual Studio Express 2013 for Windows Desktop, later the Community versions were used. It is GPL-3.0 licensed.
+The software was originally written in C# using Visual Studio Express 2013 for Windows Desktop, later the Community versions were used. Kerppi is released under the GNU General Public License version 3.
 
 ## Dependencies
 
@@ -18,7 +18,7 @@ The software was originally written in C# using Visual Studio Express 2013 for W
 
 ## Licenses
 
-Kerppi: [GPL-3.0](http://www.gnu.org/licenses/gpl-3.0.en.html)
-System.Data.SQLite: [Public Domain](https://system.data.sqlite.org/index.html/doc/trunk/www/copyright.wiki)
-Dapper: [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
-Dapper.SimpleCRUD: [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+* Kerppi: [GPL-3.0](http://www.gnu.org/licenses/gpl-3.0.en.html)
+* System.Data.SQLite: [Public Domain](https://system.data.sqlite.org/index.html/doc/trunk/www/copyright.wiki)
+* Dapper: [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+* Dapper.SimpleCRUD: [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
