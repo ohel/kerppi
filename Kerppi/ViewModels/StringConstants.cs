@@ -40,7 +40,7 @@ namespace Kerppi.ViewModels
                 var match = StringConstantList.FirstOrDefault(p => p.Id == StringConstant.Id);
                 if (match == null) toBeDeleted.Add(StringConstant);
             }
-            
+
             using (var conn = DBHandler.Connection())
             {
                 conn.Open();
@@ -76,7 +76,7 @@ namespace Kerppi.ViewModels
 
         protected void NotifyPropertyChanged<T>(System.Linq.Expressions.Expression<Func<T>> property)
         {
-            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(PropertyHelper.GetPropertyName(property)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyHelper.GetPropertyName(property)));
         }
     }
 }

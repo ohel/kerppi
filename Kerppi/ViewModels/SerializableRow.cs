@@ -62,7 +62,7 @@ namespace Kerppi.ViewModels
 
         protected void NotifyPropertyChanged<T>(System.Linq.Expressions.Expression<Func<T>> property)
         {
-            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(ViewModels.PropertyHelper.GetPropertyName(property)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(ViewModels.PropertyHelper.GetPropertyName(property)));
         }
     }
 }

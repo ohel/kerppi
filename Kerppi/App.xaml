@@ -17,34 +17,34 @@
             <Style TargetType="TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center"/>
             </Style>
-        
+
             <Style TargetType="TextBox">
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="Margin" Value="0, 0.5"/>
             </Style>
-        
+
             <Style TargetType="DatePicker">
                 <Setter Property="Margin" Value="0, 0.5"/>
             </Style>
-        
+
             <Style TargetType="ComboBox">
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
             </Style>
-        
+
             <Style TargetType="CheckBox">
                 <Setter Property="VerticalAlignment" Value="Center"/>
             </Style>
-        
+
             <Style TargetType="GroupBox">
                 <Setter Property="Padding" Value="5"/>
             </Style>
-        
+
             <!-- Defines icon size. -->
             <Style TargetType="Image">
                 <Setter Property="Height" Value="22"/>
                 <Setter Property="Width" Value="22"/>
             </Style>
-        
+
             <Style TargetType="DataGrid">
                 <Setter Property="CellStyle">
                     <Setter.Value>

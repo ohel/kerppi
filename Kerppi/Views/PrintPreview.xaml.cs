@@ -7,8 +7,11 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace Kerppi.Views
 {
@@ -24,12 +27,30 @@ namespace Kerppi.Views
             double margin = 20;
             Double.TryParse(DBHandler.QueryMisc("PrintMargin"), out margin);
             framePrintableArea.Margin = new Thickness(margin);
+            framePrintableArea2.Margin = framePrintableArea.Margin;
             framePrintableArea.Content = print;
+            framePrintableArea2.Content = print.GetSecondPage();
+            this.DataContext = print;
         }
 
         private void WindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private PageContent CreateNewPage(UIElement uie, Size printAreaSize)
+        {
+            var fixedPage = new FixedPage();
+            fixedPage.Width = printAreaSize.Width;
+            fixedPage.Height = printAreaSize.Height;
+            fixedPage.Children.Add(uie);
+            fixedPage.Measure(printAreaSize);
+            fixedPage.Arrange(new Rect(new Point(), printAreaSize));
+            fixedPage.UpdateLayout();
+
+            var pageContent = new PageContent();
+            ((IAddChild)pageContent).AddChild(fixedPage);
+            return pageContent;
         }
 
         private void ButtonPrint_Click(object sender, RoutedEventArgs e)
@@ -40,18 +61,33 @@ namespace Kerppi.Views
                 using (new WaitCursor())
                 {
                     System.Printing.PrintCapabilities capabilities = printDialog.PrintQueue.GetPrintCapabilities(printDialog.PrintTicket);
-                    double scale = Math.Min(capabilities.PageImageableArea.ExtentWidth / viewBoxPrintPreview.ActualWidth, capabilities.PageImageableArea.ExtentHeight / viewBoxPrintPreview.ActualHeight);
-                    viewBoxPrintPreview.LayoutTransform = new ScaleTransform(scale, scale); // This fills the whole printable area on the print.
-
                     Size printAreaSize = new Size(capabilities.PageImageableArea.ExtentWidth, capabilities.PageImageableArea.ExtentHeight);
-                    viewBoxPrintPreview.Measure(printAreaSize);
-                    viewBoxPrintPreview.Arrange(new Rect(new Point(capabilities.PageImageableArea.OriginWidth, capabilities.PageImageableArea.OriginHeight), printAreaSize));
 
-                    printDialog.PrintVisual(viewBoxPrintPreview, "Kerppi-tuloste");
-                    viewBoxPrintPreview.LayoutTransform = null;
+                    var document = new FixedDocument();
+                    document.DocumentPaginator.PageSize = printAreaSize;
+
+                    // This fills the whole printable area on the print.
+                    double scale = Math.Min(capabilities.PageImageableArea.ExtentWidth / viewBoxPrintPreview.ActualWidth, capabilities.PageImageableArea.ExtentHeight / viewBoxPrintPreview.ActualHeight);
+                    viewBoxPrintPreview.LayoutTransform = new ScaleTransform(scale, scale);
+                    borderFirstPage.Child = null;
+                    document.Pages.Add(CreateNewPage(viewBoxPrintPreview, printAreaSize));
+
+                    if (((A4Print)DataContext).TwoPagePrint)
+                    {
+                        viewBoxPrintPreview2.LayoutTransform = new ScaleTransform(scale, scale);
+                        borderSecondPage.Child = null;
+                        document.Pages.Add(CreateNewPage(viewBoxPrintPreview2, printAreaSize));
+                    }
+
+                    printDialog.PrintDocument(document.DocumentPaginator, "Kerppi-tuloste");
                 }
                 this.Close();
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Dispatcher.BeginInvoke(new Action(() => ((A4Print)DataContext).CheckIfTwoPagesNecessary()), DispatcherPriority.ContextIdle, null);
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)

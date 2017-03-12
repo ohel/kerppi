@@ -39,8 +39,17 @@
         </Setter>
     </Style>
 
-    <Style TargetType="DataGridColumnHeader">
+    <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridRowHeader}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridRowHeader}">
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>

@@ -40,7 +40,7 @@ namespace Kerppi.ViewModels
                 var match = PayerList.FirstOrDefault(p => p.Id == payer.Id);
                 if (match == null) toBeDeleted.Add(payer);
             }
-            
+
             using (var conn = DBHandler.Connection())
             {
                 conn.Open();
@@ -76,7 +76,7 @@ namespace Kerppi.ViewModels
 
         protected void NotifyPropertyChanged<T>(System.Linq.Expressions.Expression<Func<T>> property)
         {
-            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(PropertyHelper.GetPropertyName(property)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyHelper.GetPropertyName(property)));
         }
     }
 }
