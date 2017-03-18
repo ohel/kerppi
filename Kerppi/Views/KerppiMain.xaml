@@ -29,23 +29,23 @@
                             <MenuItem Header="Vaihda ALV-kanta…" Click="ChangeVAT"/>
                             <MenuItem Header="Aseta tulosteiden alatunniste…" Click="SetPrintFooter">
                                 <MenuItem.Icon>
-                                    <Image Source="/Icons/print.png"/>
+                                    <Image Source="/Icons/print.png" Height="Auto"/>
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem Header="Aseta tulosteiden marginaali…" Click="SetPrintMargin">
                                 <MenuItem.Icon>
-                                    <Image Source="/Icons/print.png"/>
+                                    <Image Source="/Icons/print.png" Height="Auto"/>
                                 </MenuItem.Icon>
                             </MenuItem>
                         </MenuItem>
                         <MenuItem Header="T_ietoa sovelluksesta" Click="About">
                             <MenuItem.Icon>
-                                <Image Source="/Icons/info.png"/>
+                                <Image Source="/Icons/info.png" Height="Auto"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="_Lopeta" Click="EndProgram">
                             <MenuItem.Icon>
-                                <Image Source="/Icons/close.png"/>
+                                <Image Source="/Icons/close.png" Height="Auto"/>
                             </MenuItem.Icon>
                         </MenuItem>
                     </MenuItem>
