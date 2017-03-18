@@ -73,6 +73,9 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons\kerppi.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="ReachFramework" />
@@ -298,6 +301,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\kerppi.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
