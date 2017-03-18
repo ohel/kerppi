@@ -42,7 +42,7 @@ namespace Kerppi.DataModel
             list.Add(new ViewModels.SerializableRow(
                 this.Code,
                 this.Description,
-                (this.BuyPrice * this.SellPriceFactor).ToString(),
+                Decimal.Round(this.BuyPrice * this.SellPriceFactor, 0, MidpointRounding.AwayFromZero).ToString("N2"),
                 (new Decimal(1.0)).ToString()
             ));
             return list;
