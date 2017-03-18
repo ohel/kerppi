@@ -8,32 +8,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ControlTemplate x:Key="IconOK">
-        <Viewbox Width="22" Height="22">
+        <Viewbox>
             <Canvas Width="53" Height="53">
                 <Canvas.Resources>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient4733" MappingMode="Absolute" StartPoint="303,378" EndPoint="311,391">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="1.9519 0 0 1.84182 -206.4021 -329.7778"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient4744" MappingMode="Absolute" StartPoint="402,376" EndPoint="414,390">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <ScaleTransform ScaleX="0.999946" ScaleY="1.000054"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient4568" MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="1,1">
+                    <LinearGradientBrush x:Key="linearGradient1" MappingMode="Absolute" StartPoint="315,370" EndPoint="332,387">
                         <LinearGradientBrush.GradientStops>
                             <GradientStopCollection>
                                 <GradientStop Color="#FF00FF00" Offset="0"/>
@@ -41,261 +19,7 @@
                             </GradientStopCollection>
                         </LinearGradientBrush.GradientStops>
                     </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient4693" MappingMode="Absolute" StartPoint="315,370" EndPoint="332,387">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FF00FF00" Offset="0"/>
-                                <GradientStop Color="#FF226122" Offset="1"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient3711" MappingMode="Absolute" StartPoint="303,378" EndPoint="311,391">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="1.9519 0 0 1.84182 -428.7143 -277.3005"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient3709" MappingMode="Absolute" StartPoint="315,370" EndPoint="332,387">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FF1C97E1" Offset="0.0000000"/>
-                                <GradientStop Color="#FF006798" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient3695" MappingMode="Absolute" StartPoint="808,363" EndPoint="833,400">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <TranslateTransform X="-305.3221" Y="52.47723"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient4886" MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="1,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FF1C97E1" Offset="0.0000000"/>
-                                <GradientStop Color="#FF006798" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient3691" MappingMode="Absolute" StartPoint="838,-320" EndPoint="909,-321">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FF1C97E1" Offset="0.0000000"/>
-                                <GradientStop Color="#FF006798" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <TranslateTransform X="-178.7883" Y="253.0024"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient4738" MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="1,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient4554" MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="1,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient6127" MappingMode="Absolute" StartPoint="714,328" EndPoint="745,359">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.901725 0 0 1.108985 -143.062 50.64598"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient5028" MappingMode="RelativeToBoundingBox" StartPoint="0,0" EndPoint="1,1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFD26" Offset="0.0000000"/>
-                                <GradientStop Color="#FF967F00" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient6125" MappingMode="Absolute" StartPoint="621,387" EndPoint="649,425">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFD26" Offset="0.0000000"/>
-                                <GradientStop Color="#FF967F00" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="1.061434 0 0 0.942122 -143.062 50.64598"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2314" MappingMode="Absolute" StartPoint="787,302" EndPoint="818,339">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.645848 0 0 0.875833 18.0749 154.3767"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2316" MappingMode="Absolute" StartPoint="1313,238" EndPoint="1333,259">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.638597 0 0 1.565933 -305.3766 53.81816"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2318" MappingMode="Absolute" StartPoint="787,302" EndPoint="818,339">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.705519 0 0 0.956752 -378.2535 132.7828"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2322" MappingMode="Absolute" StartPoint="787,302" EndPoint="818,339">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.645848 0 0 0.875833 -151.4429 -50.6101"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2325" MappingMode="Absolute" StartPoint="714,328" EndPoint="745,359">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.901725 0 0 1.108985 -312.5798 -154.3408"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2328" MappingMode="Absolute" StartPoint="621,387" EndPoint="649,425">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFD26" Offset="0.0000000"/>
-                                <GradientStop Color="#FF967F00" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="1.061434 0 0 0.942122 -312.5798 -154.3408"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2332" MappingMode="Absolute" StartPoint="808,363" EndPoint="833,400">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <TranslateTransform X="-399.0126" Y="-162.2396"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2336" MappingMode="Absolute" StartPoint="1313,238" EndPoint="1333,259">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.638597 0 0 1.565933 -399.0671 -160.8986"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2339" MappingMode="Absolute" StartPoint="838,-320" EndPoint="909,-321">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FF1C97E1" Offset="0.0000000"/>
-                                <GradientStop Color="#FF006798" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <TranslateTransform X="-396.8652" Y="167.4239"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2344" MappingMode="Absolute" StartPoint="787,302" EndPoint="818,339">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.705519 0 0 0.956752 -290.5796 -78.4396"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2347" MappingMode="Absolute" StartPoint="303,378" EndPoint="311,391">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="1.9519 0 0 1.84182 -341.0404 -488.5229"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2352" MappingMode="Absolute" StartPoint="303,378" EndPoint="311,391">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#00FFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="1.9519 0 0 1.84182 -426.2173 -488.5229"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2355" MappingMode="Absolute" StartPoint="402,376" EndPoint="414,390">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
-                                <GradientStop Color="#FFFFFFFF" Offset="1.0000000"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                        <LinearGradientBrush.Transform>
-                            <MatrixTransform Matrix="0.999946 0 0 1.000054 -219.8152 -158.7451"/>
-                        </LinearGradientBrush.Transform>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2464" MappingMode="Absolute" StartPoint="315,370" EndPoint="332,387">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStopCollection>
-                                <GradientStop Color="#FF00FF00" Offset="0"/>
-                                <GradientStop Color="#FF226122" Offset="1"/>
-                            </GradientStopCollection>
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2466" MappingMode="Absolute" StartPoint="434,377" EndPoint="406,380">
+                    <LinearGradientBrush x:Key="linearGradient2" MappingMode="Absolute" StartPoint="434,377" EndPoint="406,380">
                         <LinearGradientBrush.GradientStops>
                             <GradientStopCollection>
                                 <GradientStop Color="#B9FFFFFF" Offset="0.0000000"/>
@@ -306,7 +30,7 @@
                             <MatrixTransform Matrix="0.999946 0 0 1.000054 -223.45711 -147.81938"/>
                         </LinearGradientBrush.Transform>
                     </LinearGradientBrush>
-                    <LinearGradientBrush xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="linearGradient2468" MappingMode="Absolute" StartPoint="303,378" EndPoint="311,391">
+                    <LinearGradientBrush x:Key="linearGradient3" MappingMode="Absolute" StartPoint="303,378" EndPoint="311,391">
                         <LinearGradientBrush.GradientStops>
                             <GradientStopCollection>
                                 <GradientStop Color="#FFFFFFFF" Offset="0.0000000"/>
@@ -318,12 +42,12 @@
                         </LinearGradientBrush.Transform>
                     </LinearGradientBrush>
                 </Canvas.Resources>
-                <Canvas Name="layer1">
+                <Canvas>
                     <Canvas.RenderTransform>
                         <TranslateTransform X="-164.60364" Y="-201.81625"/>
                     </Canvas.RenderTransform>
-                    <Canvas Name="g2458">
-                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4531" Fill="#FF226122" StrokeThickness="4" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                    <Canvas>
+                        <Path Fill="#FF226122" StrokeThickness="4" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
                             <Path.Data>
                                 <PathGeometry Figures="m 339.53775 378.05789 c 0 7.71359 -6.25309 13.96668 -13.96667 13.96668 -7.71359 0 -13.96668 -6.25309 -13.96668 -13.96668 0 -7.71358 6.25309 -13.96668 13.96668 -13.96668 7.71358 0 13.96667 6.2531 13.96667 13.96668 z" FillRule="nonzero"/>
                             </Path.Data>
@@ -331,7 +55,7 @@
                                 <MatrixTransform Matrix="1.896061 0 0 1.896061 -426.2173 -488.5229"/>
                             </Path.RenderTransform>
                         </Path>
-                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4533" Fill="{StaticResource linearGradient2464}" StrokeThickness="0" Stroke="#FFFFFFFF" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                        <Path Fill="{StaticResource linearGradient1}" StrokeThickness="0" Stroke="#FFFFFFFF" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
                             <Path.Data>
                                 <PathGeometry Figures="m 339.53775 378.05789 c 0 7.71359 -6.25309 13.96668 -13.96667 13.96668 -7.71359 0 -13.96668 -6.25309 -13.96668 -13.96668 0 -7.71358 6.25309 -13.96668 13.96668 -13.96668 7.71358 0 13.96667 6.2531 13.96667 13.96668 z" FillRule="nonzero"/>
                             </Path.Data>
@@ -339,12 +63,12 @@
                                 <MatrixTransform Matrix="1.731185 0 0 1.731185 -372.5388 -426.1907"/>
                             </Path.RenderTransform>
                         </Path>
-                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="rect4574" Fill="{StaticResource linearGradient2466}" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                        <Path Fill="{StaticResource linearGradient2}" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
                             <Path.Data>
                                 <PathGeometry Figures="M 173.97809 230.81101 C 173.75524 231.03383 173.79716 231.38424 174.01997 231.60705 L 187.54771 245.79493 L 210.08031 220.30835 C 210.30316 220.08552 210.30312 219.77703 210.08031 219.55421 L 205.05262 214.52652 C 204.82978 214.30368 204.46625 214.24936 204.25658 214.48461 L 187.42715 233.36675 L 179.84372 225.78332 C 179.6209 225.56047 179.2286 225.56047 179.00578 225.78332 L 173.97809 230.81101 z" FillRule="nonzero"/>
                             </Path.Data>
                         </Path>
-                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4537" Fill="{StaticResource linearGradient2468}" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                        <Path Fill="{StaticResource linearGradient3}" StrokeThickness="1" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
                             <Path.Data>
                                 <PathGeometry Figures="M 191.06906 204.13188 C 177.72231 204.13188 166.89426 214.95991 166.89428 228.30666 C 166.89428 234.71923 169.51122 240.44957 173.58975 244.77869 C 175.7086 227.2782 190.47927 213.67144 208.54837 213.67144 C 209.03558 213.67144 209.48798 213.7704 209.97042 213.78994 C 205.54899 208.03925 198.87835 204.13188 191.06906 204.13188 z" FillRule="nonzero"/>
                             </Path.Data>
@@ -355,4 +79,144 @@
         </Viewbox>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="IconKerppi">
+        <Viewbox>
+            <Canvas Width="800.60889" Height="599.85345">
+                <Canvas.Resources>
+                    <LinearGradientBrush x:Key="weightGradient" MappingMode="Absolute" StartPoint="975,501" EndPoint="975,264">
+                        <LinearGradientBrush.GradientStops>
+                            <GradientStopCollection>
+                                <GradientStop Color="#FF000000" Offset="0"/>
+                                <GradientStop Color="#FF1F1F1F" Offset="0.1"/>
+                                <GradientStop Color="#FF404040" Offset="0.89999998"/>
+                                <GradientStop Color="#FFC0C0C0" Offset="1"/>
+                            </GradientStopCollection>
+                        </LinearGradientBrush.GradientStops>
+                    </LinearGradientBrush>
+                </Canvas.Resources>
+                <Canvas>
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="-562.88647" Y="-69.278546"/>
+                    </Canvas.RenderTransform>
+                    <Canvas>
+                        <Canvas.RenderTransform>
+                            <MatrixTransform Matrix="0.10315199 0 0 2.7055422 612.53545 327.78034"/>
+                        </Canvas.RenderTransform>
+                        <Path StrokeThickness="14.44388485" Stroke="#80FF0000" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="m -239.68598 11.66976 c 155.916408 50.000001 311.832938 100 489.57764 100 M 739.01965 11.66806 c -155.91641 50.000001 -311.83283 100 -489.57764 100 m 489.54716 -99.9914 c 155.91642 -50.000001 311.83283 -100 489.57753 -100 m 489.1278 100.0017 c -155.9165 -50.000001 -311.8329 -100 -489.5774 -100 m 489.8213 100.0215 c 155.9164 50.000001 311.8329 100 489.5776 100 m 489.128 -100.0017 c -155.9164 50.000001 -311.833 100 -489.5776 100 m 489.5454 -99.9914 c 155.9166 -50.000001 311.833 -100 489.5777 -100 m 489.128 100.0017 c -155.9163 -50.000001 -311.8329 -100 -489.5777 -100 m 489.487 99.9758 c 155.9165 50.000001 311.8329 100 489.5776 100 m 489.1281 -100.0017 c -155.9165 50.000001 -311.8329 100 -489.5777 100 m 489.5455 -99.9914 c 155.9165 -50.000001 311.8329 -100 489.5778 -100 m 489.128 100.0017 c -155.9165 -50.000001 -311.8329 -100 -489.5776 -100 m 489.5573 99.9925 c 155.9165 50.000001 311.8329 100 489.5776 100 m 489.128 -100.0017 c -155.9164 50.000001 -311.833 100 -489.5777 100 m 489.5472 -99.9914 c 155.9165 -50.000001 311.8328 -100 489.5776 -100" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                        <Canvas>
+                            <Canvas.RenderTransform>
+                                <TranslateTransform X="-224" Y="-2"/>
+                            </Canvas.RenderTransform>
+                            <Canvas>
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="6.14935" Y="-66.0035"/>
+                                </Canvas.RenderTransform>
+                            </Canvas>
+                        </Canvas>
+                        <Path StrokeThickness="14.44388485" Stroke="#80FF8D00" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="M 83.02946 11.69286 C -48.25652 -38.307139 -179.54227 -88.307139 -329.20819 -88.307139 M 83.01248 11.68536 c 131.28575 50 262.57196 100 412.23765 100 m 411.859 -100.0017 c -131.28587 50 -262.57174 100 -412.23766 100 M 907.08359 11.69226 C 1038.3695 -38.307739 1169.6554 -88.307739 1319.3212 -88.307739 M 1731.1799 11.69396 c -131.2858 -49.999999 -262.5716 -99.999999 -412.2374 -99.999999 m 412.1592 99.975799 c 131.2859 50 262.5717 100 412.2379 100 m 411.859 -100.0017 c -131.2859 50 -262.5719 100 -412.2378 100 m 412.2119 -99.9914 c 131.2861 -49.999999 262.5719 -99.999999 412.238 -99.999999 M 3379.2696 11.67836 C 3247.9838 -38.321639 3116.6977 -88.321639 2967.032 -88.321639 M 3379.475 11.69986 c 131.2858 50 262.5717 100 412.2377 100 m 411.8591 -100.0017 c -131.286 50 -262.5718 100 -412.2378 100 m 412.2105 -99.9914 c 131.286 -49.999999 262.5719 -99.999999 412.2379 -99.999999 M 5027.6416 11.70846 C 4896.3558 -38.291539 4765.0697 -88.291539 4615.4038 -88.291539 M 5027.565 11.68426 c 131.2861 50 262.572 100 412.2378 100 m 411.8591 -100.0017 c -131.2859 50 -262.5717 100 -412.2375 100 m 412.2105 -99.9914 c 131.2858 -49.999999 262.5717 -99.999999 412.2378 -99.999999 m 411.859 100.001699 c -131.2859 -49.999999 -262.5719 -99.999999 -412.2378 -99.999999 m 412.2208 99.992499 c 131.2858 50 262.5717 100 412.2375 100" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                        <Path StrokeThickness="14.44388485" Stroke="#8000A900" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="M 131.37271 18.928323 C 27.88381 68.928321 -75.60497 118.92832 -193.58245 118.92832 M 131.35133 18.936923 c 103.4889 -50 206.97768 -99.999999 324.95505 -99.999999 M 780.96286 18.938623 c -103.48889 -50 -206.97768 -99.999999 -324.95493 -99.999999 m 324.94154 99.992499 c 103.48879 49.999998 206.9779 99.999997 324.95503 99.999997 M 1430.5608 18.929423 C 1327.072 68.929421 1223.5832 118.92942 1105.6059 118.92942 m 324.9347 -99.991397 c 103.4888 -50 206.9777 -99.999999 324.9549 -99.999999 M 2080.152 18.939723 c -103.4887 -50 -206.9776 -99.999999 -324.955 -99.999999 m 324.8934 99.975799 c 103.4888 49.999998 206.9777 99.999997 324.9552 99.999997 M 2729.702 18.913823 c -103.4889 49.999998 -206.9777 99.999997 -324.955 99.999997 m 324.9347 -99.991397 c 103.489 -50 206.9778 -99.999999 324.9552 -99.999999 m 324.6564 100.001699 c -103.4888 -50 -206.9778 -99.999999 -324.9549 -99.999999 m 325.1168 100.021499 c 103.4888 49.999998 206.9777 99.999997 324.955 99.999997 M 4029.0668 18.943923 c -103.489 49.999998 -206.9776 99.999997 -324.9551 99.999997 m 324.9337 -99.991397 c 103.4888 -50 206.9777 -99.999999 324.9551 -99.999999 m 324.6567 100.001699 c -103.4889 -50 -206.9779 -99.999999 -324.9551 -99.999999 m 324.8947 99.975799 c 103.489 49.999998 206.9779 99.999997 324.9551 99.999997 M 5328.2084 18.928323 c -103.4887 49.999998 -206.9776 99.999997 -324.9548 99.999997 m 324.9336 -99.991397 c 103.4888 -50 206.9777 -99.999999 324.955 -99.999999 m 324.6565 100.001699 c -103.4888 -50 -206.9777 -99.999999 -324.955 -99.999999 m 324.9416 99.992499 c 103.4889 49.999998 206.9778 99.999997 324.955 99.999997 M 6627.397 18.929423 c -103.4889 49.999998 -206.9778 99.999997 -324.9551 99.999997 m 324.9348 -99.991397 c 103.4889 -50 206.9776 -99.999999 324.9551 -99.999999 m 324.6566 100.001699 c -103.4891 -50 -206.9777 -99.999999 -324.9551 -99.999999" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                        <Path StrokeThickness="14.44388485" Stroke="#800000DA" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="m -371.47305 11.699863 c 74.69476 49.999999 149.38963 99.999997 234.54167 99.999997 M 97.39498 11.698163 C 22.70011 61.698162 -51.99465 111.69816 -137.14681 111.69816 M 97.37957 11.706763 c 74.69498 -50 149.38973 -99.999997 234.54178 -99.999997 M 566.24782 11.708463 c -74.69498 -50 -149.38974 -99.999997 -234.5419 -99.999997 m 234.49836 99.975797 c 74.69487 49.999999 149.38963 99.999997 234.54179 99.999997 M 1035.0725 11.682563 C 960.37757 61.682562 885.68291 111.68256 800.53064 111.68256 M 1035.057 11.691163 c 74.6948 -50 149.3896 -99.999997 234.5418 -99.999997 m 234.3261 100.001697 c -74.6948 -50 -149.3896 -99.999997 -234.5415 -99.999997 m 234.5319 99.992497 c 74.6946 49.999999 149.3896 99.999997 234.5416 99.999997 M 1972.7833 11.683663 c -74.6949 49.999999 -149.3898 99.999997 -234.5418 99.999997 m 234.5272 -99.991397 c 74.6948 -50 149.3897 -99.999997 234.5416 -99.999997 m 234.3265 100.001697 c -74.6949 -50 -149.3896 -99.999997 -234.5418 -99.999997 m 234.4974 99.975797 c 74.6946 49.999999 149.3896 99.999997 234.5417 99.999997 M 2910.4604 11.668063 c -74.6948 49.999999 -149.3897 99.999997 -234.5418 99.999997 m 234.5272 -99.991397 c 74.6948 -50 149.3897 -99.999997 234.542 -99.999997 m 234.3261 100.001697 c -74.6948 -50 -149.3897 -99.999997 -234.5417 -99.999997 m 234.6585 100.021497 c 74.6948 49.999999 149.3896 99.999997 234.5419 99.999997 M 3848.2989 11.698163 c -74.6948 49.999999 -149.3896 99.999997 -234.5419 99.999997 m 234.5264 -99.991397 c 74.6949 -50 149.3897 -99.999997 234.5419 -99.999997 m 234.3265 100.001697 c -74.6949 -50 -149.3899 -99.999997 -234.5419 -99.999997 m 234.4982 99.975797 c 74.695 49.999999 149.3898 99.999997 234.5418 99.999997 M 4785.9763 11.682563 c -74.6947 49.999999 -149.3897 99.999997 -234.5416 99.999997 M 4785.961 11.691163 c 74.6947 -50 149.3896 -99.999997 234.5417 -99.999997 M 5254.829 11.692863 c -74.6948 -50 -149.3896 -99.999997 -234.5418 -99.999997 m 234.5322 99.992497 c 74.6948 49.999999 149.3898 99.999997 234.5417 99.999997 M 5723.6875 11.683663 c -74.6948 49.999999 -149.3897 99.999997 -234.5417 99.999997 m 234.5271 -99.991397 c 74.6949 -50 149.3896 -99.999997 234.5418 -99.999997 m 234.3264 100.001697 c -74.6949 -50 -149.3896 -99.999997 -234.5418 -99.999997 m 234.4972 99.975797 c 74.695 49.999999 149.3894 99.999997 234.5415 99.999997 M 6661.3643 11.668063 c -74.6944 49.999999 -149.3894 99.999997 -234.5414 99.999997 m 234.5267 -99.991397 c 74.695 -50 149.3901 -99.999997 234.542 -99.999997 M 7130.218 11.678363 c -74.695 -50 -149.3899 -99.999997 -234.542 -99.999997" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                        <Path StrokeThickness="14.44388485" Stroke="#80DD00DA" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="m -469.71749 15.322703 c 38.32615 49.999998 76.6523 99.999997 120.34405 99.999997 M -229.13996 15.321003 C -267.46611 65.321001 -305.79215 115.321 -349.48402 115.321 m 120.33618 -99.991397 c 38.32615 -49.99994 76.6523 -99.999937 120.34406 -99.999937 M 11.4297 15.331303 c -38.32615 -49.99994 -76.65219 -99.999937 -120.34406 -99.999937 M 11.40709 15.307103 C 49.73324 65.307101 88.05927 115.3071 131.75114 115.3071 M 251.98462 15.305403 C 213.65847 65.305401 175.33232 115.3054 131.64056 115.3054 M 251.97674 15.314003 c 38.32615 -49.99994 76.6523 -99.999937 120.34406 -99.999937 M 492.55428 15.315703 c -38.32615 -49.99994 -76.6523 -99.999937 -120.34406 -99.999937 M 492.54933 15.308203 C 530.87548 65.308201 569.20152 115.3082 612.89339 115.3082 M 733.12686 15.306503 C 694.80071 65.306501 656.47456 115.3065 612.7828 115.3065 M 733.1191 15.315103 c 38.32615 -49.99994 76.65219 -99.999937 120.34406 -99.999937 M 973.69647 15.316803 c -38.32599 -49.99994 -76.65214 -99.999937 -120.3439 -99.999937 m 120.3211 99.975737 C 1011.9998 65.292601 1050.326 115.2926 1094.0177 115.2926 M 1214.2512 15.290903 c -38.3262 49.999998 -76.6521 99.999997 -120.344 99.999997 m 120.3364 -99.991397 c 38.3261 -49.99994 76.6524 -99.999937 120.344 -99.999937 m 120.2335 100.001637 c -38.326 -49.99994 -76.6523 -99.999937 -120.3439 -99.999937 m 120.3303 100.021437 c 38.326 49.999998 76.6522 99.999997 120.3438 99.999997 M 1695.3848 15.321003 c -38.326 49.999998 -76.6522 99.999997 -120.344 99.999997 m 120.3361 -99.991397 c 38.3263 -49.99994 76.6523 -99.999937 120.344 -99.999937 m 120.2337 100.001637 c -38.3262 -49.99994 -76.6523 -99.999937 -120.3442 -99.999937 m 120.3218 99.975737 c 38.3261 49.999998 76.6523 99.999997 120.344 99.999997 M 2176.5097 15.305403 c -38.326 49.999998 -76.6522 99.999997 -120.344 99.999997 m 120.3361 -99.991397 c 38.3262 -49.99994 76.6523 -99.999937 120.3441 -99.999937 m 120.2335 100.001637 c -38.3262 -49.99994 -76.6523 -99.999937 -120.344 -99.999937 m 120.339 99.992437 c 38.3261 49.999998 76.6523 99.999997 120.3441 99.999997 M 2657.652 15.306503 c -38.3262 49.999998 -76.6523 99.999997 -120.3441 99.999997 m 120.3365 -99.991397 c 38.3262 -49.99994 76.6523 -99.999937 120.3441 -99.999937 m 120.2334 100.001637 c -38.3261 -49.99994 -76.6521 -99.999937 -120.344 -99.999937 m 120.3213 99.975737 c 38.3259 49.999998 76.6522 99.999997 120.344 99.999997 M 3138.7768 15.290903 c -38.3262 49.999998 -76.6523 99.999997 -120.3441 99.999997 m 120.3364 -99.991397 c 38.3263 -49.99994 76.6523 -99.999937 120.3442 -99.999937 m 120.2335 100.001637 c -38.3262 -49.99994 -76.6523 -99.999937 -120.3441 -99.999937 m 120.4039 100.021437 c 38.3262 49.999998 76.6522 99.999997 120.3441 99.999997 M 3619.9842 15.321003 C 3581.6581 65.321001 3543.3319 115.321 3499.6401 115.321 m 120.3362 -99.991397 c 38.3261 -49.99994 76.6523 -99.999937 120.344 -99.999937 m 120.2336 100.001637 c -38.3263 -49.99994 -76.6523 -99.999937 -120.3442 -99.999937 m 120.3218 99.975737 c 38.3262 49.999998 76.6523 99.999997 120.3441 99.999997 M 4101.1091 15.305403 c -38.3261 49.999998 -76.6523 99.999997 -120.344 99.999997 m 120.3361 -99.991397 c 38.3261 -49.99994 76.6522 -99.999937 120.344 -99.999937 m 120.2335 100.001637 c -38.3261 -49.99994 -76.6523 -99.999937 -120.344 -99.999937 m 120.3391 99.992437 c 38.326 49.999998 76.6523 99.999997 120.344 99.999997 M 4582.2513 15.306503 c -38.3262 49.999998 -76.6523 99.999997 -120.344 99.999997 m 120.3365 -99.991397 c 38.3261 -49.99994 76.6521 -99.999937 120.344 -99.999937 m 120.2336 100.001637 c -38.3263 -49.99994 -76.6523 -99.999937 -120.3441 -99.999937 m 120.3213 99.975737 c 38.3261 49.999998 76.6519 99.999997 120.3437 99.999997 M 5063.3758 15.290903 C 5025.05 65.290901 4986.7238 115.2909 4943.032 115.2909 m 120.3363 -99.991397 c 38.3262 -49.99994 76.6525 -99.999937 120.3441 -99.999937 M 5303.946 15.301203 c -38.3263 -49.99994 -76.6524 -99.999937 -120.3442 -99.999937 m 120.3307 100.021437 c 38.3259 49.999998 76.6522 99.999997 120.3438 99.999997 M 5544.5098 15.321003 c -38.326 49.999998 -76.652 99.999997 -120.3436 99.999997 m 120.3357 -99.991397 c 38.3259 -49.99994 76.6528 -99.999937 120.3444 -99.999937 m 120.2332 100.001637 c -38.3262 -49.99994 -76.6521 -99.999937 -120.3441 -99.999937 m 120.3214 99.975737 c 38.3269 49.999998 76.6529 99.999997 120.3444 99.999997 m 120.234 -100.001697 c -38.3268 49.999998 -76.6529 99.999997 -120.3448 99.999997 m 120.3367 -99.991397 c 38.3255 -49.99994 76.6523 -99.999937 120.3438 -99.999937 m 120.2335 100.001637 c -38.3262 -49.99994 -76.6523 -99.999937 -120.3438 -99.999937 m 120.3384 99.992437 c 38.3261 49.999998 76.6528 99.999997 120.3448 99.999997 m 120.233 -100.001697 c -38.3261 49.999998 -76.6517 99.999997 -120.3437 99.999997 m 120.3367 -99.991397 c 38.3262 -49.99994 76.6518 -99.999937 120.3438 -99.999937 m 120.2336 100.001637 c -38.3267 -49.99994 -76.6524 -99.999937 -120.3444 -99.999937 m 120.3215 99.975737 c 38.326 49.999998 76.6519 99.999997 120.3443 99.999997 M 6987.9014 15.290903 c -38.326 49.999998 -76.6519 99.999997 -120.3437 99.999997 M 6987.895 15.299503 c 38.3253 -49.99994 76.6512 -99.999937 120.3429 -99.999937 m 120.2327 100.001637 c -38.3252 -49.99994 -76.6511 -99.999937 -120.3422 -99.999937" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                    <Path Fill="{StaticResource weightGradient}" StrokeThickness="1" Stroke="#FF000000" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Opacity="1">
+                        <Path.Data>
+                            <PathGeometry Figures="m 579.30795 328.43985 767.15695 0 c 9.0976 0 16.4216 5.0622 16.4216 11.3502 l 0 57.2996 c 0 6.288 -7.324 11.3502 -16.4216 11.3502 l -767.15695 0 c -9.09748 0 -16.42148 -5.0622 -16.42148 -11.3502 l 0 -57.2996 c 0 -6.288 7.324 -11.3502 16.42148 -11.3502 z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path Fill="{StaticResource weightGradient}" StrokeThickness="1" Stroke="#FF505050" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Opacity="1">
+                        <Path.Data>
+                            <PathGeometry Figures="m 1274.8285 228.4396 56.116 0 c 6.616 0 11.942 4.70616 11.942 10.55196 l 0 258.89602 c 0 5.8458 -5.326 10.55196 -11.942 10.55196 l -56.116 0 c -6.616 0 -11.942 -4.70616 -11.942 -10.55196 l 0 -258.89602 c 0 -5.8458 5.326 -10.55196 11.942 -10.55196 z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path Fill="{StaticResource weightGradient}" StrokeThickness="1" Stroke="#FF505050" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Opacity="1">
+                        <Path.Data>
+                            <PathGeometry Figures="m 1194.8286 228.4396 56.1159 0 c 6.616 0 11.942 4.70616 11.942 10.55196 l 0 258.89602 c 0 5.8458 -5.326 10.55196 -11.942 10.55196 l -56.1159 0 c -6.6159 0 -11.9421 -4.70616 -11.9421 -10.55196 l 0 -258.89602 c 0 -5.8458 5.3262 -10.55196 11.9421 -10.55196 z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path Fill="{StaticResource weightGradient}" StrokeThickness="1" Stroke="#FF505050" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Opacity="1">
+                        <Path.Data>
+                            <PathGeometry Figures="m 1114.8286 228.4396 56.1158 0 c 6.6159 0 11.9421 4.70616 11.9421 10.55196 l 0 258.89602 c 0 5.8458 -5.3262 10.55196 -11.9421 10.55196 l -56.1158 0 c -6.6159 0 -11.9421 -4.70616 -11.9421 -10.55196 l 0 -258.89602 c 0 -5.8458 5.3262 -10.55196 11.9421 -10.55196 z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path Fill="{StaticResource weightGradient}" StrokeThickness="1" Stroke="#FF505050" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Opacity="1">
+                        <Path.Data>
+                            <PathGeometry Figures="m 754.82855 228.4396 56.11585 0 c 6.61592 0 11.94208 4.70616 11.94208 10.55196 l 0 258.89618 c 0 5.84576 -5.32616 10.55196 -11.94208 10.55196 l -56.11585 0 c -6.61592 0 -11.94208 -4.7062 -11.94208 -10.55196 l 0 -258.89618 c 0 -5.8458 5.32616 -10.55196 11.94208 -10.55196 z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path Fill="{StaticResource weightGradient}" StrokeThickness="1" Stroke="#FF505050" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Opacity="1">
+                        <Path.Data>
+                            <PathGeometry Figures="m 674.82855 228.4396 56.11584 0 c 6.61592 0 11.94208 4.70616 11.94208 10.55196 l 0 258.89618 c 0 5.84576 -5.32616 10.55196 -11.94208 10.55196 l -56.11584 0 c -6.61592 0 -11.94208 -4.7062 -11.94208 -10.55196 l 0 -258.89618 c 0 -5.8458 5.32616 -10.55196 11.94208 -10.55196 z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path Fill="{StaticResource weightGradient}" StrokeThickness="1" Stroke="#FF505050" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Opacity="1">
+                        <Path.Data>
+                            <PathGeometry Figures="m 594.82855 228.4396 56.11584 0 c 6.61592 0 11.94208 4.70616 11.94208 10.55196 l 0 258.89618 c 0 5.84576 -5.32616 10.55196 -11.94208 10.55196 l -56.11584 0 c -6.61592 0 -11.94208 -4.7062 -11.94208 -10.55196 l 0 -258.89618 c 0 -5.8458 5.32616 -10.55196 11.94208 -10.55196 z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                    <Canvas Opacity="0.25098041">
+                        <Canvas.RenderTransform>
+                            <MatrixTransform Matrix="0.10315199 0 0 2.7055422 612.59722 327.96703"/>
+                        </Canvas.RenderTransform>
+                        <Path StrokeThickness="14.44388485" Stroke="#40FFFFFF" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="m -239.68598 11.66976 c 155.916408 50.000001 311.832938 100 489.57764 100 M 739.01965 11.66806 c -155.91641 50.000001 -311.83283 100 -489.57764 100 m 489.54716 -99.9914 c 155.91642 -50.000001 311.83283 -100 489.57753 -100 m 489.1278 100.0017 c -155.9165 -50.000001 -311.8329 -100 -489.5774 -100 m 489.8213 100.0215 c 155.9164 50.000001 311.8329 100 489.5776 100 m 489.128 -100.0017 c -155.9164 50.000001 -311.833 100 -489.5776 100 m 489.5454 -99.9914 c 155.9166 -50.000001 311.833 -100 489.5777 -100 m 489.128 100.0017 c -155.9163 -50.000001 -311.8329 -100 -489.5777 -100 m 489.487 99.9758 c 155.9165 50.000001 311.8329 100 489.5776 100 m 489.1281 -100.0017 c -155.9165 50.000001 -311.8329 100 -489.5777 100 m 489.5455 -99.9914 c 155.9165 -50.000001 311.8329 -100 489.5778 -100 m 489.128 100.0017 c -155.9165 -50.000001 -311.8329 -100 -489.5776 -100 m 489.5573 99.9925 c 155.9165 50.000001 311.8329 100 489.5776 100 m 489.128 -100.0017 c -155.9164 50.000001 -311.833 100 -489.5777 100 m 489.5472 -99.9914 c 155.9165 -50.000001 311.8328 -100 489.5776 -100" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                        <Canvas Opacity="0.25098041">
+                            <Canvas.RenderTransform>
+                                <TranslateTransform X="-224" Y="-2"/>
+                            </Canvas.RenderTransform>
+                            <Canvas Opacity="0.25098041">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="6.14935" Y="-66.0035"/>
+                                </Canvas.RenderTransform>
+                            </Canvas>
+                        </Canvas>
+                        <Path StrokeThickness="14.44388485" Stroke="#40FFFFFF" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="M 83.02946 11.69286 C -48.25652 -38.307139 -179.54227 -88.307139 -329.20819 -88.307139 M 83.01248 11.68536 c 131.28575 50 262.57196 100 412.23765 100 m 411.859 -100.0017 c -131.28587 50 -262.57174 100 -412.23766 100 M 907.08359 11.69226 C 1038.3695 -38.307739 1169.6554 -88.307739 1319.3212 -88.307739 M 1731.1799 11.69396 c -131.2858 -49.999999 -262.5716 -99.999999 -412.2374 -99.999999 m 412.1592 99.975799 c 131.2859 50 262.5717 100 412.2379 100 m 411.859 -100.0017 c -131.2859 50 -262.5719 100 -412.2378 100 m 412.2119 -99.9914 c 131.2861 -49.999999 262.5719 -99.999999 412.238 -99.999999 M 3379.2696 11.67836 C 3247.9838 -38.321639 3116.6977 -88.321639 2967.032 -88.321639 M 3379.475 11.69986 c 131.2858 50 262.5717 100 412.2377 100 m 411.8591 -100.0017 c -131.286 50 -262.5718 100 -412.2378 100 m 412.2105 -99.9914 c 131.286 -49.999999 262.5719 -99.999999 412.2379 -99.999999 M 5027.6416 11.70846 C 4896.3558 -38.291539 4765.0697 -88.291539 4615.4038 -88.291539 M 5027.565 11.68426 c 131.2861 50 262.572 100 412.2378 100 m 411.8591 -100.0017 c -131.2859 50 -262.5717 100 -412.2375 100 m 412.2105 -99.9914 c 131.2858 -49.999999 262.5717 -99.999999 412.2378 -99.999999 m 411.859 100.001699 c -131.2859 -49.999999 -262.5719 -99.999999 -412.2378 -99.999999 m 412.2208 99.992499 c 131.2858 50 262.5717 100 412.2375 100" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                        <Path StrokeThickness="14.44388485" Stroke="#40FFFFFF" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="M 131.37271 18.928323 C 27.88381 68.928321 -75.60497 118.92832 -193.58245 118.92832 M 131.35133 18.936923 c 103.4889 -50 206.97768 -99.999999 324.95505 -99.999999 M 780.96286 18.938623 c -103.48889 -50 -206.97768 -99.999999 -324.95493 -99.999999 m 324.94154 99.992499 c 103.48879 49.999998 206.9779 99.999997 324.95503 99.999997 M 1430.5608 18.929423 C 1327.072 68.929421 1223.5832 118.92942 1105.6059 118.92942 m 324.9347 -99.991397 c 103.4888 -50 206.9777 -99.999999 324.9549 -99.999999 M 2080.152 18.939723 c -103.4887 -50 -206.9776 -99.999999 -324.955 -99.999999 m 324.8934 99.975799 c 103.4888 49.999998 206.9777 99.999997 324.9552 99.999997 M 2729.702 18.913823 c -103.4889 49.999998 -206.9777 99.999997 -324.955 99.999997 m 324.9347 -99.991397 c 103.489 -50 206.9778 -99.999999 324.9552 -99.999999 m 324.6564 100.001699 c -103.4888 -50 -206.9778 -99.999999 -324.9549 -99.999999 m 325.1168 100.021499 c 103.4888 49.999998 206.9777 99.999997 324.955 99.999997 M 4029.0668 18.943923 c -103.489 49.999998 -206.9776 99.999997 -324.9551 99.999997 m 324.9337 -99.991397 c 103.4888 -50 206.9777 -99.999999 324.9551 -99.999999 m 324.6567 100.001699 c -103.4889 -50 -206.9779 -99.999999 -324.9551 -99.999999 m 324.8947 99.975799 c 103.489 49.999998 206.9779 99.999997 324.9551 99.999997 M 5328.2084 18.928323 c -103.4887 49.999998 -206.9776 99.999997 -324.9548 99.999997 m 324.9336 -99.991397 c 103.4888 -50 206.9777 -99.999999 324.955 -99.999999 m 324.6565 100.001699 c -103.4888 -50 -206.9777 -99.999999 -324.955 -99.999999 m 324.9416 99.992499 c 103.4889 49.999998 206.9778 99.999997 324.955 99.999997 M 6627.397 18.929423 c -103.4889 49.999998 -206.9778 99.999997 -324.9551 99.999997 m 324.9348 -99.991397 c 103.4889 -50 206.9776 -99.999999 324.9551 -99.999999 m 324.6566 100.001699 c -103.4891 -50 -206.9777 -99.999999 -324.9551 -99.999999" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                        <Path StrokeThickness="14.44388485" Stroke="#40FFFFFF" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="m -371.47305 11.699863 c 74.69476 49.999999 149.38963 99.999997 234.54167 99.999997 M 97.39498 11.698163 C 22.70011 61.698162 -51.99465 111.69816 -137.14681 111.69816 M 97.37957 11.706763 c 74.69498 -50 149.38973 -99.999997 234.54178 -99.999997 M 566.24782 11.708463 c -74.69498 -50 -149.38974 -99.999997 -234.5419 -99.999997 m 234.49836 99.975797 c 74.69487 49.999999 149.38963 99.999997 234.54179 99.999997 M 1035.0725 11.682563 C 960.37757 61.682562 885.68291 111.68256 800.53064 111.68256 M 1035.057 11.691163 c 74.6948 -50 149.3896 -99.999997 234.5418 -99.999997 m 234.3261 100.001697 c -74.6948 -50 -149.3896 -99.999997 -234.5415 -99.999997 m 234.5319 99.992497 c 74.6946 49.999999 149.3896 99.999997 234.5416 99.999997 M 1972.7833 11.683663 c -74.6949 49.999999 -149.3898 99.999997 -234.5418 99.999997 m 234.5272 -99.991397 c 74.6948 -50 149.3897 -99.999997 234.5416 -99.999997 m 234.3265 100.001697 c -74.6949 -50 -149.3896 -99.999997 -234.5418 -99.999997 m 234.4974 99.975797 c 74.6946 49.999999 149.3896 99.999997 234.5417 99.999997 M 2910.4604 11.668063 c -74.6948 49.999999 -149.3897 99.999997 -234.5418 99.999997 m 234.5272 -99.991397 c 74.6948 -50 149.3897 -99.999997 234.542 -99.999997 m 234.3261 100.001697 c -74.6948 -50 -149.3897 -99.999997 -234.5417 -99.999997 m 234.6585 100.021497 c 74.6948 49.999999 149.3896 99.999997 234.5419 99.999997 M 3848.2989 11.698163 c -74.6948 49.999999 -149.3896 99.999997 -234.5419 99.999997 m 234.5264 -99.991397 c 74.6949 -50 149.3897 -99.999997 234.5419 -99.999997 m 234.3265 100.001697 c -74.6949 -50 -149.3899 -99.999997 -234.5419 -99.999997 m 234.4982 99.975797 c 74.695 49.999999 149.3898 99.999997 234.5418 99.999997 M 4785.9763 11.682563 c -74.6947 49.999999 -149.3897 99.999997 -234.5416 99.999997 M 4785.961 11.691163 c 74.6947 -50 149.3896 -99.999997 234.5417 -99.999997 M 5254.829 11.692863 c -74.6948 -50 -149.3896 -99.999997 -234.5418 -99.999997 m 234.5322 99.992497 c 74.6948 49.999999 149.3898 99.999997 234.5417 99.999997 M 5723.6875 11.683663 c -74.6948 49.999999 -149.3897 99.999997 -234.5417 99.999997 m 234.5271 -99.991397 c 74.6949 -50 149.3896 -99.999997 234.5418 -99.999997 m 234.3264 100.001697 c -74.6949 -50 -149.3896 -99.999997 -234.5418 -99.999997 m 234.4972 99.975797 c 74.695 49.999999 149.3894 99.999997 234.5415 99.999997 M 6661.3643 11.668063 c -74.6944 49.999999 -149.3894 99.999997 -234.5414 99.999997 m 234.5267 -99.991397 c 74.695 -50 149.3901 -99.999997 234.542 -99.999997 M 7130.218 11.678363 c -74.695 -50 -149.3899 -99.999997 -234.542 -99.999997" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                        <Path StrokeThickness="14.44388485" Stroke="#40FFFFFF" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                            <Path.Data>
+                                <PathGeometry Figures="m -469.71749 15.322703 c 38.32615 49.999998 76.6523 99.999997 120.34405 99.999997 M -229.13996 15.321003 C -267.46611 65.321001 -305.79215 115.321 -349.48402 115.321 m 120.33618 -99.991397 c 38.32615 -49.99994 76.6523 -99.999937 120.34406 -99.999937 M 11.4297 15.331303 c -38.32615 -49.99994 -76.65219 -99.999937 -120.34406 -99.999937 M 11.40709 15.307103 C 49.73324 65.307101 88.05927 115.3071 131.75114 115.3071 M 251.98462 15.305403 C 213.65847 65.305401 175.33232 115.3054 131.64056 115.3054 M 251.97674 15.314003 c 38.32615 -49.99994 76.6523 -99.999937 120.34406 -99.999937 M 492.55428 15.315703 c -38.32615 -49.99994 -76.6523 -99.999937 -120.34406 -99.999937 M 492.54933 15.308203 C 530.87548 65.308201 569.20152 115.3082 612.89339 115.3082 M 733.12686 15.306503 C 694.80071 65.306501 656.47456 115.3065 612.7828 115.3065 M 733.1191 15.315103 c 38.32615 -49.99994 76.65219 -99.999937 120.34406 -99.999937 M 973.69647 15.316803 c -38.32599 -49.99994 -76.65214 -99.999937 -120.3439 -99.999937 m 120.3211 99.975737 C 1011.9998 65.292601 1050.326 115.2926 1094.0177 115.2926 M 1214.2512 15.290903 c -38.3262 49.999998 -76.6521 99.999997 -120.344 99.999997 m 120.3364 -99.991397 c 38.3261 -49.99994 76.6524 -99.999937 120.344 -99.999937 m 120.2335 100.001637 c -38.326 -49.99994 -76.6523 -99.999937 -120.3439 -99.999937 m 120.3303 100.021437 c 38.326 49.999998 76.6522 99.999997 120.3438 99.999997 M 1695.3848 15.321003 c -38.326 49.999998 -76.6522 99.999997 -120.344 99.999997 m 120.3361 -99.991397 c 38.3263 -49.99994 76.6523 -99.999937 120.344 -99.999937 m 120.2337 100.001637 c -38.3262 -49.99994 -76.6523 -99.999937 -120.3442 -99.999937 m 120.3218 99.975737 c 38.3261 49.999998 76.6523 99.999997 120.344 99.999997 M 2176.5097 15.305403 c -38.326 49.999998 -76.6522 99.999997 -120.344 99.999997 m 120.3361 -99.991397 c 38.3262 -49.99994 76.6523 -99.999937 120.3441 -99.999937 m 120.2335 100.001637 c -38.3262 -49.99994 -76.6523 -99.999937 -120.344 -99.999937 m 120.339 99.992437 c 38.3261 49.999998 76.6523 99.999997 120.3441 99.999997 M 2657.652 15.306503 c -38.3262 49.999998 -76.6523 99.999997 -120.3441 99.999997 m 120.3365 -99.991397 c 38.3262 -49.99994 76.6523 -99.999937 120.3441 -99.999937 m 120.2334 100.001637 c -38.3261 -49.99994 -76.6521 -99.999937 -120.344 -99.999937 m 120.3213 99.975737 c 38.3259 49.999998 76.6522 99.999997 120.344 99.999997 M 3138.7768 15.290903 c -38.3262 49.999998 -76.6523 99.999997 -120.3441 99.999997 m 120.3364 -99.991397 c 38.3263 -49.99994 76.6523 -99.999937 120.3442 -99.999937 m 120.2335 100.001637 c -38.3262 -49.99994 -76.6523 -99.999937 -120.3441 -99.999937 m 120.4039 100.021437 c 38.3262 49.999998 76.6522 99.999997 120.3441 99.999997 M 3619.9842 15.321003 C 3581.6581 65.321001 3543.3319 115.321 3499.6401 115.321 m 120.3362 -99.991397 c 38.3261 -49.99994 76.6523 -99.999937 120.344 -99.999937 m 120.2336 100.001637 c -38.3263 -49.99994 -76.6523 -99.999937 -120.3442 -99.999937 m 120.3218 99.975737 c 38.3262 49.999998 76.6523 99.999997 120.3441 99.999997 M 4101.1091 15.305403 c -38.3261 49.999998 -76.6523 99.999997 -120.344 99.999997 m 120.3361 -99.991397 c 38.3261 -49.99994 76.6522 -99.999937 120.344 -99.999937 m 120.2335 100.001637 c -38.3261 -49.99994 -76.6523 -99.999937 -120.344 -99.999937 m 120.3391 99.992437 c 38.326 49.999998 76.6523 99.999997 120.344 99.999997 M 4582.2513 15.306503 c -38.3262 49.999998 -76.6523 99.999997 -120.344 99.999997 m 120.3365 -99.991397 c 38.3261 -49.99994 76.6521 -99.999937 120.344 -99.999937 m 120.2336 100.001637 c -38.3263 -49.99994 -76.6523 -99.999937 -120.3441 -99.999937 m 120.3213 99.975737 c 38.3261 49.999998 76.6519 99.999997 120.3437 99.999997 M 5063.3758 15.290903 C 5025.05 65.290901 4986.7238 115.2909 4943.032 115.2909 m 120.3363 -99.991397 c 38.3262 -49.99994 76.6525 -99.999937 120.3441 -99.999937 M 5303.946 15.301203 c -38.3263 -49.99994 -76.6524 -99.999937 -120.3442 -99.999937 m 120.3307 100.021437 c 38.3259 49.999998 76.6522 99.999997 120.3438 99.999997 M 5544.5098 15.321003 c -38.326 49.999998 -76.652 99.999997 -120.3436 99.999997 m 120.3357 -99.991397 c 38.3259 -49.99994 76.6528 -99.999937 120.3444 -99.999937 m 120.2332 100.001637 c -38.3262 -49.99994 -76.6521 -99.999937 -120.3441 -99.999937 m 120.3214 99.975737 c 38.3269 49.999998 76.6529 99.999997 120.3444 99.999997 m 120.234 -100.001697 c -38.3268 49.999998 -76.6529 99.999997 -120.3448 99.999997 m 120.3367 -99.991397 c 38.3255 -49.99994 76.6523 -99.999937 120.3438 -99.999937 m 120.2335 100.001637 c -38.3262 -49.99994 -76.6523 -99.999937 -120.3438 -99.999937 m 120.3384 99.992437 c 38.3261 49.999998 76.6528 99.999997 120.3448 99.999997 m 120.233 -100.001697 c -38.3261 49.999998 -76.6517 99.999997 -120.3437 99.999997 m 120.3367 -99.991397 c 38.3262 -49.99994 76.6518 -99.999937 120.3438 -99.999937 m 120.2336 100.001637 c -38.3267 -49.99994 -76.6524 -99.999937 -120.3444 -99.999937 m 120.3215 99.975737 c 38.326 49.999998 76.6519 99.999997 120.3443 99.999997 M 6987.9014 15.290903 c -38.326 49.999998 -76.6519 99.999997 -120.3437 99.999997 M 6987.895 15.299503 c 38.3253 -49.99994 76.6512 -99.999937 120.3429 -99.999937 m 120.2327 100.001637 c -38.3252 -49.99994 -76.6511 -99.999937 -120.3422 -99.999937" FillRule="evenodd"/>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Canvas>
+            </Canvas>
+        </Viewbox>
+    </ControlTemplate>
+
 </ResourceDictionary>
+    

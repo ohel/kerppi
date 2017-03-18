@@ -21,6 +21,9 @@
             <TabItem.Header>
                 <Menu Background="{x:Null}">
                     <MenuItem Header="Valikko">
+                        <MenuItem.Icon>
+                            <ContentControl Template="{StaticResource IconKerppi}" Height="Auto"/>
+                        </MenuItem.Icon>
                         <MenuItem Header="_Tietokanta">
                             <MenuItem Header="Muuta salasana…" Click="ChangePassword"/>
                             <MenuItem Header="Vie salaamattomana" Click="ExportUnencrypted"/>
