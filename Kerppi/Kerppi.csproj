@@ -113,6 +113,7 @@
     <Compile Include="DataModel\InvoiceRow.cs" />
     <Compile Include="DataModel\Client.cs" />
     <Compile Include="ViewModels\DateConverter.cs" />
+    <Compile Include="ViewModels\RoundingMultiplyConverter.cs" />
     <Compile Include="ViewModels\StringConstants.cs" />
     <Compile Include="ViewModels\SerializableRow.cs" />
     <Compile Include="DataModel\Payer.cs" />

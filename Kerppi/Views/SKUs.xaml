@@ -20,7 +20,7 @@
         </DataTemplate>
         <vms:DateConverter x:Key="dateConverter"/>
         <vms:DecimalConverter x:Key="decimalConverter"/>
-        <vms:MultiplyConverter x:Key="multiplyConverter"/>
+        <vms:RoundingMultiplyConverter x:Key="roundingMultiplyConverter"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -57,7 +57,7 @@
                 <TextBlock Grid.Row="2" Grid.RowSpan="2" Grid.Column="4" Text="Myyntihinta (€):"/>
                 <TextBox Grid.Row="2" Grid.Column="6" IsEnabled="False">
                     <TextBox.Text>
-                        <MultiBinding Converter="{StaticResource multiplyConverter}">
+                        <MultiBinding Converter="{StaticResource roundingMultiplyConverter}">
                             <Binding Path="BuyPrice"/>
                             <Binding Path="SellPriceFactor"/>
                         </MultiBinding>
@@ -81,7 +81,7 @@
                     <DataGridTextColumn Header="MHK" CellStyle="{StaticResource RightAlignedDataGridCell}" Binding="{Binding Path=SellPriceFactor, Converter={StaticResource decimalConverter}}"/>
                     <DataGridTextColumn Header="Myyntihinta" CellStyle="{StaticResource RightAlignedDataGridCell}">
                         <DataGridTextColumn.Binding>
-                            <MultiBinding Converter="{StaticResource multiplyConverter}">
+                            <MultiBinding Converter="{StaticResource roundingMultiplyConverter}">
                                 <Binding Path="BuyPrice"/>
                                 <Binding Path="SellPriceFactor"/>
                             </MultiBinding>
