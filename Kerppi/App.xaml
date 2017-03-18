@@ -75,6 +75,10 @@
                 </Setter>
             </Style>
 
+            <Style TargetType="DatePicker">
+                <Setter Property="FirstDayOfWeek" Value="Monday"/>
+            </Style>
+
             <!-- Override default DatePickerTextBox style just to localize watermark. -->
             <Style TargetType="DatePickerTextBox">
                 <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
