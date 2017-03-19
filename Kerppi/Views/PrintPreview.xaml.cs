@@ -106,7 +106,15 @@ namespace Kerppi.Views
         {
             var button = sender as Button;
             if (button == null) return;
-            button.ContextMenu.ItemsSource = ((A4Print)DataContext).AvailableFooters;
+
+            button.ContextMenu = new ContextMenu();
+            foreach (var footer in ((A4Print)DataContext).AvailableFooters)
+            {
+                var mi = new MenuItem();
+                mi.Header = footer;
+                mi.Click += FooterSelected;
+                button.ContextMenu.Items.Add(mi);
+            }
             button.ContextMenu.IsOpen = true;
             button.ContextMenu.Focus();
         }

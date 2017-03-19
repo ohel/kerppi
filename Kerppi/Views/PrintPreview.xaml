@@ -41,17 +41,7 @@
                     </CheckBox>
                 </StackPanel>
             </Border>
-            <Button Content="_Alatunniste ↓" Grid.Row="2" Grid.Column="2" Padding="10,0" Click="FootersButton_Click">
-                <Button.ContextMenu>
-                    <ContextMenu>
-                        <ContextMenu.ItemTemplate>
-                            <ItemContainerTemplate>
-                                <MenuItem Header="{Binding}" Click="FooterSelected" BorderBrush="Black" BorderThickness="1"/>
-                            </ItemContainerTemplate>
-                        </ContextMenu.ItemTemplate>
-                    </ContextMenu>
-                </Button.ContextMenu>
-            </Button>
+            <Button Content="_Alatunniste ↓" Grid.Row="2" Grid.Column="2" Padding="10,0" Click="FootersButton_Click"/>
             <Button Padding="10,0" Click="ButtonPrint_Click" IsDefault="True">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Icons/print.png"/>
