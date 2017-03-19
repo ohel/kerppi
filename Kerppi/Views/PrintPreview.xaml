@@ -29,41 +29,52 @@
     </Window.Resources>
 
     <StackPanel>
-        <DockPanel x:Name="dockPanelHeader">
-            <Border BorderBrush="Gray" BorderThickness="1,1,1,0" Background="WhiteSmoke" HorizontalAlignment="Left">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Padding="10,0" FontSize="18" Cursor="ScrollAll">Esikatselu</TextBlock>
-                    <TextBlock Padding="15,0,0,4" FontSize="18">-</TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <Border BorderThickness="1" BorderBrush="Gray">
+                <StackPanel Orientation="Horizontal" Background="WhiteSmoke">
+                    <TextBlock HorizontalAlignment="Left" Padding="10,0" FontSize="18" Cursor="ScrollAll">Esikatselu</TextBlock>
+                    <TextBlock Padding="0,0,0,4" FontSize="18">-</TextBlock>
                     <Slider x:Name="Zoom" Width="100" TickPlacement="Both" Cursor="SizeWE" Maximum="1050" Minimum="550" LargeChange="100" TickFrequency="100" Value="550" SmallChange="50"/>
                     <TextBlock Padding="0,0,5,4" FontSize="18">+</TextBlock>
                     <CheckBox Margin="10,0" IsChecked="{Binding TwoPagePrint}">
                         _2-sivuinen
                     </CheckBox>
-                    <Button Padding="10,0" Click="ButtonPrint_Click" IsDefault="True">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Icons/print.png"/>
-                            <Label>_Tulosta…</Label>
-                        </StackPanel>
-                    </Button>
-                    <Button Padding="0" Click="ButtonHelp_Click">
-                        <Image Source="/Icons/info.png"/>
-                    </Button>
-                    <Button Click="ButtonClose_Click" Padding="10,0" IsCancel="True">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Icons/close.png"/>
-                            <Label>_Sulje</Label>
-                        </StackPanel>
-                    </Button>
                 </StackPanel>
             </Border>
-        </DockPanel>
-        <StackPanel Orientation="Horizontal" Cursor="ScrollAll" Background="White">
-            <Border x:Name="borderFirstPage" BorderThickness="1" BorderBrush="Gray">
+            <Button Content="_Alatunniste ↓" Grid.Row="2" Grid.Column="2" Padding="10,0" Click="FootersButton_Click">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <ContextMenu.ItemTemplate>
+                            <ItemContainerTemplate>
+                                <MenuItem Header="{Binding}" Click="FooterSelected" BorderBrush="Black" BorderThickness="1"/>
+                            </ItemContainerTemplate>
+                        </ContextMenu.ItemTemplate>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <Button Padding="10,0" Click="ButtonPrint_Click" IsDefault="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Icons/print.png"/>
+                    <Label>_Tulosta…</Label>
+                </StackPanel>
+            </Button>
+            <Button Padding="5" Click="ButtonHelp_Click" HorizontalAlignment="Left">
+                <Image Source="/Icons/info.png"/>
+            </Button>
+            <Button Click="ButtonClose_Click" Padding="10,0" IsCancel="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Icons/close.png"/>
+                    <Label>_Sulje</Label>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Cursor="ScrollAll">
+            <Border x:Name="borderFirstPage" BorderThickness="1" BorderBrush="Gray" Background="White">
                 <Viewbox x:Name="viewBoxPrintPreview" Stretch="Uniform" Width="{Binding ElementName=Zoom,Path=Value}">
                     <Frame x:Name="framePrintableArea" Height="1414" Width="1000"/>
                 </Viewbox>
             </Border>
-            <Border x:Name="borderSecondPage" BorderThickness="0,1,1,1" BorderBrush="Gray"
+            <Border x:Name="borderSecondPage" BorderThickness="0,1,1,1" BorderBrush="Gray" Background="White"
                     Visibility="{Binding TwoPagePrint,Mode=OneWay,Converter={StaticResource booleanToVisibilityConverter}}">
                 <Viewbox x:Name="viewBoxPrintPreview2" Stretch="Uniform" Width="{Binding ElementName=Zoom,Path=Value}">
                     <Frame x:Name="framePrintableArea2" Height="1414" Width="1000"/>

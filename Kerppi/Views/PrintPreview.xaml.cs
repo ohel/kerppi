@@ -97,9 +97,26 @@ namespace Kerppi.Views
 
         private void ButtonHelp_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Tulosteen alatunnistetta, oletusmarginaaleja ja taustalogon näkyvyyttä voi muuttaa päävalikosta lisätoimintojen alta." + Environment.NewLine +
-                "Voit muokata asiakkaan henkilötunnusta esikatseluikkunassa sitä klikkaamalla. Muokkaus vaikuttaa vain tulosteeseen.",
+            MessageBox.Show("Tulosteen oletusmarginaaleja ja taustalogon näkyvyyttä voi muuttaa päävalikosta lisätoimintojen alta." + Environment.NewLine +
+                "Voit määritellä alatunnisteen vakiomerkkijonona ja vaihtaa sitä Alatunniste-napista.",
                 "Ohjeita", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void FootersButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button == null) return;
+            button.ContextMenu.ItemsSource = ((A4Print)DataContext).AvailableFooters;
+            button.ContextMenu.IsOpen = true;
+            button.ContextMenu.Focus();
+        }
+
+        private void FooterSelected(object sender, RoutedEventArgs e)
+        {
+            var mi = sender as MenuItem;
+            if (mi == null) return;
+            ((A4Print)framePrintableArea.Content).PrintFooter = mi.Header.ToString();
+            ((A4Print)framePrintableArea2.Content).PrintFooter = mi.Header.ToString();
         }
     }
 }

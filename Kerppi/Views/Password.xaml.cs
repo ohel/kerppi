@@ -37,9 +37,16 @@ namespace Kerppi.Views
             DBHandler.Password = passwordBox.Password;
             try
             {
-                DBHandler.InitDB();
+                var dbversion = DBHandler.InitDB();
+                var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                string dbvs = $"{version.Major.ToString()}.{version.Minor.ToString()}.";
+                if (dbversion.Substring(0, dbvs.Length) != dbvs)
+                {
+                    throw new Exception($"Tietokannan versio {dbversion} ei ole yhteensopiva ohjelman version {version.ToString()} kanssa. Päivitä tietokanta.");
+                }
+
                 Console.WriteLine("Opening main view.");
-                (new Views.KerppiMain()).Show();
+                (new KerppiMain()).Show();
                 Console.WriteLine("Password view done, closing.");
                 this.Close();
             }
@@ -54,6 +61,7 @@ namespace Kerppi.Views
                 Console.WriteLine(x.Message);
                 Console.WriteLine(x.InnerException != null ? x.InnerException.Message : "No inner exception.");
                 MessageBox.Show(x.Message, "Poikkeus", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Close();
             }
         }
     }

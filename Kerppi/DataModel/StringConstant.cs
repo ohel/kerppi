@@ -18,6 +18,7 @@ namespace Kerppi.DataModel
         [Key]
         public long? Id { get; set; }
         public string Text { get; set; }
+        public bool Footer { get; set; }
 
         public override string ToString()
         {
@@ -28,6 +29,7 @@ namespace Kerppi.DataModel
         {
             Id = null;
             Text = "";
+            Footer = false;
         }
 
         public StringConstant Copy()
@@ -35,6 +37,7 @@ namespace Kerppi.DataModel
             var copy = new StringConstant();
             copy.Id = this.Id;
             copy.Text = this.Text;
+            copy.Footer = this.Footer;
             return copy;
         }
 
@@ -81,12 +84,22 @@ namespace Kerppi.DataModel
             }
         }
 
-        public static IEnumerable<string> LoadAllAsStrings()
+        public static IEnumerable<string> LoadNonFooterStrings()
+        {
+            return LoadAllAsStrings(false);
+        }
+
+        public static IEnumerable<string> LoadFooterStrings()
+        {
+            return LoadAllAsStrings(true);
+        }
+
+        private static IEnumerable<string> LoadAllAsStrings(bool onlyFooters)
         {
             using (var conn = DBHandler.Connection())
             {
                 conn.Open();
-                return conn.GetList<StringConstant>().Select(sc => sc.ToString());
+                return conn.GetList<StringConstant>().Where(sc => sc.Footer == onlyFooters).Select(sc => sc.ToString());
             }
         }
 
@@ -95,7 +108,8 @@ namespace Kerppi.DataModel
             string sql = @"
                 CREATE TABLE string_constants (
                 Id INTEGER PRIMARY KEY,
-                Text TEXT NOT NULL
+                Text TEXT NOT NULL,
+                Footer INTEGER NOT NULL
                 );";
             DBHandler.Execute(sql, conn, t);
         }

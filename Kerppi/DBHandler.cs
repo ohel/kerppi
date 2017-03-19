@@ -35,8 +35,7 @@ namespace Kerppi
         public static void CreateDBTables()
         {
             Console.WriteLine("Method: CreateDBTables begins.");
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            var version = assembly.GetName().Version;
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
 
             var interfaceType = typeof(DataModel.DBTableCreator);
             var dbCreators = AppDomain.CurrentDomain.GetAssemblies()
@@ -50,9 +49,8 @@ namespace Kerppi
                 {
                     Execute("CREATE TABLE kerppi_misc (Key TEXT PRIMARY KEY, Value TEXT);", conn, t);
                     Execute("INSERT INTO kerppi_misc (Key, Value) VALUES ('Version', '" + version.ToString() + "');", conn, t);
-                    Execute("INSERT INTO kerppi_misc (Key, Value) VALUES ('PrintFooter', 'Kerppi-tuloste');", conn, t); // Footer text used in prints.
                     Execute("INSERT INTO kerppi_misc (Key, Value) VALUES ('PrintMargin', '75');", conn, t); // Margin used in prints.
-                    Execute("INSERT INTO kerppi_misc (Key, Value) VALUES ('PrintLogoOpacity', '0.1');", conn, t); // Logo opacity used in prints.
+                    Execute("INSERT INTO kerppi_misc (Key, Value) VALUES ('PrintLogoOpacity', '0,1');", conn, t); // Logo opacity used in prints.
                     Execute("INSERT INTO kerppi_misc (Key, Value) VALUES ('VAT', '24');", conn, t); // VAT percent.
                     dbCreators.ToList().ForEach(creator => creator.GetMethod("CreateDBTables").Invoke(null, new object[] { conn, t }));
                     t.Commit();
@@ -63,10 +61,12 @@ namespace Kerppi
         /// <summary>
         /// Throws exception if opening database fails, e.g. due to wrong password.
         /// </summary>
-        public static void InitDB()
+        /// <returns>Version string as found in database (after it has been created if that is the case).</returns>
+        public static string InitDB()
         {
             Console.WriteLine("Initializing database.");
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.SQLite);
+            string version = null;
 
             if (System.IO.File.Exists(DBFILENAME))
             {
@@ -75,7 +75,7 @@ namespace Kerppi
                 {
                     conn.Open();
                     // If wrong password, exception will be thrown.
-                    string version = QueryMisc("Version", conn);
+                    version = QueryMisc("Version", conn);
                 }
             }
             else
@@ -83,7 +83,10 @@ namespace Kerppi
                 Console.WriteLine("Database file not found. Creating new one.");
                 SQLiteConnection.CreateFile(DBFILENAME);
                 CreateDBTables();
+                version = QueryMisc("Version");
             }
+
+            return version;
         }
 
         public static void ChangePassword(string newPassword)
