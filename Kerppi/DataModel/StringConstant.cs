@@ -22,7 +22,8 @@ namespace Kerppi.DataModel
 
         public override string ToString()
         {
-            return Text.Replace("[DATE]", DateTime.Now.ToShortDateString());
+            return Text.Replace("[DATE]", DateTime.Now.ToShortDateString())
+                .Replace("[NL]", Environment.NewLine);
         }
 
         public StringConstant()

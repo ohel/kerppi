@@ -34,7 +34,7 @@
                 <DataGridTemplateColumn CellTemplate="{StaticResource RemoveButtonTemplate}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBlock Grid.Row="1" TextWrapping="Wrap">Ohje: Tuplaklikkaa solua muokataksesi sitä. Tekstissä [DATE] korvataan päivämäärällä. Alatunniste-merkityt rivit ovat valittavissa tulosteen alatunnisteiksi. Muutokset täytyy vahvistaa "Tallenna muutokset" -napista.</TextBlock>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap">Ohje: Tuplaklikkaa solua muokataksesi sitä. Tekstissä [NL] on rivinvaihto ja [DATE] korvataan päivämäärällä. Alatunniste-merkityt rivit ovat valittavissa tulosteen alatunnisteiksi. Muutokset täytyy vahvistaa "Tallenna muutokset" -napista.</TextBlock>
         <Button Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" Click="ButtonSave_Click" IsEnabled="{Binding Path=IsEdited}">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Icons/save.png"/>
