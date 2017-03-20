@@ -42,11 +42,11 @@ namespace Kerppi.DataModel
         public Payer Copy()
         {
             var copy = new Payer();
-            copy.Id = this.Id;
-            copy.Name = this.Name;
-            copy.PostalAddress = this.PostalAddress;
-            copy.PostalCode = this.PostalCode;
-            copy.DefaultContact = this.DefaultContact;
+            copy.Id = Id;
+            copy.Name = Name;
+            copy.PostalAddress = PostalAddress;
+            copy.PostalCode = PostalCode;
+            copy.DefaultContact = DefaultContact;
             return copy;
         }
 

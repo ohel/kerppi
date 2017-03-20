@@ -26,7 +26,7 @@ namespace Kerppi.Views
             var sku = new DataModel.SKU();
             if (e.AddedItems.Count > 0) sku = e.AddedItems[0] as DataModel.SKU ?? sku;
 
-            ((ViewModels.SKUs)this.DataContext).CurrentSKU = sku.Copy();
+            ((ViewModels.SKUs)DataContext).CurrentSKU = sku.Copy();
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace Kerppi.Views
                     MessageBoxButton.OKCancel,
                     MessageBoxImage.Exclamation) == MessageBoxResult.OK)
                 {
-                    ((ViewModels.SKUs)this.DataContext).RemoveSKU(sku);
+                    ((ViewModels.SKUs)DataContext).RemoveSKU(sku);
                 }
             }
         }
@@ -54,7 +54,7 @@ namespace Kerppi.Views
                 if (be != null) be.UpdateSource();
             }
 
-            var sku = ((ViewModels.SKUs)this.DataContext).CurrentSKU;
+            var sku = ((ViewModels.SKUs)DataContext).CurrentSKU;
             if (sku.Code.Contains('|') || sku.Description.Contains('|'))
             {
                 MessageBox.Show("Nimikkeen koodi ja kuvaus eivät saa sisältää piippumerkkiä |.", "Virhe", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -62,7 +62,7 @@ namespace Kerppi.Views
             }
             try
             {
-                ((ViewModels.SKUs)this.DataContext).SaveCurrentSKU();
+                ((ViewModels.SKUs)DataContext).SaveCurrentSKU();
             }
             catch (Exception x)
             {
@@ -78,7 +78,7 @@ namespace Kerppi.Views
         /// <param name="e"></param>
         private void UserControl_RequestBringIntoView(object sender, RequestBringIntoViewEventArgs e)
         {
-            if (this.DataContext == null) this.DataContext = new ViewModels.SKUs();
+            if (DataContext == null) DataContext = new ViewModels.SKUs();
         }
 
         private void TextBox_GotFocus_SelectAll(object sender, RoutedEventArgs e)

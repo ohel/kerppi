@@ -18,7 +18,7 @@ namespace Kerppi.Views
         public Password()
         {
             InitializeComponent();
-            this.Title = AttributeHelper.GetAttribute<System.Reflection.AssemblyProductAttribute>().Product;
+            Title = AttributeHelper.GetAttribute<System.Reflection.AssemblyProductAttribute>().Product;
             passwordBox.Focus();
         }
 
@@ -48,7 +48,7 @@ namespace Kerppi.Views
                 Console.WriteLine("Opening main view.");
                 (new KerppiMain()).Show();
                 Console.WriteLine("Password view done, closing.");
-                this.Close();
+                Close();
             }
             catch (KerppiException x)
             {
@@ -61,7 +61,7 @@ namespace Kerppi.Views
                 Console.WriteLine(x.Message);
                 Console.WriteLine(x.InnerException != null ? x.InnerException.Message : "No inner exception.");
                 MessageBox.Show(x.Message, "Poikkeus", MessageBoxButton.OK, MessageBoxImage.Error);
-                this.Close();
+                Close();
             }
         }
     }

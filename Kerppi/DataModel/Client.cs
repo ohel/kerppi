@@ -24,6 +24,10 @@ namespace Kerppi.DataModel
         /// For example, deceased clients are not active anymore.
         /// </summary>
         public bool Active { get; set; }
+        /// <summary>
+        /// For example, some clients need a certificate of their visit.
+        /// </summary>
+        public bool Certificate { get; set; }
         public string Name { get; set; }
         public string PostalAddress { get; set; }
         /// <summary>
@@ -49,6 +53,7 @@ namespace Kerppi.DataModel
             Id = null;
             IdCode = "";
             Active = true;
+            Certificate = false;
             Name = "";
             PostalAddress = "";
             PostalCode = "";
@@ -59,14 +64,15 @@ namespace Kerppi.DataModel
         public Client Copy()
         {
             var copy = new Client();
-            copy.Id = this.Id;
-            copy.IdCode = this.IdCode;
-            copy.Active = this.Active;
-            copy.Name = this.Name;
-            copy.PostalAddress = this.PostalAddress;
-            copy.PostalCode = this.PostalCode;
-            copy.ContactInfo = this.ContactInfo;
-            copy.Information = this.Information;
+            copy.Id = Id;
+            copy.IdCode = IdCode;
+            copy.Active = Active;
+            copy.Certificate = Certificate;
+            copy.Name = Name;
+            copy.PostalAddress = PostalAddress;
+            copy.PostalCode = PostalCode;
+            copy.ContactInfo = ContactInfo;
+            copy.Information = Information;
             return copy;
         }
 
@@ -124,7 +130,8 @@ namespace Kerppi.DataModel
                 CREATE TABLE Clients (
                 Id INTEGER PRIMARY KEY,
                 IdCode TEXT UNIQUE NOT NULL,
-                Active INTEGER,
+                Active INTEGER NOT NULL DEFAULT 1,
+                Certificate INTEGER NOT NULL DEFAULT 0,
                 Name TEXT NOT NULL,
                 PostalAddress TEXT,
                 PostalCode TEXT,

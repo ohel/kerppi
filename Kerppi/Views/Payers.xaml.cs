@@ -26,7 +26,7 @@ namespace Kerppi.Views
         /// <param name="e"></param>
         private void UserControl_RequestBringIntoView(object sender, RequestBringIntoViewEventArgs e)
         {
-            if (this.DataContext == null) this.DataContext = new ViewModels.Payers();
+            if (DataContext == null) DataContext = new ViewModels.Payers();
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
@@ -36,21 +36,21 @@ namespace Kerppi.Views
             {
                 var payer = s.Tag as DataModel.Payer;
                 {
-                    ((ViewModels.Payers)this.DataContext).RemovePayerFromList(payer);
-                    ((ViewModels.Payers)this.DataContext).IsEdited = true;
+                    ((ViewModels.Payers)DataContext).RemovePayerFromList(payer);
+                    ((ViewModels.Payers)DataContext).IsEdited = true;
                 }
             }
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            ((ViewModels.Payers)this.DataContext).SavePayers();
-            ((ViewModels.Payers)this.DataContext).IsEdited = false;
+            ((ViewModels.Payers)DataContext).SavePayers();
+            ((ViewModels.Payers)DataContext).IsEdited = false;
         }
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            if (e.EditAction == DataGridEditAction.Commit) ((ViewModels.Payers)this.DataContext).IsEdited = true;
+            if (e.EditAction == DataGridEditAction.Commit) ((ViewModels.Payers)DataContext).IsEdited = true;
         }
     }
 }

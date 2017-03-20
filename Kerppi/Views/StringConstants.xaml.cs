@@ -26,7 +26,7 @@ namespace Kerppi.Views
         /// <param name="e"></param>
         private void UserControl_RequestBringIntoView(object sender, RequestBringIntoViewEventArgs e)
         {
-            if (this.DataContext == null) this.DataContext = new ViewModels.StringConstants();
+            if (DataContext == null) DataContext = new ViewModels.StringConstants();
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
@@ -36,21 +36,21 @@ namespace Kerppi.Views
             {
                 var sc = s.Tag as DataModel.StringConstant;
                 {
-                    ((ViewModels.StringConstants)this.DataContext).RemoveStringConstantFromList(sc);
-                    ((ViewModels.StringConstants)this.DataContext).IsEdited = true;
+                    ((ViewModels.StringConstants)DataContext).RemoveStringConstantFromList(sc);
+                    ((ViewModels.StringConstants)DataContext).IsEdited = true;
                 }
             }
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            ((ViewModels.StringConstants)this.DataContext).SaveStringConstants();
-            ((ViewModels.StringConstants)this.DataContext).IsEdited = false;
+            ((ViewModels.StringConstants)DataContext).SaveStringConstants();
+            ((ViewModels.StringConstants)DataContext).IsEdited = false;
         }
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            if (e.EditAction == DataGridEditAction.Commit) ((ViewModels.StringConstants)this.DataContext).IsEdited = true;
+            if (e.EditAction == DataGridEditAction.Commit) ((ViewModels.StringConstants)DataContext).IsEdited = true;
         }
     }
 }

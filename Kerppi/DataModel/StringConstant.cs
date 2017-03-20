@@ -36,9 +36,9 @@ namespace Kerppi.DataModel
         public StringConstant Copy()
         {
             var copy = new StringConstant();
-            copy.Id = this.Id;
-            copy.Text = this.Text;
-            copy.Footer = this.Footer;
+            copy.Id = Id;
+            copy.Text = Text;
+            copy.Footer = Footer;
             return copy;
         }
 
@@ -110,7 +110,7 @@ namespace Kerppi.DataModel
                 CREATE TABLE string_constants (
                 Id INTEGER PRIMARY KEY,
                 Text TEXT NOT NULL,
-                Footer INTEGER NOT NULL
+                Footer INTEGER NOT NULL DEFAULT 0
                 );";
             DBHandler.Execute(sql, conn, t);
         }

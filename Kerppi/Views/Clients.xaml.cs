@@ -25,7 +25,7 @@ namespace Kerppi.Views
             if (e.AddedItems.Count > 0)
             {
                 var client = e.AddedItems[0] as DataModel.Client ?? new DataModel.Client();
-                ((ViewModels.Clients)this.DataContext).CurrentClient = client.Copy();
+                ((ViewModels.Clients)DataContext).CurrentClient = client.Copy();
             }
         }
 
@@ -40,12 +40,12 @@ namespace Kerppi.Views
                     MessageBox.Show("Asiakkaaseen liittyy jo töitä. Asiakasta ei voi poistaa.");
                 }
                 else if (MessageBox.Show(
-                    String.Format("Seuraava asiakas poistetaan:{0}Tunniste: {1}{2}Nimi: {3}", Environment.NewLine, client.IdCode, Environment.NewLine, client.Name),
+                    $"Seuraava asiakas poistetaan:{Environment.NewLine}Tunniste: {client.IdCode}{Environment.NewLine}Nimi: {client.Name}",
                     "Vahvista asiakkaan poisto",
                     MessageBoxButton.OKCancel,
                     MessageBoxImage.Exclamation) == MessageBoxResult.OK)
                 {
-                    ((ViewModels.Clients)this.DataContext).RemoveClient(client);
+                    ((ViewModels.Clients)DataContext).RemoveClient(client);
                 }
             }
         }
@@ -58,19 +58,19 @@ namespace Kerppi.Views
                 if (be != null) be.UpdateSource();
             }
 
-            if (String.IsNullOrEmpty(((ViewModels.Clients)this.DataContext).CurrentClient.IdCode))
+            if (String.IsNullOrEmpty(((ViewModels.Clients)DataContext).CurrentClient.IdCode))
             {
                 MessageBox.Show("Tunniste ei voi olla tyhjä.", "Puuttuvia tietoja", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
-            if (String.IsNullOrEmpty(((ViewModels.Clients)this.DataContext).CurrentClient.Name))
+            if (String.IsNullOrEmpty(((ViewModels.Clients)DataContext).CurrentClient.Name))
             {
                 MessageBox.Show("Nimi ei voi olla tyhjä.", "Puuttuvia tietoja", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
             try
             {
-                ((ViewModels.Clients)this.DataContext).SaveCurrentClient();
+                ((ViewModels.Clients)DataContext).SaveCurrentClient();
             }
             catch (Exception x)
             {
@@ -86,13 +86,13 @@ namespace Kerppi.Views
         /// <param name="e"></param>
         private void UserControl_RequestBringIntoView(object sender, RequestBringIntoViewEventArgs e)
         {
-            if (this.DataContext == null) this.DataContext = new ViewModels.Clients();
+            if (DataContext == null) DataContext = new ViewModels.Clients();
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             dataGridClients.SelectedItem = null;
-            ((ViewModels.Clients)this.DataContext).CurrentClient = new DataModel.Client();
+            ((ViewModels.Clients)DataContext).CurrentClient = new DataModel.Client();
         }
     }
 }

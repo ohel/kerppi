@@ -40,9 +40,9 @@ namespace Kerppi.DataModel
         {
             var list = new List<ViewModels.SerializableRow>();
             list.Add(new ViewModels.SerializableRow(
-                this.Code,
-                this.Description,
-                Decimal.Round(this.BuyPrice * this.SellPriceFactor, 0, MidpointRounding.AwayFromZero).ToString("N2"),
+                Code,
+                Description,
+                Decimal.Round(BuyPrice * SellPriceFactor, 0, MidpointRounding.AwayFromZero).ToString("N2"),
                 (new Decimal(1.0)).ToString()
             ));
             return list;
@@ -61,12 +61,12 @@ namespace Kerppi.DataModel
         public SKU Copy()
         {
             var copy = new SKU();
-            copy.Id = this.Id;
-            copy.Code = this.Code;
-            copy.Description = this.Description;
-            copy.BuyPrice = this.BuyPrice;
-            copy.SellPriceFactor = this.SellPriceFactor;
-            copy.Timestamp = this.Timestamp;
+            copy.Id = Id;
+            copy.Code = Code;
+            copy.Description = Description;
+            copy.BuyPrice = BuyPrice;
+            copy.SellPriceFactor = SellPriceFactor;
+            copy.Timestamp = Timestamp;
             return copy;
         }
 
@@ -75,7 +75,7 @@ namespace Kerppi.DataModel
             using (var conn = DBHandler.Connection())
             {
                 conn.Open();
-                this.Timestamp = DateTime.Now;
+                Timestamp = DateTime.Now;
                 if (Id == null)
                     conn.Insert(this);
                 else

@@ -57,7 +57,7 @@ namespace Kerppi.Views
                     string filename = DBHandler.ExportUnencrypted();
                     MessageBox.Show("Tietokanta tallennettiin salaamattomana tiedostoon:" + Environment.NewLine + filename, "Valmis", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                this.Close();
+                Close();
             }
             catch (Exception x)
             {

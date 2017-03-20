@@ -55,7 +55,8 @@
                 <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=Information}"/>
                 <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding Path=PostalAddress}"/>
                 <TextBox Grid.Row="1" Grid.Column="6" Text="{Binding Path=PostalCode}"/>
-                <CheckBox Grid.Row="3" Grid.Column="4" Content="Aktiivinen" IsChecked="{Binding Path=Active}" VerticalAlignment="Center"/>
+                <CheckBox Grid.Row="2" Grid.Column="4" Content="Aktiivinen" IsChecked="{Binding Path=Active}" VerticalAlignment="Center"/>
+                <CheckBox Grid.Row="3" Grid.Column="4" Content="Käyntitodistus" IsChecked="{Binding Path=Certificate}" VerticalAlignment="Center"/>
                 <Grid Grid.Row="2" Grid.Column="6" Grid.RowSpan="2" Margin="0,10,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -82,6 +83,7 @@
                     <DataGridTextColumn Header="Lähiosoite" Binding="{Binding Path=PostalAddress}"/>
                     <DataGridTextColumn Header="Postinumero ja -toimipaikka" Binding="{Binding Path=PostalCode}"/>
                     <DataGridTextColumn Header="Aktiivinen" Binding="{Binding Path=Active, Converter={StaticResource booleanStringConverter}}"/>
+                    <DataGridTextColumn Header="Käyntitodistus" Binding="{Binding Path=Certificate, Converter={StaticResource booleanStringConverter}}"/>
                     <DataGridTemplateColumn CellTemplate="{StaticResource RemoveButtonTemplate}"/>
                 </DataGrid.Columns>
             </DataGrid>

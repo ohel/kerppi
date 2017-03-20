@@ -30,7 +30,7 @@ namespace Kerppi.Views
 
         public A4Print(object dataContext, bool isSecondPage = false)
         {
-            this.DataContext = dataContext;
+            DataContext = dataContext;
             double opacity = 1.0;
             Double.TryParse(DBHandler.QueryMisc("PrintLogoOpacity"), out opacity);
             PrintLogoOpacity = opacity;

@@ -20,7 +20,7 @@ namespace Kerppi.Views
         {
             InitializeComponent();
             Application.Current.DispatcherUnhandledException += KerppiExceptionHandler;
-            this.Title = AttributeHelper.GetAttribute<System.Reflection.AssemblyProductAttribute>().Product;
+            Title = AttributeHelper.GetAttribute<System.Reflection.AssemblyProductAttribute>().Product;
         }
 
         private void KerppiExceptionHandler(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

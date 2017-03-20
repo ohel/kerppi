@@ -18,7 +18,7 @@ namespace Kerppi.Views
         public MiscSetting(string miscTableKey, string description)
         {
             InitializeComponent();
-            this.Title = AttributeHelper.GetAttribute<System.Reflection.AssemblyProductAttribute>().Product;
+            Title = AttributeHelper.GetAttribute<System.Reflection.AssemblyProductAttribute>().Product;
 
             key = miscTableKey;
             textBlockDescription.Text = description;
@@ -29,12 +29,12 @@ namespace Kerppi.Views
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             DBHandler.SaveMisc(key, textBoxValue.Text);
-            this.Close();
+            Close();
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

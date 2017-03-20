@@ -30,7 +30,7 @@ namespace Kerppi.Views
             framePrintableArea2.Margin = framePrintableArea.Margin;
             framePrintableArea.Content = print;
             framePrintableArea2.Content = print.GetSecondPage();
-            this.DataContext = print;
+            DataContext = print;
         }
 
         private void WindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -81,7 +81,7 @@ namespace Kerppi.Views
 
                     printDialog.PrintDocument(document.DocumentPaginator, "Kerppi-tuloste");
                 }
-                this.Close();
+                Close();
             }
         }
 
@@ -92,7 +92,7 @@ namespace Kerppi.Views
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void ButtonHelp_Click(object sender, RoutedEventArgs e)
