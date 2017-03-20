@@ -23,6 +23,7 @@ namespace Kerppi.DataModel
         /// </summary>
         public string PostalCode { get; set; }
         public string DefaultContact { get; set; }
+        public string AdditionalInfo { get; set; }
 
         public override string ToString()
         {
@@ -37,6 +38,7 @@ namespace Kerppi.DataModel
             PostalAddress = "";
             PostalCode = "";
             DefaultContact = "";
+            AdditionalInfo = "";
         }
 
         public Payer Copy()
@@ -47,6 +49,7 @@ namespace Kerppi.DataModel
             copy.PostalAddress = PostalAddress;
             copy.PostalCode = PostalCode;
             copy.DefaultContact = DefaultContact;
+            copy.AdditionalInfo = AdditionalInfo;
             return copy;
         }
 
@@ -101,7 +104,8 @@ namespace Kerppi.DataModel
                 Name TEXT NOT NULL,
                 PostalAddress TEXT,
                 PostalCode TEXT,
-                DefaultContact TEXT
+                DefaultContact TEXT,
+                AdditionalInfo TEXT
                 );";
             DBHandler.Execute(sql, conn, t);
         }

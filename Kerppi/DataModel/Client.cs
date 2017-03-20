@@ -127,7 +127,7 @@ namespace Kerppi.DataModel
         public static void CreateDBTables(IDbConnection conn, IDbTransaction t)
         {
             string sql = @"
-                CREATE TABLE Clients (
+                CREATE TABLE clients (
                 Id INTEGER PRIMARY KEY,
                 IdCode TEXT UNIQUE NOT NULL,
                 Active INTEGER NOT NULL DEFAULT 1,
