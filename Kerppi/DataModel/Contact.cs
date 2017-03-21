@@ -29,7 +29,8 @@ namespace Kerppi.DataModel
         public override string ToString()
         {
             return (String.IsNullOrEmpty(Name) ? "" : (Name + " | ")) +
-                (String.IsNullOrEmpty(DefaultInfo) ? "" : (DefaultInfo.Substring(0, Math.Min(DefaultInfo.Length, 20)) + "…"));
+                (String.IsNullOrEmpty(DefaultInfo) ? "" : (DefaultInfo.Substring(0, Math.Min(DefaultInfo.Length, 30)) +
+                (DefaultInfo.Length < 31 ? "" : "…")));
         }
 
         public Contact()

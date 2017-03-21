@@ -137,7 +137,7 @@ namespace Kerppi.DataModel
                 var results = conn.Query<Client, Contact, Client>(@"
                     SELECT c.*, con.* FROM clients c
                     LEFT JOIN contacts con ON c.DefaultPayerContactId = con.Id" +
-                    (onlyActive ? ";" : " WHERE c.Active = 1;"),
+                    (onlyActive ? " WHERE c.Active = 1;" : ";"),
                     (c, con) => {
                         c.DefaultPayer = con;
                         return c;
