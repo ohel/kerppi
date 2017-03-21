@@ -70,29 +70,42 @@ namespace Kerppi.DataModel
             return copy;
         }
 
-        public void Save()
+        public void Save(IDbConnection conn = null, IDbTransaction t = null)
         {
-            using (var conn = DBHandler.Connection())
+            Timestamp = DateTime.Now;
+            if (conn == null)
             {
-                conn.Open();
-                Timestamp = DateTime.Now;
+                using (var c = DBHandler.Connection())
+                {
+                    c.Open();
+                    if (Id == null)
+                        c.Insert(this);
+                    else
+                        c.Update(this);
+                }
+            }
+            else
+            {
                 if (Id == null)
-                    conn.Insert(this);
+                    conn.Insert(this, t);
                 else
-                    conn.Update(this);
+                    conn.Update(this, t);
             }
         }
 
-        public void Delete()
+        public void Delete(IDbConnection conn = null, IDbTransaction t = null)
         {
-            using (var conn = DBHandler.Connection())
+            if (conn == null)
             {
-                conn.Open();
-                using (var t = conn.BeginTransaction())
+                using (var c = DBHandler.Connection())
                 {
-                    conn.Delete(this, t);
-                    t.Commit();
+                    c.Open();
+                    c.Delete(this);
                 }
+            }
+            else
+            {
+                conn.Delete(this, t);
             }
         }
 

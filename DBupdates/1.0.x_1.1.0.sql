@@ -19,9 +19,11 @@ Name TEXT NOT NULL,
 PostalAddress TEXT,
 PostalCode TEXT,
 ContactInfo TEXT,
-Information TEXT);
+Information TEXT,
+DefaultPayerId INTEGER,
+FOREIGN KEY (DefaultPayerId) REFERENCES payers);
 
-INSERT INTO clientsNEW Select Id, IdCode, Active, 0, Name, PostalAddress, PostalCode, ContactInfo, Information FROM clients;
+INSERT INTO clientsNEW Select Id, IdCode, Active, 0, Name, PostalAddress, PostalCode, ContactInfo, Information, NULL FROM clients;
 DROP TABLE clients;
 ALTER TABLE clientsNEW RENAME TO clients;
 

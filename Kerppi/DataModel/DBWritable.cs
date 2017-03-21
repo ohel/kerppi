@@ -4,12 +4,13 @@
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
 
+using System.Data;
 
 namespace Kerppi.DataModel
 {
     interface DBWritable
     {
-        void Save();
-        void Delete();
+        void Save(IDbConnection conn = null, IDbTransaction t = null);
+        void Delete(IDbConnection conn = null, IDbTransaction t = null);
     }
 }

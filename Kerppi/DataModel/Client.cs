@@ -42,6 +42,9 @@ namespace Kerppi.DataModel
         /// Holds some client specific information that may be used for various purposes.
         /// </summary>
         public string Information { get; set; }
+        public long? DefaultPayerId { get; set; }
+        [Editable(false)]
+        public Payer DefaultPayer { get; set; }
 
         public override string ToString()
         {
@@ -73,45 +76,82 @@ namespace Kerppi.DataModel
             copy.PostalCode = PostalCode;
             copy.ContactInfo = ContactInfo;
             copy.Information = Information;
+            copy.DefaultPayerId = DefaultPayerId;
+            copy.DefaultPayer = DefaultPayer?.Copy();
             return copy;
         }
 
-        public void Save()
+        public void Save(IDbConnection conn = null, IDbTransaction t = null)
         {
-            using (var conn = DBHandler.Connection())
+            if (conn == null)
             {
-                conn.Open();
+                using (var c = DBHandler.Connection())
+                {
+                    c.Open();
+                    if (Id == null)
+                        c.Insert(this);
+                    else
+                        c.Update(this);
+                }
+            }
+            else
+            {
                 if (Id == null)
-                    conn.Insert(this);
+                    conn.Insert(this, t);
                 else
-                    conn.Update(this);
+                    conn.Update(this, t);
             }
         }
 
-        public void Delete()
+        public void Delete(IDbConnection conn = null, IDbTransaction t = null)
         {
-            using (var conn = DBHandler.Connection())
+            if (conn == null)
             {
-                conn.Open();
-                conn.Delete(this);
+                using (var c = DBHandler.Connection())
+                {
+                    c.Open();
+                    c.Delete(this);
+                }
+            }
+            else
+            {
+                conn.Delete(this, t);
             }
         }
 
         public static IEnumerable<Client> LoadAll()
         {
-            using (var conn = DBHandler.Connection())
-            {
-                conn.Open();
-                return conn.GetList<Client>(new { });
-            }
+            return LoadAllWhereOnlyActive();
         }
 
         public static IEnumerable<Client> LoadAllActive()
         {
+            return LoadAllWhereOnlyActive(true);
+        }
+
+        private static IEnumerable<Client> LoadAllWhereOnlyActive(bool onlyActive = false)
+        {
             using (var conn = DBHandler.Connection())
             {
                 conn.Open();
-                return conn.GetList<Client>(new { Active = 1 });
+                var results = conn.Query<Client, Payer, Client>(@"
+                    SELECT c.*, p.* FROM clients c
+                    LEFT JOIN payers p ON c.DefaultPayerId = p.Id" +
+                    (onlyActive ? ";" : " WHERE c.Active = 1;"),
+                    (c, p) => {
+                        c.DefaultPayer = p;
+                        return c;
+                    });
+
+                return results;
+            }
+        }
+
+        public static void RemoveDefaultPayer(long? payerId, IDbConnection conn, IDbTransaction t)
+        {
+            if (payerId != null)
+            {
+                DBHandler.Execute("UPDATE clients SET DefaultPayerId = NULL WHERE DefaultPayerId = " + payerId, conn, t);
             }
         }
 
@@ -136,7 +176,9 @@ namespace Kerppi.DataModel
                 PostalAddress TEXT,
                 PostalCode TEXT,
                 ContactInfo TEXT,
-                Information TEXT
+                Information TEXT,
+                DefaultPayerId INTEGER,
+                FOREIGN KEY (DefaultPayerId) REFERENCES payers
                 );";
             DBHandler.Execute(sql, conn, t);
         }

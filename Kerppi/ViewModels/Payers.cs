@@ -46,13 +46,19 @@ namespace Kerppi.ViewModels
                 conn.Open();
                 using (var t = conn.BeginTransaction())
                 {
+                    toBeDeleted.ForEach(p => DataModel.Client.RemoveDefaultPayer(p.Id, conn, t));
                     toBeDeleted.ForEach(p => p.Delete(conn, t));
                     foreach (var payer in PayerList)
                     {
                         // Do not save empty names.
                         if (String.IsNullOrWhiteSpace(payer.Name))
                         {
-                            if (payer.Id != null) payer.Delete(conn, t); // Also remove those existing with empty names.
+                            if (payer.Id != null)
+                            {
+                                // Also remove those existing with empty names.
+                                DataModel.Client.RemoveDefaultPayer(payer.Id, conn, t);
+                                payer.Delete(conn, t);
+                            }
                         }
                         else
                         {

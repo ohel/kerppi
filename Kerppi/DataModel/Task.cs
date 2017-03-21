@@ -22,11 +22,11 @@ namespace Kerppi.DataModel
             return new Task();
         }
 
-        public void Save()
+        public void Save(IDbConnection conn = null, IDbTransaction t = null)
         {
         }
 
-        public void Delete()
+        public void Delete(IDbConnection conn = null, IDbTransaction t = null)
         {
         }
 

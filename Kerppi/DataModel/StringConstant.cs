@@ -42,27 +42,6 @@ namespace Kerppi.DataModel
             return copy;
         }
 
-        public void Save()
-        {
-            using (var conn = DBHandler.Connection())
-            {
-                conn.Open();
-                if (Id == null)
-                    conn.Insert(this);
-                else
-                    conn.Update(this);
-            }
-        }
-
-        public void Delete()
-        {
-            using (var conn = DBHandler.Connection())
-            {
-                conn.Open();
-                conn.Delete(this);
-            }
-        }
-
         public void Save(IDbConnection conn, IDbTransaction t)
         {
             if (Id == null)
