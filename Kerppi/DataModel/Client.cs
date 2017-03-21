@@ -43,8 +43,9 @@ namespace Kerppi.DataModel
         /// </summary>
         public string Information { get; set; }
         public long? DefaultPayerContactId { get; set; }
+        private Contact _defaultPayer = null;
         [Editable(false)]
-        public Contact DefaultPayer { get; set; }
+        public Contact DefaultPayer { get { return _defaultPayer; } set { _defaultPayer = value; DefaultPayerContactId = ((Contact)value)?.Id ?? null; } }
 
         public override string ToString()
         {
@@ -62,6 +63,7 @@ namespace Kerppi.DataModel
             PostalCode = "";
             ContactInfo = "";
             Information = "";
+            DefaultPayerContactId = null;
         }
 
         public Client Copy()

@@ -12,12 +12,14 @@ using System.Windows;
 
 namespace Kerppi.ViewModels
 {
-    class Clients : INotifyPropertyChanged
+    class Clients : INotifyPropertyChanged, Refreshable
     {
         private DataModel.Client _currentClient = new DataModel.Client();
         private ObservableCollection<DataModel.Client> _clientList = new ObservableCollection<DataModel.Client>();
+        private ObservableCollection<DataModel.Contact> _payerList = new ObservableCollection<DataModel.Contact>();
         public DataModel.Client CurrentClient { get { return _currentClient; } set { _currentClient = value; NotifyPropertyChanged(() => CurrentClient); } }
         public ObservableCollection<DataModel.Client> ClientList { get { return _clientList; } set { _clientList = value; NotifyPropertyChanged(() => ClientList); } }
+        public ObservableCollection<DataModel.Contact> PayerList { get { return _payerList; } set { _payerList = value; NotifyPropertyChanged(() => PayerList); } }
 
         public Clients()
         {
@@ -25,7 +27,13 @@ namespace Kerppi.ViewModels
             {
                 ClientList = new ObservableCollection<DataModel.Client>(DataModel.Client.LoadAll());
                 CurrentClient = new DataModel.Client();
+                Refresh();
             }
+        }
+
+        public void Refresh()
+        {
+            PayerList = new ObservableCollection<DataModel.Contact>(DataModel.Contact.LoadAllPayers());
         }
 
         public void SaveCurrentClient()
@@ -51,6 +59,11 @@ namespace Kerppi.ViewModels
         public static bool CanSaveForClient(DataModel.Client client)
         {
             return (DataModel.Client.Exists(client.Id));
+        }
+
+        public void SetCurrentClientDefaultPayerObject(object payer)
+        {
+            CurrentClient.DefaultPayer = payer as DataModel.Contact;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

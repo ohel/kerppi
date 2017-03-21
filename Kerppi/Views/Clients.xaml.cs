@@ -5,8 +5,10 @@
 */
 
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Kerppi.Views
 {
@@ -25,7 +27,10 @@ namespace Kerppi.Views
             if (e.AddedItems.Count > 0)
             {
                 var client = e.AddedItems[0] as DataModel.Client ?? new DataModel.Client();
-                ((ViewModels.Clients)DataContext).CurrentClient = client.Copy();
+                var dc = (ViewModels.Clients)DataContext;
+                dc.CurrentClient = client.Copy();
+                comboBoxPayers.SelectedItem = dc.PayerList.FirstOrDefault(p => p.Id == client.DefaultPayerContactId);
+                if (comboBoxPayers.SelectedItem == null) comboBoxPayers.Text = comboBoxPayers.Tag.ToString();
             }
         }
 
@@ -93,6 +98,21 @@ namespace Kerppi.Views
         {
             dataGridClients.SelectedItem = null;
             ((ViewModels.Clients)DataContext).CurrentClient = new DataModel.Client();
+        }
+
+        private void ComboBoxPayers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox c = (ComboBox)sender;
+            ((ViewModels.Clients)DataContext).SetCurrentClientDefaultPayerObject(c.SelectedItem);
+        }
+
+        private void ComboBoxPayers_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            ComboBox c = (ComboBox)sender;
+            if (c.SelectedItem == null) {
+                ((ViewModels.Clients)DataContext).SetCurrentClientDefaultPayerObject(null);
+                c.Text = c.Tag.ToString();
+            }
         }
     }
 }

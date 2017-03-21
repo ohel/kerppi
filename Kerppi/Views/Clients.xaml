@@ -33,6 +33,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -43,26 +44,30 @@
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Tunniste:"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Nimi:"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Yhteystieto/puhelinnumero:"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Lisätieto:"/>
+                <TextBlock Grid.Row="0" Text="Tunniste:"/>
+                <TextBlock Grid.Row="1" Text="Nimi:"/>
+                <TextBlock Grid.Row="2" Text="Yhteystieto/puhelinnumero:" Margin="0,10,0,0"/>
+                <TextBlock Grid.Row="3" Text="Lisätieto:" VerticalAlignment="Top"/>
                 <TextBlock Grid.Row="0" Grid.Column="4" Text="Lähiosoite:"/>
                 <TextBlock Grid.Row="1" Grid.Column="4" Text="Postinumero ja -toimipaikka:"/>
+                <TextBlock Grid.Row="2" Grid.Column="4" Text="Oletusmaksaja:" Margin="0,10,0,0"/>
                 <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=IdCode}"/>
                 <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Name}"/>
-                <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactInfo}"/>
-                <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=Information}"/>
+                <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactInfo}" Margin="0,10,0,0"/>
+                <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=Information}" VerticalAlignment="Top"/>
                 <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding Path=PostalAddress}"/>
                 <TextBox Grid.Row="1" Grid.Column="6" Text="{Binding Path=PostalCode}"/>
-                <CheckBox Grid.Row="2" Grid.Column="4" Content="Aktiivinen" IsChecked="{Binding Path=Active}" VerticalAlignment="Center"/>
-                <CheckBox Grid.Row="3" Grid.Column="4" Content="Käyntitodistus" IsChecked="{Binding Path=Certificate}" VerticalAlignment="Center"/>
-                <Grid Grid.Row="2" Grid.Column="6" Grid.RowSpan="2" Margin="0,10,0,0">
+                <ComboBox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" x:Name="comboBoxPayers" Tag="Valitse…" Text="{Binding RelativeSource={RelativeSource Self},Path=Tag,Mode=OneTime}"
+                          ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}},Path=DataContext.PayerList}"
+                          SelectionChanged="ComboBoxPayers_SelectionChanged" LostKeyboardFocus="ComboBoxPayers_LostKeyboardFocus" IsTextSearchEnabled="True" IsEditable="True" Margin="0,10,0,0"/>
+                <CheckBox Grid.Row="3" Grid.Column="4" Content="Aktiivinen" IsChecked="{Binding Path=Active}" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                <CheckBox Grid.Row="4" Grid.Column="4" Content="Käyntitodistus" IsChecked="{Binding Path=Certificate}" VerticalAlignment="Center"/>
+                <Grid Grid.Row="3" Grid.Column="6" Grid.RowSpan="2" Margin="0,10,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Click="SaveButton_Click" Padding="-4">
+                    <Button Click="SaveButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Icons/save.png"/>
                             <Label>_Tallenna</Label>
