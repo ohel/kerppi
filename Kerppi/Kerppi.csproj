@@ -119,7 +119,7 @@
     <Compile Include="ViewModels\RoundingMultiplyConverter.cs" />
     <Compile Include="ViewModels\StringConstants.cs" />
     <Compile Include="ViewModels\SerializableRow.cs" />
-    <Compile Include="DataModel\Payer.cs" />
+    <Compile Include="DataModel\Contact.cs" />
     <Compile Include="DataModel\SKU.cs" />
     <Compile Include="DBHandler.cs" />
     <Compile Include="KerppiException.cs" />

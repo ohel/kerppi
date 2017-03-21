@@ -34,7 +34,7 @@ namespace Kerppi.Views
             var s = sender as Button;
             if (s != null && s.Tag != null)
             {
-                var payer = s.Tag as DataModel.Payer;
+                var payer = s.Tag as DataModel.Contact;
                 {
                     ((ViewModels.Payers)DataContext).RemovePayerFromList(payer);
                     ((ViewModels.Payers)DataContext).IsEdited = true;

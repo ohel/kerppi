@@ -32,7 +32,7 @@
                 <DataGridTextColumn Header="Nimi" Width="*" Binding="{Binding Path=Name}"/>
                 <DataGridTextColumn Header="Lähiosoite" Width="Auto" Binding="{Binding Path=PostalAddress}"/>
                 <DataGridTextColumn Header="Postinumero ja -toimipaikka" Width="Auto" Binding="{Binding Path=PostalCode}"/>
-                <DataGridTextColumn Header="Yhteystieto" Width="*" Binding="{Binding Path=DefaultContact}"/>
+                <DataGridTextColumn Header="Yhteystieto" Width="*" Binding="{Binding Path=DefaultInfo}"/>
                 <DataGridTextColumn Header="Lisätieto" Width="*" Binding="{Binding Path=AdditionalInfo}"/>
                 <DataGridTemplateColumn CellTemplate="{StaticResource RemoveButtonTemplate}"/>
             </DataGrid.Columns>

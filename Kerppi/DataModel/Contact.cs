@@ -11,8 +11,8 @@ using System.Data;
 
 namespace Kerppi.DataModel
 {
-    [Table("payers")]
-    class Payer : DBTableCreator, DBWritable, Copyable<Payer>
+    [Table("contacts")]
+    class Contact : DBTableCreator, DBWritable, Copyable<Contact>
     {
         [Key]
         public long? Id { get; set; }
@@ -22,33 +22,34 @@ namespace Kerppi.DataModel
         /// Holds both postal code and city.
         /// </summary>
         public string PostalCode { get; set; }
-        public string DefaultContact { get; set; }
+        public string DefaultInfo { get; set; }
         public string AdditionalInfo { get; set; }
+        public bool Payer { get; set; }
 
         public override string ToString()
         {
             return (String.IsNullOrEmpty(Name) ? "" : (Name + " | ")) +
-                (String.IsNullOrEmpty(DefaultContact) ? "" : (DefaultContact.Substring(0, Math.Min(DefaultContact.Length, 20)) + "…"));
+                (String.IsNullOrEmpty(DefaultInfo) ? "" : (DefaultInfo.Substring(0, Math.Min(DefaultInfo.Length, 20)) + "…"));
         }
 
-        public Payer()
+        public Contact()
         {
             Id = null;
             Name = null;
             PostalAddress = "";
             PostalCode = "";
-            DefaultContact = "";
+            DefaultInfo = "";
             AdditionalInfo = "";
         }
 
-        public Payer Copy()
+        public Contact Copy()
         {
-            var copy = new Payer();
+            var copy = new Contact();
             copy.Id = Id;
             copy.Name = Name;
             copy.PostalAddress = PostalAddress;
             copy.PostalCode = PostalCode;
-            copy.DefaultContact = DefaultContact;
+            copy.DefaultInfo = DefaultInfo;
             copy.AdditionalInfo = AdditionalInfo;
             return copy;
         }
@@ -66,25 +67,26 @@ namespace Kerppi.DataModel
             conn.Delete(this, t);
         }
 
-        public static IEnumerable<Payer> LoadAll()
+        public static IEnumerable<Contact> LoadAllPayers()
         {
             using (var conn = DBHandler.Connection())
             {
                 conn.Open();
-                return conn.GetList<Payer>();
+                return conn.GetList<Contact>(new { Payer = 1 });
             }
         }
 
         public static void CreateDBTables(IDbConnection conn, IDbTransaction t)
         {
             string sql = @"
-                CREATE TABLE payers (
+                CREATE TABLE contacts (
                 Id INTEGER PRIMARY KEY,
                 Name TEXT NOT NULL,
                 PostalAddress TEXT,
                 PostalCode TEXT,
-                DefaultContact TEXT,
-                AdditionalInfo TEXT
+                DefaultInfo TEXT,
+                AdditionalInfo TEXT,
+                Payer INTEGER NOT NULL DEFAULT 0
                 );";
             DBHandler.Execute(sql, conn, t);
         }

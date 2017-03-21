@@ -15,10 +15,10 @@ namespace Kerppi.ViewModels
 {
     class Payers : INotifyPropertyChanged
     {
-        private List<DataModel.Payer> initialPayerList = new List<DataModel.Payer>();
+        private List<DataModel.Contact> initialPayerList = new List<DataModel.Contact>();
         private bool _isEdited = false;
-        private ObservableCollection<DataModel.Payer> _payerList = new ObservableCollection<DataModel.Payer>();
-        public ObservableCollection<DataModel.Payer> PayerList { get { return _payerList; } set { _payerList = value; NotifyPropertyChanged(() => PayerList); } }
+        private ObservableCollection<DataModel.Contact> _payerList = new ObservableCollection<DataModel.Contact>();
+        public ObservableCollection<DataModel.Contact> PayerList { get { return _payerList; } set { _payerList = value; NotifyPropertyChanged(() => PayerList); } }
         public bool IsEdited { get { return _isEdited; } set { _isEdited = value; NotifyPropertyChanged(() => IsEdited); } }
 
         public Payers()
@@ -26,14 +26,14 @@ namespace Kerppi.ViewModels
             if (!DesignerProperties.GetIsInDesignMode(new DependencyObject())) Refresh();
         }
 
-        public void RemovePayerFromList(DataModel.Payer Payer)
+        public void RemovePayerFromList(DataModel.Contact payer)
         {
-            PayerList.Remove(Payer);
+            PayerList.Remove(payer);
         }
 
         public void SavePayers()
         {
-            var toBeDeleted = new List<DataModel.Payer>();
+            var toBeDeleted = new List<DataModel.Contact>();
 
             foreach (var payer in initialPayerList)
             {
@@ -62,6 +62,7 @@ namespace Kerppi.ViewModels
                         }
                         else
                         {
+                            payer.Payer = true;
                             payer.Save(conn, t);
                         }
                     }
@@ -74,8 +75,8 @@ namespace Kerppi.ViewModels
 
         private void Refresh()
         {
-            initialPayerList = DataModel.Payer.LoadAll().ToList();
-            PayerList = new ObservableCollection<DataModel.Payer>(initialPayerList.Select(p => p.Copy()));
+            initialPayerList = DataModel.Contact.LoadAllPayers().ToList();
+            PayerList = new ObservableCollection<DataModel.Contact>(initialPayerList.Select(p => p.Copy()));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

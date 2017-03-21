@@ -42,9 +42,9 @@ namespace Kerppi.DataModel
         /// Holds some client specific information that may be used for various purposes.
         /// </summary>
         public string Information { get; set; }
-        public long? DefaultPayerId { get; set; }
+        public long? DefaultPayerContactId { get; set; }
         [Editable(false)]
-        public Payer DefaultPayer { get; set; }
+        public Contact DefaultPayer { get; set; }
 
         public override string ToString()
         {
@@ -76,7 +76,7 @@ namespace Kerppi.DataModel
             copy.PostalCode = PostalCode;
             copy.ContactInfo = ContactInfo;
             copy.Information = Information;
-            copy.DefaultPayerId = DefaultPayerId;
+            copy.DefaultPayerContactId = DefaultPayerContactId;
             copy.DefaultPayer = DefaultPayer?.Copy();
             return copy;
         }
@@ -134,12 +134,12 @@ namespace Kerppi.DataModel
             using (var conn = DBHandler.Connection())
             {
                 conn.Open();
-                var results = conn.Query<Client, Payer, Client>(@"
-                    SELECT c.*, p.* FROM clients c
-                    LEFT JOIN payers p ON c.DefaultPayerId = p.Id" +
+                var results = conn.Query<Client, Contact, Client>(@"
+                    SELECT c.*, con.* FROM clients c
+                    LEFT JOIN contacts con ON c.DefaultPayerContactId = con.Id" +
                     (onlyActive ? ";" : " WHERE c.Active = 1;"),
-                    (c, p) => {
-                        c.DefaultPayer = p;
+                    (c, con) => {
+                        c.DefaultPayer = con;
                         return c;
                     });
 
@@ -147,11 +147,11 @@ namespace Kerppi.DataModel
             }
         }
 
-        public static void RemoveDefaultPayer(long? payerId, IDbConnection conn, IDbTransaction t)
+        public static void RemoveDefaultPayer(long? contactId, IDbConnection conn, IDbTransaction t)
         {
-            if (payerId != null)
+            if (contactId != null)
             {
-                DBHandler.Execute("UPDATE clients SET DefaultPayerId = NULL WHERE DefaultPayerId = " + payerId, conn, t);
+                DBHandler.Execute("UPDATE clients SET DefaultPayerContactId = NULL WHERE DefaultPayerContactId = " + contactId, conn, t);
             }
         }
 
@@ -177,8 +177,8 @@ namespace Kerppi.DataModel
                 PostalCode TEXT,
                 ContactInfo TEXT,
                 Information TEXT,
-                DefaultPayerId INTEGER,
-                FOREIGN KEY (DefaultPayerId) REFERENCES payers
+                DefaultPayerContactId INTEGER,
+                FOREIGN KEY (DefaultPayerContactId) REFERENCES contacts
                 );";
             DBHandler.Execute(sql, conn, t);
         }
