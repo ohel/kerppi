@@ -46,6 +46,10 @@ namespace Kerppi.DataModel
         private Contact _defaultPayer = null;
         [Editable(false)]
         public Contact DefaultPayer { get { return _defaultPayer; } set { _defaultPayer = value; DefaultPayerContactId = ((Contact)value)?.Id ?? null; } }
+        public string ContactPersonName { get; set; }
+        public string ContactPersonPostalAddress { get; set; }
+        public string ContactPersonPostalCode { get; set; }
+        public string ContactPersonContactInfo { get; set; }
 
         public override string ToString()
         {
@@ -59,11 +63,15 @@ namespace Kerppi.DataModel
             Active = true;
             Certificate = false;
             Name = "";
-            PostalAddress = "";
-            PostalCode = "";
-            ContactInfo = "";
-            Information = "";
+            PostalAddress = null;
+            PostalCode = null;
+            ContactInfo = null;
+            Information = null;
             DefaultPayerContactId = null;
+            ContactPersonName = null;
+            ContactPersonPostalAddress = null;
+            ContactPersonPostalCode = null;
+            ContactPersonContactInfo = null;
         }
 
         public Client Copy()
@@ -80,6 +88,10 @@ namespace Kerppi.DataModel
             copy.Information = Information;
             copy.DefaultPayerContactId = DefaultPayerContactId;
             copy.DefaultPayer = DefaultPayer?.Copy();
+            copy.ContactPersonName = ContactPersonName;
+            copy.ContactPersonPostalAddress = ContactPersonPostalAddress;
+            copy.ContactPersonPostalCode = ContactPersonPostalCode;
+            copy.ContactPersonContactInfo = ContactPersonContactInfo;
             return copy;
         }
 
@@ -180,6 +192,10 @@ namespace Kerppi.DataModel
                 ContactInfo TEXT,
                 Information TEXT,
                 DefaultPayerContactId INTEGER,
+                ContactPersonName TEXT,
+                ContactPersonPostalAddress TEXT,
+                ContactPersonPostalCode TEXT,
+                ContactPersonContactInfo TEXT,
                 FOREIGN KEY (DefaultPayerContactId) REFERENCES contacts
                 );";
             DBHandler.Execute(sql, conn, t);

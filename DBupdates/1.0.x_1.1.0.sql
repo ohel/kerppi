@@ -17,7 +17,8 @@ CREATE TABLE contacts (
     PostalCode TEXT,
     DefaultInfo TEXT,
     AdditionalInfo TEXT,
-    Payer INTEGER NOT NULL DEFAULT 0);
+    Payer INTEGER NOT NULL DEFAULT 0
+);
 INSERT INTO contacts Select Id, Name, PostalAddress, PostalCode, DefaultContact, NULL, 1 FROM payers;
 DROP TABLE payers;
 
@@ -32,8 +33,13 @@ CREATE TABLE clientsNEW (
     ContactInfo TEXT,
     Information TEXT,
     DefaultPayerContactId INTEGER,
-    FOREIGN KEY (DefaultPayerContactId) REFERENCES contacts);
-INSERT INTO clientsNEW Select Id, IdCode, Active, 0, Name, PostalAddress, PostalCode, ContactInfo, Information, NULL FROM clients;
+    ContactPersonName TEXT,
+    ContactPersonPostalAddress TEXT,
+    ContactPersonPostalCode TEXT,
+    ContactPersonContactInfo TEXT,
+    FOREIGN KEY (DefaultPayerContactId) REFERENCES contacts
+);
+INSERT INTO clientsNEW Select Id, IdCode, Active, 0, Name, PostalAddress, PostalCode, ContactInfo, Information, NULL, NULL, NULL, NULL, NULL FROM clients;
 DROP TABLE clients;
 ALTER TABLE clientsNEW RENAME TO clients;
 

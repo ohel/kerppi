@@ -28,67 +28,99 @@
 
         <GroupBox Header="Valittu asiakas">
             <Grid DataContext="{Binding CurrentClient}">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="10"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="10"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Text="Tunniste:"/>
-                <TextBlock Grid.Row="1" Text="Nimi:"/>
-                <TextBlock Grid.Row="2" Text="Yhteystieto/puhelinnumero:" Margin="0,10,0,0"/>
-                <TextBlock Grid.Row="3" Text="Lisätieto:" VerticalAlignment="Top"/>
-                <TextBlock Grid.Row="0" Grid.Column="4" Text="Lähiosoite:"/>
-                <TextBlock Grid.Row="1" Grid.Column="4" Text="Postinumero ja -toimipaikka:"/>
-                <TextBlock Grid.Row="2" Grid.Column="4" Text="Oletusmaksaja:" Margin="0,10,0,0"/>
-                <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=IdCode}"/>
-                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Name}"/>
-                <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactInfo}" Margin="0,10,0,0"/>
-                <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=Information}" VerticalAlignment="Top"/>
-                <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding Path=PostalAddress}"/>
-                <TextBox Grid.Row="1" Grid.Column="6" Text="{Binding Path=PostalCode}"/>
-                <ComboBox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3" x:Name="comboBoxPayers" Tag="Valitse…" Text="{Binding RelativeSource={RelativeSource Self},Path=Tag,Mode=OneTime}"
-                          ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}},Path=DataContext.PayerList}"
-                          SelectionChanged="ComboBoxPayers_SelectionChanged" LostKeyboardFocus="ComboBoxPayers_LostKeyboardFocus" IsTextSearchEnabled="True" IsEditable="True" Margin="0,10,0,0"/>
-                <CheckBox Grid.Row="3" Grid.Column="4" Content="Aktiivinen" IsChecked="{Binding Path=Active}" VerticalAlignment="Center" Margin="0,10,0,0"/>
-                <CheckBox Grid.Row="4" Grid.Column="4" Content="Käyntitodistus" IsChecked="{Binding Path=Certificate}" VerticalAlignment="Center"/>
-                <Grid Grid.Row="3" Grid.Column="6" Grid.RowSpan="2" Margin="0,10,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Click="SaveButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Icons/save.png"/>
-                            <Label>_Tallenna</Label>
-                        </StackPanel>
-                    </Button>
-                    <Button Grid.Column="1" Content="T_yhjennä" Padding="5" Click="ResetButton_Click"/>
+                    <TextBlock Grid.Row="0" Text="Tunniste:"/>
+                    <TextBlock Grid.Row="1" Text="Nimi:"/>
+                    <TextBlock Grid.Row="2" Text="Lähiosoite:"/>
+                    <TextBlock Grid.Row="3" Text="Postinumero ja -toimipaikka:"/>
+                    <TextBlock Grid.Row="4" Text="Yhteystieto/puhelinnumero:"/>
+                    <TextBlock Grid.Row="5" Text="Lisätieto:"/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=IdCode}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Name}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactInfo}"/>
+                    <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=Information}"/>
+                    <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=PostalAddress}"/>
+                    <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Path=PostalCode}"/>
+                    <TextBlock Grid.Row="6" Text="Oletusmaksaja:"/>
+                    <ComboBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" x:Name="comboBoxPayers" Tag="Valitse…" Text="{Binding RelativeSource={RelativeSource Self},Path=Tag,Mode=OneTime}"
+                              ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}},Path=DataContext.PayerList}"
+                              SelectionChanged="ComboBoxPayers_SelectionChanged" LostKeyboardFocus="ComboBoxPayers_LostKeyboardFocus" IsTextSearchEnabled="True" IsEditable="True"/>
+                    <CheckBox Grid.Row="7" Content="Aktiivinen" IsChecked="{Binding Path=Active}" Margin="0,10,0,0"/>
+                    <CheckBox Grid.Row="7" Grid.Column="2" Content="Käyntitodistus" IsChecked="{Binding Path=Certificate}"/>
                 </Grid>
+                <DockPanel Grid.Column="1" Margin="10,0,0,0">
+                    <GroupBox Header="Yhteyshenkilö" DockPanel.Dock="Top">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Text="Nimi:"/>
+                            <TextBlock Grid.Row="1" Text="Lähiosoite:"/>
+                            <TextBlock Grid.Row="2" Text="Postinumero ja -toimipaikka:"/>
+                            <TextBlock Grid.Row="3" Text="Yhteystieto/puhelinnumero:"/>
+                            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=ContactPersonName}"/>
+                            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=ContactPersonPostalAddress}"/>
+                            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactPersonPostalCode}"/>
+                            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=ContactPersonContactInfo}"/>
+                        </Grid>
+                    </GroupBox>
+                    <Grid DockPanel.Dock="Bottom" Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Click="SaveButton_Click" Padding="5">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Icons/save.png"/>
+                                <Label>_Tallenna</Label>
+                            </StackPanel>
+                        </Button>
+                        <Button Grid.Column="1" Content="T_yhjennä" Padding="10,5" Click="ResetButton_Click"/>
+                    </Grid>
+                </DockPanel>
             </Grid>
         </GroupBox>
 
         <GroupBox Grid.Row="1" Header="Kaikki asiakkaat" Margin="0,10,0,0">
             <DataGrid x:Name="dataGridClients" ItemsSource="{Binding ClientList}" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" SelectionMode="Single">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Tunniste" Binding="{Binding Path=IdCode}"/>
-                    <DataGridTextColumn Header="Nimi" Width="*" Binding="{Binding Path=Name}"/>
-                    <DataGridTextColumn Header="Yhteystieto" Binding="{Binding Path=ContactInfo}"/>
-                    <DataGridTextColumn Header="Lisätieto" Binding="{Binding Path=Information}"/>
-                    <DataGridTextColumn Header="Lähiosoite" Binding="{Binding Path=PostalAddress}"/>
-                    <DataGridTextColumn Header="Postinumero ja -toimipaikka" Binding="{Binding Path=PostalCode}"/>
-                    <DataGridTextColumn Header="Aktiivinen" Binding="{Binding Path=Active, Converter={StaticResource booleanStringConverter}}"/>
-                    <DataGridTextColumn Header="Käyntitodistus" Binding="{Binding Path=Certificate, Converter={StaticResource booleanStringConverter}}"/>
+                    <DataGridTextColumn Header="Tunniste" Binding="{Binding Path=IdCode,Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Nimi" Width="*" Binding="{Binding Path=Name,Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Yhteystieto" Binding="{Binding Path=ContactInfo,Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Lisätieto" Binding="{Binding Path=Information,Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Lähiosoite" Binding="{Binding Path=PostalAddress,Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Postinumero ja -toimipaikka" Binding="{Binding Path=PostalCode,Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Aktiivinen" Binding="{Binding Path=Active,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>
+                    <DataGridTextColumn Header="Käyntitodistus" Binding="{Binding Path=Certificate,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>
                     <DataGridTemplateColumn CellTemplate="{StaticResource RemoveButtonTemplate}"/>
                 </DataGrid.Columns>
             </DataGrid>
