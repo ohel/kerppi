@@ -93,11 +93,6 @@ namespace Kerppi.Views
             (new MiscSetting("VAT", "Syötä ALV-kanta prosentteina (pelkät numerot, esimerkiksi 24), vaihto vaatii ohjelman uudelleenkäynnistyksen:")).Show();
         }
 
-        private void SetPrintFooter(object sender, RoutedEventArgs e)
-        {
-            (new MiscSetting("PrintFooter", "Tulosteiden alatunniste:")).Show();
-        }
-
         private void SetPrintMargin(object sender, RoutedEventArgs e)
         {
             (new MiscSetting("PrintMargin", "Tulosteiden marginaali:")).Show();
