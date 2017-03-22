@@ -51,21 +51,21 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Text="Tunniste:"/>
                     <TextBlock Grid.Row="1" Text="Nimi:"/>
-                    <TextBlock Grid.Row="2" Text="Lähiosoite:"/>
-                    <TextBlock Grid.Row="3" Text="Postinumero ja -toimipaikka:"/>
-                    <TextBlock Grid.Row="4" Text="Yhteystieto/puhelinnumero:"/>
-                    <TextBlock Grid.Row="6" Text="Lisätieto:"/>
-                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=IdCode}"/>
-                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Name}"/>
-                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=PostalAddress}"/>
-                    <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=PostalCode}"/>
-                    <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=ContactInfo}"/>
+                    <TextBlock Grid.Row="2" Text="Yhteystieto/puhelinnumero:"/>
+                    <TextBlock Grid.Row="3" Text="Lähiosoite:"/>
+                    <TextBlock Grid.Row="4" Text="Postinumero ja -toimipaikka:"/>
                     <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Right">
                         <CheckBox Content="Aktiivinen" IsChecked="{Binding Path=Active}"/>
                         <CheckBox Content="Käyntitodistus" IsChecked="{Binding Path=Certificate}" Margin="10,0,0,0"/>
                     </StackPanel>
+                    <TextBlock Grid.Row="6" Text="Lisätieto:"/>
                     <TextBox Grid.Row="7" Grid.ColumnSpan="3" Text="{Binding Path=Information}" AcceptsReturn="True" VerticalAlignment="Stretch"
                              ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" MinLines="3" MaxLines="8"/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=IdCode}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Name}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactInfo}"/>
+                    <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=PostalAddress}"/>
+                    <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=PostalCode}"/>
                 </Grid>
                 <StackPanel Grid.Column="1" Margin="10,0,0,0">
                     <GroupBox Header="Yhteyshenkilö">
@@ -83,13 +83,13 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Row="0" Text="Nimi:"/>
-                            <TextBlock Grid.Row="1" Text="Lähiosoite:"/>
-                            <TextBlock Grid.Row="2" Text="Postinumero ja -toimipaikka:"/>
-                            <TextBlock Grid.Row="3" Text="Yhteystieto/puhelinnumero:"/>
+                            <TextBlock Grid.Row="1" Text="Yhteystieto/puhelinnumero:"/>
+                            <TextBlock Grid.Row="2" Text="Lähiosoite:"/>
+                            <TextBlock Grid.Row="3" Text="Postinumero ja -toimipaikka:"/>
                             <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=ContactPersonName}"/>
-                            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=ContactPersonPostalAddress}"/>
-                            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactPersonPostalCode}"/>
-                            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=ContactPersonContactInfo}"/>
+                            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=ContactPersonContactInfo}"/>
+                            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactPersonPostalAddress}"/>
+                            <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=ContactPersonPostalCode}"/>
                         </Grid>
                     </GroupBox>
                     <DockPanel Margin="0,10,0,0">
