@@ -16,7 +16,7 @@ namespace Kerppi.ViewModels
         {
             int p = 0;
             int.TryParse((string)parameter, out p);
-            string unbroken = ((string)value).Replace(Environment.NewLine, "");
+            string unbroken = ((string)value).Replace(Environment.NewLine, " ");
             return p == 0 ? unbroken : (unbroken.Substring(0, Math.Min(unbroken.Length, p)) + (unbroken.Length < p + 1 ? "" : "…"));
         }
 
