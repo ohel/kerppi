@@ -60,11 +60,12 @@
                     <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=PostalAddress}"/>
                     <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=PostalCode}"/>
                     <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path=ContactInfo}"/>
-                    <StackPanel Grid.Row="5" Grid.RowSpan="2" Grid.Column="2" Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Right">
+                    <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Right">
                         <CheckBox Content="Aktiivinen" IsChecked="{Binding Path=Active}"/>
                         <CheckBox Content="Käyntitodistus" IsChecked="{Binding Path=Certificate}" Margin="10,0,0,0"/>
                     </StackPanel>
-                    <TextBox Grid.Row="7" Grid.ColumnSpan="3" Text="{Binding Path=Information}" AcceptsReturn="True" VerticalAlignment="Stretch"/>
+                    <TextBox Grid.Row="7" Grid.ColumnSpan="3" Text="{Binding Path=Information}" AcceptsReturn="True" VerticalAlignment="Stretch"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" MinLines="3" MaxLines="8"/>
                 </Grid>
                 <StackPanel Grid.Column="1" Margin="10,0,0,0">
                     <GroupBox Header="Yhteyshenkilö">
@@ -123,6 +124,7 @@
                     <DataGridTextColumn Header="Lisätieto" Binding="{Binding Path=Information,Mode=OneWay,Converter={StaticResource singleLineStringConverter},ConverterParameter='60'}"/>
                     <DataGridTextColumn Header="Lähiosoite" Binding="{Binding Path=PostalAddress,Mode=OneWay}"/>
                     <DataGridTextColumn Header="Postinumero ja -toimipaikka" Binding="{Binding Path=PostalCode,Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Oletusmaksaja" Binding="{Binding Path=DefaultPayer,Mode=OneWay,Converter={StaticResource singleLineStringConverter},ConverterParameter='20'}"/>
                     <DataGridTextColumn Header="Aktiivinen" Binding="{Binding Path=Active,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>
                     <DataGridTextColumn Header="Käyntitodistus" Binding="{Binding Path=Certificate,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>
                     <DataGridTemplateColumn CellTemplate="{StaticResource RemoveButtonTemplate}"/>

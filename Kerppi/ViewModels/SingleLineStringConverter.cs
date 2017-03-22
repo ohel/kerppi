@@ -15,9 +15,9 @@ namespace Kerppi.ViewModels
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             int p = 0;
-            int.TryParse((string)parameter, out p);
-            string unbroken = ((string)value).Replace(Environment.NewLine, " ");
-            return p == 0 ? unbroken : (unbroken.Substring(0, Math.Min(unbroken.Length, p)) + (unbroken.Length < p + 1 ? "" : "…"));
+            int.TryParse(parameter.ToString(), out p);
+            string unbroken = (value?.ToString())?.Replace(Environment.NewLine, " ");
+            return p == 0 ? unbroken : (unbroken?.Substring(0, Math.Min(unbroken?.Length ?? 0, p)) + ((unbroken?.Length ?? 0) < p + 1 ? "" : "…"));
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
