@@ -43,6 +43,6 @@ INSERT INTO clientsNEW Select Id, IdCode, Active, 0, Name, PostalAddress, Postal
 DROP TABLE clients;
 ALTER TABLE clientsNEW RENAME TO clients;
 
-UPDATE kerppi_misc SET Value = '1.1.0.0' WHERE Key = 'Versio';
+UPDATE kerppi_misc SET Value = '1.1.0.0' WHERE Key = 'Version';
 
 COMMIT transaction;
