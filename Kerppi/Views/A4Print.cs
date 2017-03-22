@@ -24,7 +24,7 @@ namespace Kerppi.Views
         public bool TwoPagePrint { get { return _twoPagePrint; } set { _twoPagePrint = value; NotifyPropertyChanged(() => TwoPagePrint); NotifyPropertyChanged(() => ShowSecondPageContent); } }
         public bool IsSecondPage { get { return _isSecondPage; } private set { _isSecondPage = value; TwoPagePrint = value || TwoPagePrint; NotifyPropertyChanged(() => IsSecondPage); } }
         public bool ShowSecondPageContent { get { return IsSecondPage || !(IsSecondPage || TwoPagePrint); } }
-        public IEnumerable<String> AvailableFooters { get; private set; }
+        public IEnumerable<string> AvailableFooters { get; private set; }
 
         public A4Print() { }
 
@@ -32,7 +32,7 @@ namespace Kerppi.Views
         {
             DataContext = dataContext;
             double opacity = 1.0;
-            Double.TryParse(DBHandler.QueryMisc("PrintLogoOpacity"), out opacity);
+            double.TryParse(DBHandler.QueryMisc("PrintLogoOpacity"), out opacity);
             PrintLogoOpacity = opacity;
             IsSecondPage = isSecondPage;
             AvailableFooters = DataModel.StringConstant.LoadFooterStrings();

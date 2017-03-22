@@ -16,7 +16,7 @@ namespace Kerppi.DataModel
 
         public override string ToString()
         {
-            return (String.IsNullOrEmpty(Code) ? (Code + ": ") : "") + Description;
+            return (string.IsNullOrEmpty(Code) ? (Code + ": ") : "") + Description;
         }
 
         public abstract List<ViewModels.SerializableRow> PrintSerializable();

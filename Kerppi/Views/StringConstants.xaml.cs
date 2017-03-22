@@ -52,5 +52,10 @@ namespace Kerppi.Views
         {
             if (e.EditAction == DataGridEditAction.Commit) ((ViewModels.StringConstants)DataContext).IsEdited = true;
         }
+
+        private void DataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            if (e.Column.GetType() == typeof(DataGridCheckBoxColumn)) ((ViewModels.StringConstants)DataContext).IsEdited = true;
+        }
     }
 }

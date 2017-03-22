@@ -16,7 +16,7 @@ namespace Kerppi.ViewModels
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return String.Join(", ", (value as List<DataModel.SKU>).Select(sku => sku.Code));
+            return string.Join(", ", (value as List<DataModel.SKU>).Select(sku => sku.Code));
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -36,7 +36,7 @@ namespace Kerppi.Views
             {
                 var sku = s.Tag as DataModel.SKU;
                 if (MessageBox.Show(
-                    String.Format("Seuraava nimike poistetaan:{0}Koodi: {1}{2}Kuvaus: {3}", Environment.NewLine, sku.Code, Environment.NewLine, sku.Description),
+                    string.Format("Seuraava nimike poistetaan:{0}Koodi: {1}{2}Kuvaus: {3}", Environment.NewLine, sku.Code, Environment.NewLine, sku.Description),
                     "Vahvista nimikkeen poisto",
                     MessageBoxButton.OKCancel,
                     MessageBoxImage.Exclamation) == MessageBoxResult.OK)

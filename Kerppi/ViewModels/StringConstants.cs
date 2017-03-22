@@ -50,7 +50,7 @@ namespace Kerppi.ViewModels
                     foreach (var StringConstant in StringConstantList)
                     {
                         // Do not save empty text.
-                        if (String.IsNullOrWhiteSpace(StringConstant.Text))
+                        if (string.IsNullOrWhiteSpace(StringConstant.Text))
                         {
                             if (StringConstant.Id != null) StringConstant.Delete(conn, t); // Also remove those existing and empty.
                         }

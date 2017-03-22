@@ -51,7 +51,7 @@ namespace Kerppi.ViewModels
                     foreach (var payer in PayerList)
                     {
                         // Do not save empty names.
-                        if (String.IsNullOrWhiteSpace(payer.Name))
+                        if (string.IsNullOrWhiteSpace(payer.Name))
                         {
                             if (payer.Id != null)
                             {

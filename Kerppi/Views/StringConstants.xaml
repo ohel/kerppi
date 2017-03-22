@@ -27,7 +27,7 @@
             <ColumnDefinition Width="0.75*"/>
             <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.ColumnSpan="2" Margin="0,0,0,10" ItemsSource="{Binding StringConstantList}" AutoGenerateColumns="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
+        <DataGrid Grid.ColumnSpan="2" Margin="0,0,0,10" ItemsSource="{Binding StringConstantList}" AutoGenerateColumns="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding" BeginningEdit="DataGrid_BeginningEdit">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Teksti" Width="*" Binding="{Binding Path=Text}"/>
                 <DataGridCheckBoxColumn Header="Alatunniste" Width="Auto" Binding="{Binding Path=Footer}"/>

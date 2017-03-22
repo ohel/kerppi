@@ -47,7 +47,7 @@ namespace Kerppi.Views
             try
             {
                 DBHandler.ChangePassword(passwordBox.Password);
-                if (String.IsNullOrEmpty(passwordBox.Password))
+                if (string.IsNullOrEmpty(passwordBox.Password))
                 {
                     MessageBox.Show("Salasana poistettu.");
                 }

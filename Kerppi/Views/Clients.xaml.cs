@@ -63,12 +63,12 @@ namespace Kerppi.Views
                 if (be != null) be.UpdateSource();
             }
 
-            if (String.IsNullOrEmpty(((ViewModels.Clients)DataContext).CurrentClient.IdCode))
+            if (string.IsNullOrEmpty(((ViewModels.Clients)DataContext).CurrentClient.IdCode))
             {
                 MessageBox.Show("Tunniste ei voi olla tyhjä.", "Puuttuvia tietoja", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
-            if (String.IsNullOrEmpty(((ViewModels.Clients)DataContext).CurrentClient.Name))
+            if (string.IsNullOrEmpty(((ViewModels.Clients)DataContext).CurrentClient.Name))
             {
                 MessageBox.Show("Nimi ei voi olla tyhjä.", "Puuttuvia tietoja", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
