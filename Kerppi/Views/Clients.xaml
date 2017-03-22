@@ -19,6 +19,7 @@
             <Button Content="-" Tag="{Binding}" Click="RemoveButton_Click"/>
         </DataTemplate>
         <vms:BooleanStringConverter x:Key="booleanStringConverter"/>
+        <vms:SingleLineStringConverter x:Key="singleLineStringConverter"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -119,7 +120,7 @@
                     <DataGridTextColumn Header="Tunniste" Binding="{Binding Path=IdCode,Mode=OneWay}"/>
                     <DataGridTextColumn Header="Nimi" Width="*" Binding="{Binding Path=Name,Mode=OneWay}"/>
                     <DataGridTextColumn Header="Yhteystieto" Binding="{Binding Path=ContactInfo,Mode=OneWay}"/>
-                    <DataGridTextColumn Header="Lisätieto" Binding="{Binding Path=Information,Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Lisätieto" Binding="{Binding Path=Information,Mode=OneWay,Converter={StaticResource singleLineStringConverter},ConverterParameter='60'}"/>
                     <DataGridTextColumn Header="Lähiosoite" Binding="{Binding Path=PostalAddress,Mode=OneWay}"/>
                     <DataGridTextColumn Header="Postinumero ja -toimipaikka" Binding="{Binding Path=PostalCode,Mode=OneWay}"/>
                     <DataGridTextColumn Header="Aktiivinen" Binding="{Binding Path=Active,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>

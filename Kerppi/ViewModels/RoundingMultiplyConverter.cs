@@ -16,7 +16,7 @@ namespace Kerppi.ViewModels
         {
             try
             {
-                return Decimal.Round((System.Convert.ToDecimal(values[0]) * System.Convert.ToDecimal(values[1])), 0, MidpointRounding.AwayFromZero).ToString();
+                return decimal.Round((System.Convert.ToDecimal(values[0]) * System.Convert.ToDecimal(values[1])), 0, MidpointRounding.AwayFromZero).ToString();
             }
             catch
             {
