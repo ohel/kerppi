@@ -26,10 +26,11 @@
         <Setter Property="Foreground" Value="Black"/>
     </Style>
 
-    <Style TargetType="{x:Type DataGridCell}" x:Key="RightAlignedDataGridCell">
+    <!-- NB: For some reason, setting a data grid cell template does not print when using FixedDocument (on Windows 10): nothing is rendered.
+         Use DataGridTemplateColumn + CellTemplate + DataTemplate + TextBlock instead and bind to the Text property. -->
+    <!--<Style TargetType="{x:Type DataGridCell}" x:Key="RightAlignedDataGridCell">
         <Setter Property="Foreground" Value="Black"/>
-        <!-- TODO: Setting a data grid cell template does not work when using FixedDocument for some reason. Nothing is rendered. -->
-        <!--<Setter Property="Template">
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridCell}">
                     <Border Background="{TemplateBinding Background}">
@@ -37,8 +38,8 @@
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>-->
-    </Style>
+        </Setter>
+    </Style>-->
 
     <Style TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Foreground" Value="Black"/>
