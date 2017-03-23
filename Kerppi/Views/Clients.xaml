@@ -109,7 +109,12 @@
                                 <Label>_Tallenna</Label>
                             </StackPanel>
                         </Button>
-                        <Button Grid.Column="1" Content="T_yhjennä" Padding="10,5" Click="ResetButton_Click"/>
+                        <Button Grid.Column="1" Padding="10,5" Click="ResetButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Icons/close.png"/>
+                                <Label>T_yhjennä</Label>
+                            </StackPanel>
+                        </Button>
                     </Grid>
                 </StackPanel>
             </Grid>

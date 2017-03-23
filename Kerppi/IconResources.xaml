@@ -218,5 +218,29 @@
         </Viewbox>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="IconMenu">
+        <Viewbox>
+            <Canvas Width="11" Height="11">
+                <Path Stroke="Black" StrokeDashCap="Round" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Margin="1">
+                    <Path.Data>
+                        <PathGeometry Figures="m 0 1 l 9 0 m -9 3 l 9 0 m -9 3 l 9 0"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Viewbox>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="IconSwitch">
+        <Viewbox>
+            <Canvas Width="10" Height="10">
+                <Path Stroke="Black" StrokeEndLineCap="Round" Margin="1">
+                    <Path.Data>
+                        <PathGeometry Figures="m 2 3 l 6 0 m -2 -2 l 2 2 m -2 2 l 2 -2 m 0 3 l -6 0 m 2 -2 l -2 2 m 2 2 l -2 -2"/>
+                    </Path.Data>
+                </Path>
+            </Canvas>
+        </Viewbox>
+    </ControlTemplate>
+
 </ResourceDictionary>
     
