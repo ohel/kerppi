@@ -28,15 +28,16 @@
 
     <Style TargetType="{x:Type DataGridCell}" x:Key="RightAlignedDataGridCell">
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Template">
+        <!-- TODO: Setting a data grid cell template does not work when using FixedDocument for some reason. Nothing is rendered. -->
+        <!--<Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridCell}">
-                    <Grid Background="{TemplateBinding Background}">
+                    <Border Background="{TemplateBinding Background}">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>
+        </Setter>-->
     </Style>
 
     <Style TargetType="{x:Type DataGridColumnHeader}">
