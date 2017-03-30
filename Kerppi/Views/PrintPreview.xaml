@@ -29,7 +29,7 @@
     </Window.Resources>
 
     <StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" x:Name="TopPanel">
             <Border Width="{Binding ElementName=borderTitle,Path=ActualWidth}"/>
             <Border BorderThickness="1" BorderBrush="Gray">
                 <StackPanel Orientation="Horizontal" Background="WhiteSmoke">

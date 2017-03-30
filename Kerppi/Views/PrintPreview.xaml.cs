@@ -85,9 +85,17 @@ namespace Kerppi.Views
             }
         }
 
+        private void FitToScreen()
+        {
+            var height = SystemParameters.PrimaryScreenHeight - TopPanel.ActualHeight;
+            Zoom.Minimum = Math.Min(Zoom.Minimum, height * framePrintableArea.Width / framePrintableArea.Height);
+            Zoom.Value = Zoom.Minimum;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Dispatcher.BeginInvoke(new Action(() => ((A4Print)DataContext).CheckIfTwoPagesNecessary()), DispatcherPriority.ContextIdle, null);
+            Dispatcher.BeginInvoke(new Action(() => FitToScreen()), DispatcherPriority.ContextIdle, null);
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
