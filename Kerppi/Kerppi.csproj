@@ -108,6 +108,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AttributeHelper.cs" />
+    <Compile Include="DataModel\SKUCollection.cs" />
+    <Compile Include="DataModel\SKUCollectionLink.cs" />
     <Compile Include="DataModel\StringConstant.cs" />
     <Compile Include="DataModel\Task.cs" />
     <Compile Include="DataModel\DBWritable.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="ViewModels\DateConverter.cs" />
     <Compile Include="ViewModels\RoundingMultiplyConverter.cs" />
     <Compile Include="ViewModels\SingleLineStringConverter.cs" />
+    <Compile Include="ViewModels\SKUCollections.cs" />
     <Compile Include="ViewModels\StringConstants.cs" />
     <Compile Include="ViewModels\SerializableRow.cs" />
     <Compile Include="DataModel\Contact.cs" />
@@ -157,6 +160,9 @@
     <Compile Include="Views\Password.xaml.cs">
       <DependentUpon>Password.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SKUCollections.xaml.cs">
+      <DependentUpon>SKUCollections.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StringConstants.xaml.cs">
       <DependentUpon>StringConstants.xaml</DependentUpon>
     </Compile>
@@ -187,6 +193,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MiscSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SKUCollections.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

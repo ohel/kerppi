@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015, 2017 Olli Helin / GainIT
+    Copyright 2015, 2017, 2018 Olli Helin / GainIT
     This file is part of Kerppi, a free software released under the terms of the
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
@@ -36,7 +36,7 @@ namespace Kerppi.DataModel
             return Code + ": " + Description;
         }
 
-        public override List<ViewModels.SerializableRow> PrintSerializable()
+        public override List<ViewModels.SerializableRow> PrintSerializable(bool onlyChildren = false)
         {
             var list = new List<ViewModels.SerializableRow>();
             list.Add(new ViewModels.SerializableRow(
@@ -100,12 +100,18 @@ namespace Kerppi.DataModel
                 using (var c = DBHandler.Connection())
                 {
                     c.Open();
-                    c.Delete(this);
+                    using (var tr = c.BeginTransaction())
+                    {
+                        c.Delete(this, tr);
+                        SKUCollectionLink.Delete(c, tr, null, Id);
+                        tr.Commit();
+                    }
                 }
             }
             else
             {
                 conn.Delete(this, t);
+                SKUCollectionLink.Delete(conn, t, null, Id);
             }
         }
 

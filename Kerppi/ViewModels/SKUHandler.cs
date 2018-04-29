@@ -33,10 +33,16 @@ namespace Kerppi.ViewModels
         }
 
         private ObservableCollection<DataModel.SKU> _SKUList = new ObservableCollection<DataModel.SKU>();
+        private ObservableCollection<DataModel.SKUCollection> _SKUCollectionList = new ObservableCollection<DataModel.SKUCollection>();
         private ObservableCollection<DataModel.InvoiceRow> _invoiceables = new ObservableCollection<DataModel.InvoiceRow>();
         public ObservableCollection<DataModel.SKU> SKUList { get { return _SKUList; } set {
             _SKUList = value;
             NotifyPropertyChanged(() => SKUList);
+            RefreshInvoiceables();
+        } }
+        public ObservableCollection<DataModel.SKUCollection> SKUCollectionList { get { return _SKUCollectionList; } set {
+            _SKUCollectionList = value;
+            NotifyPropertyChanged(() => SKUCollectionList);
             RefreshInvoiceables();
         } }
         public ObservableCollection<DataModel.InvoiceRow> Invoiceables { get { return _invoiceables; } private set { _invoiceables = value; NotifyPropertyChanged(() => Invoiceables); } }
@@ -46,12 +52,14 @@ namespace Kerppi.ViewModels
             if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
             {
                 ReloadSKUs();
+                ReloadSKUCollections();
             }
         }
 
         private void RefreshInvoiceables()
         {
             List<DataModel.InvoiceRow> i = new List<DataModel.InvoiceRow>(_SKUList);
+            i.AddRange(_SKUCollectionList);
             Invoiceables = new ObservableCollection<DataModel.InvoiceRow>(i);
         }
 
@@ -60,11 +68,22 @@ namespace Kerppi.ViewModels
             SKUList = new ObservableCollection<DataModel.SKU>(DataModel.SKU.LoadAll());
         }
 
+        public void ReloadSKUCollections()
+        {
+            SKUCollectionList = new ObservableCollection<DataModel.SKUCollection>(DataModel.SKUCollection.LoadAll());
+        }
+
         public void RemoveSKU(DataModel.SKU sku)
         {
             sku.Delete();
             SKUList.Remove(SKUList.First(s => s.Id == sku.Id));
+            foreach (var c in SKUCollectionList)
+            {
+                var match = c.SKUs.FirstOrDefault(s => s.Id == sku.Id);
+                if (match != null) c.SKUs.Remove(match);
+            }
             NotifyPropertyChanged(() => SKUList);
+            NotifyPropertyChanged(() => SKUCollectionList);
         }
 
         public void Export(string filename)
