@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015, 2017 Olli Helin / GainIT
+    Copyright 2015, 2017, 2018 Olli Helin / GainIT
     This file is part of Kerppi, a free software released under the terms of the
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
@@ -17,9 +17,11 @@ namespace Kerppi.ViewModels
         private DataModel.Client _currentClient = new DataModel.Client();
         private ObservableCollection<DataModel.Client> _clientList = new ObservableCollection<DataModel.Client>();
         private ObservableCollection<DataModel.Contact> _payerList = new ObservableCollection<DataModel.Contact>();
+        private bool _saveAsNew;
         public DataModel.Client CurrentClient { get { return _currentClient; } set { _currentClient = value; NotifyPropertyChanged(() => CurrentClient); } }
         public ObservableCollection<DataModel.Client> ClientList { get { return _clientList; } set { _clientList = value; NotifyPropertyChanged(() => ClientList); } }
         public ObservableCollection<DataModel.Contact> PayerList { get { return _payerList; } set { _payerList = value; NotifyPropertyChanged(() => PayerList); } }
+        public bool SaveAsNew { get { return _saveAsNew; } set { _saveAsNew = value; NotifyPropertyChanged(() => SaveAsNew); } }
 
         public Clients()
         {
@@ -27,6 +29,7 @@ namespace Kerppi.ViewModels
             {
                 ClientList = new ObservableCollection<DataModel.Client>(DataModel.Client.LoadAll());
                 CurrentClient = new DataModel.Client();
+                SaveAsNew = true;
                 Refresh();
             }
         }
@@ -38,11 +41,20 @@ namespace Kerppi.ViewModels
 
         public void SaveCurrentClient()
         {
-            DataModel.Client match = ClientList.FirstOrDefault(Client => Client.IdCode == CurrentClient.IdCode);
-            // The user is (visually) updating based on client id code, not database id.
-            CurrentClient.Id = match != null ? match.Id : null;
+            DataModel.Client matchByCode = ClientList.FirstOrDefault(client => client.IdCode == CurrentClient.IdCode);
+
+            // An IdCode collision occurred and it's not the same client.
+            if (matchByCode != null && matchByCode.Id != CurrentClient.Id)
+            {
+                throw new Exception($"Asiakas tunnisteella {CurrentClient.IdCode} on jo olemassa.");
+            }
+            if (SaveAsNew && matchByCode == null) CurrentClient.Id = null;
+
             CurrentClient.Save();
             ClientList = new ObservableCollection<DataModel.Client>(DataModel.Client.LoadAll());
+
+            // If the user changes the IdCode and saves the client as new, this updates the Id to the view model.
+            CurrentClient = ClientList.First(client => client.IdCode == CurrentClient.IdCode).Copy();
         }
 
         public void RemoveClient(DataModel.Client client)
