@@ -108,6 +108,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AttributeHelper.cs" />
+    <Compile Include="DataModel\DataSubjectData.cs" />
     <Compile Include="DataModel\SKUCollection.cs" />
     <Compile Include="DataModel\SKUCollectionLink.cs" />
     <Compile Include="DataModel\StringConstant.cs" />
@@ -151,6 +152,9 @@
     <Compile Include="Views\Clients.xaml.cs">
       <DependentUpon>Clients.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PrintClientData.xaml.cs">
+      <DependentUpon>PrintClientData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NewPassword.xaml.cs">
       <DependentUpon>NewPassword.xaml</DependentUpon>
     </Compile>
@@ -187,6 +191,10 @@
     <Page Include="PrintableControls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrintClientData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\NewPassword.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -255,6 +263,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="KerppiDataSubject.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

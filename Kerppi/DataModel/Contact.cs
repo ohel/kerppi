@@ -12,7 +12,7 @@ using System.Data;
 namespace Kerppi.DataModel
 {
     [Table("contacts")]
-    class Contact : DBTableCreator, DBWritable, Copyable<Contact>
+    public class Contact : DBTableCreator, DBWritable, Copyable<Contact>
     {
         [Key]
         public long? Id { get; set; }
@@ -45,13 +45,15 @@ namespace Kerppi.DataModel
 
         public Contact Copy()
         {
-            var copy = new Contact();
-            copy.Id = Id;
-            copy.Name = Name;
-            copy.PostalAddress = PostalAddress;
-            copy.PostalCode = PostalCode;
-            copy.DefaultInfo = DefaultInfo;
-            copy.AdditionalInfo = AdditionalInfo;
+            var copy = new Contact
+            {
+                Id = Id,
+                Name = Name,
+                PostalAddress = PostalAddress,
+                PostalCode = PostalCode,
+                DefaultInfo = DefaultInfo,
+                AdditionalInfo = AdditionalInfo
+            };
             return copy;
         }
 

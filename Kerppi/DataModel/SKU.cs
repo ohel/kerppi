@@ -60,13 +60,15 @@ namespace Kerppi.DataModel
 
         public SKU Copy()
         {
-            var copy = new SKU();
-            copy.Id = Id;
-            copy.Code = Code;
-            copy.Description = Description;
-            copy.BuyPrice = BuyPrice;
-            copy.SellPriceFactor = SellPriceFactor;
-            copy.Timestamp = Timestamp;
+            var copy = new SKU
+            {
+                Id = Id,
+                Code = Code,
+                Description = Description,
+                BuyPrice = BuyPrice,
+                SellPriceFactor = SellPriceFactor,
+                Timestamp = Timestamp
+            };
             return copy;
         }
 
@@ -120,7 +122,7 @@ namespace Kerppi.DataModel
             using (var conn = DBHandler.Connection())
             {
                 conn.Open();
-                return conn.GetList<SKU>(new { });
+                return conn.GetList<SKU>();
             }
         }
 

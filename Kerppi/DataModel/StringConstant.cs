@@ -35,10 +35,12 @@ namespace Kerppi.DataModel
 
         public StringConstant Copy()
         {
-            var copy = new StringConstant();
-            copy.Id = Id;
-            copy.Text = Text;
-            copy.Footer = Footer;
+            var copy = new StringConstant
+            {
+                Id = Id,
+                Text = Text,
+                Footer = Footer
+            };
             return copy;
         }
 

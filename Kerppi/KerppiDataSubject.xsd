@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.gainit.fi/KerppiDataSubject" xmlns="https://www.gainit.fi/KerppiDataSubject">
+
+    <xsd:complexType name="AddressType">
+        <xsd:sequence>
+
+            <xsd:element name="PostalAddress" type="xsd:string" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Lähiosoite.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="PostalCode" type="xsd:string" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Postinumero ja -toimipaikka.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TaskDataType">
+        <xsd:sequence>
+
+            <xsd:element name="TaskDescription" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation><xsd:documentation>Asiakkaaseen liittyvän työn tiedot vapaamuotoisena tekstinä.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PersonType">
+        <xsd:sequence>
+
+            <xsd:element name="Name" type="xsd:string" minOccurs="1">
+                <xsd:annotation><xsd:documentation>Nimi.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="ContactInfo" type="xsd:string" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Yhteystieto, esimerkiksi sähköpostiosoite tai puhelinnumero.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="AddressInfo" type="AddressType" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Osoitetiedot.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="IdCode" type="xsd:string" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Järjestelmässä asiakkaasta käytetty uniikki tunniste, esimerkiksi henkilötunnus tai syntymäaika ja merkkijono.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="Information" type="xsd:string" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Vapaamuotoinen lisätieto asiakkaasta.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="ContactPersonName" type="xsd:string" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Asiakkaan yhteyshenkilön nimi, jos kyseessä on asiakas.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="ClientName" type="xsd:string" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Yhteyshenkilön asiakkaan nimi, jos kyseessä on yhteyshenkilö.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="TaskData" type="TaskDataType" minOccurs="0">
+                <xsd:annotation><xsd:documentation>Asiakkaaseen liittyvät työt.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="KerppiDataSubject">
+        <xsd:sequence>
+
+            <xsd:element name="Person" type="PersonType">
+                <xsd:annotation><xsd:documentation>Rekisteritietojen kohdehenkilö.</xsd:documentation></xsd:annotation>
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="KerppiDataSubject"/>
+
+</xsd:schema>

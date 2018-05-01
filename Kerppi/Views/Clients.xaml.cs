@@ -114,5 +114,34 @@ namespace Kerppi.Views
                 c.Text = c.Tag.ToString();
             }
         }
+
+        private void ExtraFunctions_Click(object sender, RoutedEventArgs e)
+        {
+            menuItemExtraFunctions.IsSubmenuOpen = true;
+            ((MenuItem)menuItemExtraFunctions.Items.GetItemAt(0)).Focus();
+        }
+
+        private void PrintClientData(object sender, RoutedEventArgs e)
+        {
+            PrintDataSubjectData();
+        }
+
+        private void PrintContactPersonData(object sender, RoutedEventArgs e)
+        {
+            PrintDataSubjectData(true);
+        }
+
+        private void PrintDataSubjectData(bool contactPersonDataOnly = false)
+        {
+            long? id = ((ViewModels.Clients)DataContext).CurrentClient.Id;
+            if (id == null)
+            {
+                MessageBox.Show("Asiakasta ei ole valittu.", "Ei asiakasta", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            string data = DataModel.Client.PrintClientData((long)id, contactPersonDataOnly);
+            var printView = new PrintClientData(data);
+            printView.Show();
+        }
     }
 }

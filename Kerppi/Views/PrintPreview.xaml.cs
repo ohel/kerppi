@@ -40,9 +40,11 @@ namespace Kerppi.Views
 
         private PageContent CreateNewPage(UIElement uie, Size printAreaSize)
         {
-            var fixedPage = new FixedPage();
-            fixedPage.Width = printAreaSize.Width;
-            fixedPage.Height = printAreaSize.Height;
+            var fixedPage = new FixedPage
+            {
+                Width = printAreaSize.Width,
+                Height = printAreaSize.Height
+            };
             fixedPage.Children.Add(uie);
             fixedPage.Measure(printAreaSize);
             fixedPage.Arrange(new Rect(new Point(), printAreaSize));
@@ -118,8 +120,10 @@ namespace Kerppi.Views
             button.ContextMenu = new ContextMenu();
             foreach (var footer in ((A4Print)DataContext).AvailableFooters)
             {
-                var mi = new MenuItem();
-                mi.Header = footer;
+                var mi = new MenuItem
+                {
+                    Header = footer
+                };
                 mi.Click += FooterSelected;
                 button.ContextMenu.Items.Add(mi);
             }

@@ -58,11 +58,13 @@ namespace Kerppi.DataModel
 
         public SKUCollection Copy()
         {
-            var copy = new SKUCollection();
-            copy.Id = Id;
-            copy.Code = Code;
-            copy.Description = Description;
-            copy.SKUs = SKUs.Select(sku => sku.Copy()).ToList();
+            var copy = new SKUCollection
+            {
+                Id = Id,
+                Code = Code,
+                Description = Description,
+                SKUs = SKUs.Select(sku => sku.Copy()).ToList()
+            };
             return copy;
         }
 

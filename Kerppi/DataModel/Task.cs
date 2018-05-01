@@ -8,6 +8,7 @@ using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Kerppi.DataModel
 {
@@ -21,7 +22,7 @@ namespace Kerppi.DataModel
         public Client Client { get; set; }
         public long? UnixTimeCreated { get; set; }
         [Editable(false)]
-        public DateTime? TimestampCreated { get { return UnixTime.ToDateTime(UnixTimeCreated); } set { UnixTimeCreated = UnixTime.FromDateTime((DateTime?)value); } }
+        public DateTime? TimestampCreated { get { return UnixTime.ToDateTime(UnixTimeCreated); } set { UnixTimeCreated = UnixTime.FromDateTime(value); } }
         /// <summary>
         /// Serialized invoice data.
         /// </summary>
@@ -32,11 +33,11 @@ namespace Kerppi.DataModel
         public long? UnixTimeDelivered { get; set; }
         public long? UnixTimeFinished { get; set; }
         [Editable(false)]
-        public DateTime? TimestampInvoiced { get { return UnixTime.ToDateTime(UnixTimeInvoiced); } set { UnixTimeInvoiced = UnixTime.FromDateTime((DateTime?)value); } }
+        public DateTime? TimestampInvoiced { get { return UnixTime.ToDateTime(UnixTimeInvoiced); } set { UnixTimeInvoiced = UnixTime.FromDateTime(value); } }
         [Editable(false)]
-        public DateTime? TimestampDelivered { get { return UnixTime.ToDateTime(UnixTimeDelivered); } set { UnixTimeDelivered = UnixTime.FromDateTime((DateTime?)value); } }
+        public DateTime? TimestampDelivered { get { return UnixTime.ToDateTime(UnixTimeDelivered); } set { UnixTimeDelivered = UnixTime.FromDateTime(value); } }
         [Editable(false)]
-        public DateTime? TimestampFinished { get { return UnixTime.ToDateTime(UnixTimeFinished); } set { UnixTimeFinished = UnixTime.FromDateTime((DateTime?)value); } }
+        public DateTime? TimestampFinished { get { return UnixTime.ToDateTime(UnixTimeFinished); } set { UnixTimeFinished = UnixTime.FromDateTime(value); } }
         public string InvoiceNumber { get; set; }
         #endregion
 
@@ -60,16 +61,18 @@ namespace Kerppi.DataModel
 
         public Task Copy()
         {
-            var copy = new Task();
-            copy.Id = Id;
-            copy.ClientId = ClientId;
-            copy.Invoice = Invoice;
-            copy.InvoiceNumber = InvoiceNumber;
-            copy.TimestampCreated = TimestampCreated;
-            copy.TimestampInvoiced = TimestampInvoiced;
-            copy.TimestampDelivered = TimestampDelivered;
-            copy.TimestampFinished = TimestampFinished;
-            copy.Client = Client.Copy();
+            var copy = new Task
+            {
+                Id = Id,
+                ClientId = ClientId,
+                Invoice = Invoice,
+                InvoiceNumber = InvoiceNumber,
+                TimestampCreated = TimestampCreated,
+                TimestampInvoiced = TimestampInvoiced,
+                TimestampDelivered = TimestampDelivered,
+                TimestampFinished = TimestampFinished,
+                Client = Client.Copy()
+            };
             return copy;
         }
 
@@ -125,6 +128,17 @@ namespace Kerppi.DataModel
         public static IEnumerable<Task> LoadAllFor(Client client)
         {
             return LoadAllWhereClientId(client.Id ?? 0);
+        }
+
+        /// <summary>
+        /// Prints all relevant information the client has provided about themselves.
+        /// This is to comply with General Data Protection Regulation.
+        /// </summary>
+        public static string[] GetPrintableTaskDataFor(Client client)
+        {
+            var tasks = LoadAllFor(client);
+
+            return tasks.Select(t => t.TimestampCreated.ToString()).ToArray();
         }
 
         private static IEnumerable<Task> LoadAllWhereClientId(long id = 0)

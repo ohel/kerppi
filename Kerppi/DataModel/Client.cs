@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015, 2017 Olli Helin / GainIT
+    Copyright 2015, 2017, 2018 Olli Helin / GainIT
     This file is part of Kerppi, a free software released under the terms of the
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
@@ -12,12 +12,12 @@ using System.Data;
 namespace Kerppi.DataModel
 {
     [Table("clients")]
-    class Client : DBTableCreator, DBWritable, Copyable<Client>
+    public class Client : DBTableCreator, DBWritable, Copyable<Client>
     {
         [Key]
         public long? Id { get; set; }
         /// <summary>
-        /// Social security number, unique birthday date or something.
+        /// Social security number, birthday date with postfix or something else unique to distinguish different clients.
         /// </summary>
         public string IdCode { get; set; }
         /// <summary>
@@ -45,7 +45,7 @@ namespace Kerppi.DataModel
         public long? DefaultPayerContactId { get; set; }
         private Contact _defaultPayer = null;
         [Editable(false)]
-        public Contact DefaultPayer { get { return _defaultPayer; } set { _defaultPayer = value; DefaultPayerContactId = ((Contact)value)?.Id ?? null; } }
+        public Contact DefaultPayer { get { return _defaultPayer; } set { _defaultPayer = value; DefaultPayerContactId = (value)?.Id ?? null; } }
         public string ContactPersonName { get; set; }
         public string ContactPersonPostalAddress { get; set; }
         public string ContactPersonPostalCode { get; set; }
@@ -76,22 +76,24 @@ namespace Kerppi.DataModel
 
         public Client Copy()
         {
-            var copy = new Client();
-            copy.Id = Id;
-            copy.IdCode = IdCode;
-            copy.Active = Active;
-            copy.Certificate = Certificate;
-            copy.Name = Name;
-            copy.PostalAddress = PostalAddress;
-            copy.PostalCode = PostalCode;
-            copy.ContactInfo = ContactInfo;
-            copy.Information = Information;
-            copy.DefaultPayerContactId = DefaultPayerContactId;
-            copy.DefaultPayer = DefaultPayer?.Copy();
-            copy.ContactPersonName = ContactPersonName;
-            copy.ContactPersonPostalAddress = ContactPersonPostalAddress;
-            copy.ContactPersonPostalCode = ContactPersonPostalCode;
-            copy.ContactPersonContactInfo = ContactPersonContactInfo;
+            var copy = new Client
+            {
+                Id = Id,
+                IdCode = IdCode,
+                Active = Active,
+                Certificate = Certificate,
+                Name = Name,
+                PostalAddress = PostalAddress,
+                PostalCode = PostalCode,
+                ContactInfo = ContactInfo,
+                Information = Information,
+                DefaultPayerContactId = DefaultPayerContactId,
+                DefaultPayer = DefaultPayer?.Copy(),
+                ContactPersonName = ContactPersonName,
+                ContactPersonPostalAddress = ContactPersonPostalAddress,
+                ContactPersonPostalCode = ContactPersonPostalCode,
+                ContactPersonContactInfo = ContactPersonContactInfo
+            };
             return copy;
         }
 
@@ -176,6 +178,19 @@ namespace Kerppi.DataModel
                 conn.Open();
                 return conn.GetList<Client>(new { Id = id }).Count() > 0;
             }
+        }
+
+        public static string PrintClientData(long id, bool contactPersonDataOnly = false)
+        {
+            Client client = null;
+            string[] taskData = null;
+            using (var conn = DBHandler.Connection())
+            {
+                conn.Open();
+                client = conn.GetList<Client>(new { Id = id }).FirstOrDefault();
+            }
+            if (!contactPersonDataOnly) taskData = Task.GetPrintableTaskDataFor(client);
+            return new DataSubjectData(client, taskData, contactPersonDataOnly).PrintData();
         }
 
         public static void CreateDBTables(IDbConnection conn, IDbTransaction t)
