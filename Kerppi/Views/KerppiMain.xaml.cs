@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Kerppi.Views
 {
@@ -96,6 +97,12 @@ namespace Kerppi.Views
         private void SetPrintMargin(object sender, RoutedEventArgs e)
         {
             (new MiscSetting("PrintMargin", "Tulosteiden marginaali:")).Show();
+        }
+
+        private void ComboBoxColorTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Brush theme = (((ComboBox)sender)?.SelectedItem as ComboBoxItem)?.Background;
+            tabControlMain.Background = theme;
         }
     }
 }

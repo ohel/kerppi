@@ -81,5 +81,18 @@
         <TabItem Header="Nimikkeet">
             <vs:SKUs/>
         </TabItem>
+        <TabItem IsEnabled="False" Visibility="Hidden" Width="20"/>
+        <TabItem Focusable="False" Background="{x:Null}">
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0">Väriteema:</TextBlock>
+                    <ComboBox Text="Väriteema" SelectionChanged="ComboBoxColorTheme_SelectionChanged">
+                        <ComboBoxItem IsSelected="True">Oletus</ComboBoxItem>
+                        <ComboBoxItem Background="LightGray">Tumma</ComboBoxItem>
+                        <ComboBoxItem Background="Wheat">Syksy</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </TabItem.Header>
+        </TabItem>
     </TabControl>
 </Window>
