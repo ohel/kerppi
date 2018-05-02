@@ -73,6 +73,8 @@ namespace Kerppi.DataModel
             xmldoc.LoadXml(xml);
             xmldoc.DocumentElement.RemoveAllAttributes();
 
+            /* This monster is here because for some reason it seemed almost
+               impossible to just add a namespace prefix to a root element. */
             var document = new XDocument();
             XNamespace xsdns = "http://www.w3.org/2001/XMLSchema";
             XNamespace xsins = "http://www.w3.org/2001/XMLSchema-instance";
