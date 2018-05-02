@@ -1,9 +1,18 @@
-﻿using System.Xml;
+﻿/*
+    Copyright 2018 Olli Helin / GainIT
+    This file is part of Kerppi, a free software released under the terms of the
+    GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace Kerppi.DataModel
 {
+    /// <summary>
+    /// This helper class is a data gatherer to comply with the General Data Protection Regulation.
+    /// </summary>
     public class DataSubjectData
     {
         public class Address
