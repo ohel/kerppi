@@ -5,7 +5,6 @@
 */
 
 using System.Xml;
-using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace Kerppi.DataModel
@@ -21,7 +20,7 @@ namespace Kerppi.DataModel
             public string PostalCode { get; set; }
         }
 
-        public class Person
+        public class KerppiPerson
         {
             public string Name { get; set; }
             public string ContactInfo { get; set; }
@@ -34,18 +33,24 @@ namespace Kerppi.DataModel
             public string[] TaskData { get; set; }
         }
 
-        public Person DataSubject { get; set; }
+        public class KerppiDataSubject
+        {
+            public KerppiPerson Person { get; set; }
+        }
+
+        public KerppiDataSubject DataSubject { get; set; }
 
         public DataSubjectData()
         {
-            DataSubject = new Person();
+            DataSubject = new KerppiDataSubject();
         }
 
         public DataSubjectData(Client client, string[] taskData = null, bool contactPersonDataOnly = false)
         {
+            DataSubject = new KerppiDataSubject();
             if (contactPersonDataOnly)
             {
-                DataSubject = new Person
+                DataSubject.Person = new KerppiPerson
                 {
                     Name = client.ContactPersonName,
                     ContactInfo = client.ContactPersonContactInfo,
@@ -59,7 +64,7 @@ namespace Kerppi.DataModel
                 return;
             }
 
-            DataSubject = new Person
+            DataSubject.Person = new KerppiPerson
             {
                 Name = client.Name,
                 ContactInfo = client.ContactInfo,
@@ -80,22 +85,7 @@ namespace Kerppi.DataModel
             string xml = StringSerializer.ToString(DataSubject);
             var xmldoc = new XmlDocument();
             xmldoc.LoadXml(xml);
-            xmldoc.DocumentElement.RemoveAllAttributes();
-
-            /* This monster is here because for some reason it seemed almost
-               impossible to just add a namespace prefix to a root element. */
-            var document = new XDocument();
-            XNamespace xsdns = "http://www.w3.org/2001/XMLSchema";
-            XNamespace xsins = "http://www.w3.org/2001/XMLSchema-instance";
-            XNamespace kns = "https://www.gainit.fi/KerppiDataSubject";
-            var element = new XElement(kns + "KerppiDataSubject",
-                new XAttribute(XNamespace.Xmlns + "xsd", xsdns),
-                new XAttribute(XNamespace.Xmlns + "xsi", xsins),
-                new XAttribute(XNamespace.Xmlns + "k", kns),
-                XElement.Load(new XmlNodeReader(xmldoc)));
-            document.Add(element);
-
-            xmldoc.LoadXml(document.ToString());
+            xmldoc.DocumentElement.SetAttribute("xmlns", "GainIT-KerppiDataSubject");
             var sw = new Utf8StringWriter();
             xmldoc.Save(sw);
             return sw.ToString();
