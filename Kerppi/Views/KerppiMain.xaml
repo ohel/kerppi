@@ -88,6 +88,7 @@
                     <TextBlock Margin="0,0,10,0">Väriteema:</TextBlock>
                     <ComboBox Text="Väriteema" SelectionChanged="ComboBoxColorTheme_SelectionChanged">
                         <ComboBoxItem IsSelected="True">Oletus</ComboBoxItem>
+                        <ComboBoxItem Background="AntiqueWhite">Antiikki</ComboBoxItem>
                         <ComboBoxItem Background="LightGray">Tumma</ComboBoxItem>
                         <ComboBoxItem Background="Wheat">Syksy</ComboBoxItem>
                     </ComboBox>
