@@ -50,6 +50,16 @@ namespace Kerppi.DataModel
         public string ContactPersonPostalAddress { get; set; }
         public string ContactPersonPostalCode { get; set; }
         public string ContactPersonContactInfo { get; set; }
+        /// <summary>
+        /// Has the client consented to using their contact information.
+        /// Corresponds to Name, PostalAddress, PostalCode and ContactInfo.
+        /// </summary>
+        public bool? ConsentContactInfo { get; set; }
+        /// <summary>
+        /// Has the client consented to using their identification information.
+        /// Corresponds to IdCode.
+        /// </summary>
+        public bool? ConsentIdInfo { get; set; }
 
         public override string ToString()
         {
@@ -72,6 +82,8 @@ namespace Kerppi.DataModel
             ContactPersonPostalAddress = null;
             ContactPersonPostalCode = null;
             ContactPersonContactInfo = null;
+            ConsentContactInfo = null;
+            ConsentIdInfo = null;
         }
 
         public Client Copy()
@@ -92,8 +104,10 @@ namespace Kerppi.DataModel
                 ContactPersonName = ContactPersonName,
                 ContactPersonPostalAddress = ContactPersonPostalAddress,
                 ContactPersonPostalCode = ContactPersonPostalCode,
-                ContactPersonContactInfo = ContactPersonContactInfo
-            };
+                ContactPersonContactInfo = ContactPersonContactInfo,
+                ConsentContactInfo =  ConsentContactInfo,
+                ConsentIdInfo = ConsentIdInfo
+        };
             return copy;
         }
 
@@ -211,6 +225,8 @@ namespace Kerppi.DataModel
                 ContactPersonPostalAddress TEXT,
                 ContactPersonPostalCode TEXT,
                 ContactPersonContactInfo TEXT,
+                ConsentContactInfo INTEGER DEFAULT NULL,
+                ConsentIdInfo INTEGER DEFAULT NULL,
                 FOREIGN KEY (DefaultPayerContactId) REFERENCES contacts
                 );";
             DBHandler.Execute(sql, conn, t);

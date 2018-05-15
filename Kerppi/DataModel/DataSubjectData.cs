@@ -31,11 +31,21 @@ namespace Kerppi.DataModel
             public string ClientName { get; set; }
             [XmlArrayItem("TaskDescription")]
             public string[] TaskData { get; set; }
+            public bool? ConsentContactInfo { get; set; }
+            public bool? ConsentIdInfo { get; set; }
         }
 
         public class KerppiDataSubject
         {
             public KerppiPerson Person { get; set; }
+
+            [XmlNamespaceDeclarations]
+            public XmlSerializerNamespaces xmlns = new XmlSerializerNamespaces();
+
+            public KerppiDataSubject()
+            {
+                xmlns.Add("", "GainIT-KerppiDataSubject");
+            }
         }
 
         public KerppiDataSubject DataSubject { get; set; }
@@ -76,7 +86,9 @@ namespace Kerppi.DataModel
                 IdCode = client.IdCode,
                 Information = client.Information,
                 ContactPersonName = client.ContactPersonName,
-                TaskData = taskData
+                TaskData = taskData,
+                ConsentContactInfo = client.ConsentContactInfo,
+                ConsentIdInfo = client.ConsentIdInfo
             };
         }
 
@@ -85,7 +97,6 @@ namespace Kerppi.DataModel
             string xml = StringSerializer.ToString(DataSubject);
             var xmldoc = new XmlDocument();
             xmldoc.LoadXml(xml);
-            xmldoc.DocumentElement.SetAttribute("xmlns", "GainIT-KerppiDataSubject");
             var sw = new Utf8StringWriter();
             xmldoc.Save(sw);
             return sw.ToString();

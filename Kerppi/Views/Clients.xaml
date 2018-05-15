@@ -54,7 +54,23 @@
                     <TextBlock Grid.Row="2" Text="Yhteystieto/puhelinnumero:"/>
                     <TextBlock Grid.Row="3" Text="Lähiosoite:"/>
                     <TextBlock Grid.Row="4" Text="Postinumero ja -toimipaikka:"/>
-                    <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Right">
+                    <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,10,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="10"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox Grid.Row="0" Grid.Column="0" Content="_Aktiivinen" IsChecked="{Binding Path=Active}"/>
+                            <CheckBox Grid.Row="1" Grid.Column="0" Content="_Käyntitodistus" IsChecked="{Binding Path=Certificate}"/>
+                            <CheckBox Grid.Row="0" Grid.Column="2" Content="_Suostumus: yhteystiedot" IsThreeState="True" IsChecked="{Binding Path=ConsentContactInfo}"/>
+                            <CheckBox Grid.Row="1" Grid.Column="2" Content="_Suostumus: tunnistetieto" IsThreeState="True" IsChecked="{Binding Path=ConsentIdInfo}"/>
+                        </Grid>
                         <Button Click="ExtraFunctions_Click">
                             <Menu BorderBrush="{x:Null}" Background="{x:Null}">
                                 <MenuItem x:Name="menuItemExtraFunctions" BorderBrush="{x:Null}" Background="{x:Null}" IsHitTestVisible="False" Header="_Lisätoiminnot ↓" Focusable="False">
@@ -71,8 +87,6 @@
                                 </MenuItem>
                             </Menu>
                         </Button>
-                        <CheckBox Content="_Aktiivinen" IsChecked="{Binding Path=Active}" Margin="10,0"/>
-                        <CheckBox Content="_Käyntitodistus" IsChecked="{Binding Path=Certificate}"/>
                     </StackPanel>
                     <TextBlock Grid.Row="6" Text="Lisätieto:"/>
                     <TextBox Grid.Row="7" Grid.ColumnSpan="3" Text="{Binding Path=Information}" AcceptsReturn="True" VerticalAlignment="Stretch"
@@ -151,6 +165,8 @@
                     <DataGridTextColumn Header="Lähiosoite" Binding="{Binding Path=PostalAddress,Mode=OneWay}"/>
                     <DataGridTextColumn Header="Postinumero ja -toimipaikka" Binding="{Binding Path=PostalCode,Mode=OneWay}"/>
                     <DataGridTextColumn Header="Oletusmaksaja" Binding="{Binding Path=DefaultPayer,Mode=OneWay,Converter={StaticResource singleLineStringConverter},ConverterParameter='20'}"/>
+                    <DataGridTextColumn Header="S: yhteystiedot" Binding="{Binding Path=ConsentContactInfo,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>
+                    <DataGridTextColumn Header="S: tunnistetieto" Binding="{Binding Path=ConsentIdInfo,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>
                     <DataGridTextColumn Header="Aktiivinen" Binding="{Binding Path=Active,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>
                     <DataGridTextColumn Header="Käyntitodistus" Binding="{Binding Path=Certificate,Mode=OneWay,Converter={StaticResource booleanStringConverter}}"/>
                     <DataGridTemplateColumn CellTemplate="{StaticResource RemoveButtonTemplate}"/>
