@@ -152,6 +152,9 @@
     <Compile Include="Views\Clients.xaml.cs">
       <DependentUpon>Clients.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListRestrictedClients.xaml.cs">
+      <DependentUpon>ListRestrictedClients.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PrintClientData.xaml.cs">
       <DependentUpon>PrintClientData.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
     <Page Include="PrintableControls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListRestrictedClients.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PrintClientData.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -60,6 +60,10 @@ namespace Kerppi.DataModel
         /// Corresponds to IdCode.
         /// </summary>
         public bool? ConsentIdInfo { get; set; }
+        /// <summary>
+        /// The restricted flag is for the GDPR article 18.
+        /// </summary>
+        public bool Restricted { get; set; }
 
         public override string ToString()
         {
@@ -84,6 +88,7 @@ namespace Kerppi.DataModel
             ContactPersonContactInfo = null;
             ConsentContactInfo = null;
             ConsentIdInfo = null;
+            Restricted = false;
         }
 
         public Client Copy()
@@ -106,7 +111,8 @@ namespace Kerppi.DataModel
                 ContactPersonPostalCode = ContactPersonPostalCode,
                 ContactPersonContactInfo = ContactPersonContactInfo,
                 ConsentContactInfo =  ConsentContactInfo,
-                ConsentIdInfo = ConsentIdInfo
+                ConsentIdInfo = ConsentIdInfo,
+                Restricted = Restricted
         };
             return copy;
         }
@@ -149,17 +155,51 @@ namespace Kerppi.DataModel
             }
         }
 
+        public void ToggleRestricted(IDbConnection conn = null, IDbTransaction t = null)
+        {
+            Restricted = !Restricted;
+            if (conn == null)
+            {
+                using (var c = DBHandler.Connection())
+                {
+                    c.Open();
+                    c.Update(this);
+                }
+            }
+            else
+            {
+                conn.Update(this, t);
+            }
+        }
+
         public static IEnumerable<Client> LoadAll()
         {
-            return LoadAllWhereOnlyActive();
+            return LoadAllConditionally(false);
         }
 
         public static IEnumerable<Client> LoadAllActive()
         {
-            return LoadAllWhereOnlyActive(true);
+            return LoadAllConditionally(true);
         }
 
-        private static IEnumerable<Client> LoadAllWhereOnlyActive(bool onlyActive = false)
+        public static IEnumerable<Client> LoadAllRestricted()
+        {
+            return LoadAllConditionally(false, true);
+        }
+
+        public static Client LoadWithId(long? id)
+        {
+            Client client = null;
+            using (var conn = DBHandler.Connection())
+            {
+                conn.Open();
+                client = conn.GetList<Client>(new { Id = id }).FirstOrDefault();
+            }
+
+            return client;
+        }
+
+        private static IEnumerable<Client> LoadAllConditionally(bool onlyActive, bool onlyRestricted = false)
         {
             using (var conn = DBHandler.Connection())
             {
@@ -167,7 +207,8 @@ namespace Kerppi.DataModel
                 var results = conn.Query<Client, Contact, Client>(@"
                     SELECT c.*, con.* FROM clients c
                     LEFT JOIN contacts con ON c.DefaultPayerContactId = con.Id" +
-                    (onlyActive ? " WHERE c.Active = 1;" : ";"),
+                    " WHERE c.Restricted = " + (onlyRestricted ? "1" : "0") +
+                    (onlyActive ? " AND c.Active = 1;" : ";"),
                     (c, con) => {
                         c.DefaultPayer = con;
                         return c;
@@ -187,22 +228,13 @@ namespace Kerppi.DataModel
 
         public static bool Exists(long? id)
         {
-            using (var conn = DBHandler.Connection())
-            {
-                conn.Open();
-                return conn.GetList<Client>(new { Id = id }).Count() > 0;
-            }
+            return LoadWithId(id) != null;
         }
 
         public static string PrintClientData(long id, bool contactPersonDataOnly = false)
         {
-            Client client = null;
             string[] taskData = null;
-            using (var conn = DBHandler.Connection())
-            {
-                conn.Open();
-                client = conn.GetList<Client>(new { Id = id }).FirstOrDefault();
-            }
+            Client client = LoadWithId(id);
             if (!contactPersonDataOnly) taskData = Task.GetPrintableTaskDataFor(client);
             return new DataSubjectData(client, taskData, contactPersonDataOnly).PrintData();
         }
@@ -227,6 +259,7 @@ namespace Kerppi.DataModel
                 ContactPersonContactInfo TEXT,
                 ConsentContactInfo INTEGER DEFAULT NULL,
                 ConsentIdInfo INTEGER DEFAULT NULL,
+                Restricted INTEGER NOT NULL DEFAULT 0,
                 FOREIGN KEY (DefaultPayerContactId) REFERENCES contacts
                 );";
             DBHandler.Execute(sql, conn, t);

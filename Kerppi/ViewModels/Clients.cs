@@ -39,6 +39,13 @@ namespace Kerppi.ViewModels
             PayerList = new ObservableCollection<DataModel.Contact>(DataModel.Contact.LoadAllPayers());
         }
 
+        public void Reset()
+        {
+            ClientList = new ObservableCollection<DataModel.Client>(DataModel.Client.LoadAll());
+            CurrentClient = new DataModel.Client();
+            Refresh();
+        }
+
         public void SaveCurrentClient()
         {
             DataModel.Client matchByCode = ClientList.FirstOrDefault(client => client.IdCode == CurrentClient.IdCode);

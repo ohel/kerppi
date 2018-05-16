@@ -84,6 +84,11 @@
                                             <Image Source="/Icons/print.png" Height="Auto"/>
                                         </MenuItem.Icon>
                                     </MenuItem>
+                                    <MenuItem Header="Tallenna ja aseta tieto_rajoitetuksi…" Click="RestrictData">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Icons/search.png" Height="Auto"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
                                 </MenuItem>
                             </Menu>
                         </Button>

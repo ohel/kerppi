@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015, 2017 Olli Helin / GainIT
+    Copyright 2015, 2017, 2018 Olli Helin / GainIT
     This file is part of Kerppi, a free software released under the terms of the
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
@@ -34,9 +34,9 @@ namespace Kerppi.Views
             }
             else
             {
-                Console.WriteLine(((Exception)e.Exception).Message);
+                Console.WriteLine(e.Exception.Message);
                 MessageBox.Show("Tapahtui vakava virhe. Tallenna kuvakaappaus tästä ilmoituksesta, kiitos. Sovellus suljetaan." + Environment.NewLine + Environment.NewLine +
-                    ((Exception)e.Exception).Message, "Poikkeus", MessageBoxButton.OK, MessageBoxImage.Error);
+                    e.Exception.Message, "Poikkeus", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -103,6 +103,13 @@ namespace Kerppi.Views
         {
             Brush theme = (((ComboBox)sender)?.SelectedItem as ComboBoxItem)?.Background;
             tabControlMain.Background = theme;
+        }
+
+        private void ViewRestrictedClients(object sender, RoutedEventArgs e)
+        {
+            Action callback = null;
+            if (viewClients.DataContext is ViewModels.Clients dc) callback = dc.Reset;
+            (new ListRestrictedClients(callback)).Show();
         }
     }
 }

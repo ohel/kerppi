@@ -4,26 +4,27 @@
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 -->
 
-<Window x:Class="Kerppi.Views.PrintClientData"
+<Window x:Class="Kerppi.Views.ListRestrictedClients"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Width="600"
         MaxHeight="{Binding Source={x:Static SystemParameters.WorkArea}, Path=Height}"
         SizeToContent="Height"
+        ResizeMode="NoResize"
         >
     <StackPanel Orientation="Vertical" Margin="10">
-        <TextBlock Text="Asiakkaan tiedot:"/>
-        <TextBox Name="textBoxData" IsReadOnly="True" TextWrapping="NoWrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
-        <TextBlock Text="Voit tallentaa asiakkaan tiedot tekstitiedostoon levylle ja lähettää tekstitiedoston sähköisesti eteenpäin, tai tulostaa sen tekstinkäsittelyohjelmalla." TextWrapping="Wrap" Margin="0,10"/>
+        <TextBlock Text="Tietorajoitetut asiakkaat:"/>
+        <ListBox Name="listBoxClients" ItemsSource="{Binding}"></ListBox>
+        <TextBlock Text="Valitse listasta asiakas. Voit poistaa tietorajoituksen napista alta. Huomaa GDPR:n artikla 18: henkilötietoja saa, säilyttämistä lukuun ottamatta, käsitellä ainoastaan rekisteröidyn suostumuksella taikka oikeudellisen vaateen laatimiseksi, esittämiseksi tai puolustamiseksi tahi toisen luonnollisen henkilön tai oikeushenkilön oikeuksien suojaamiseksi tai tärkeää unionin tai jäsenvaltion yleistä etua koskevista syistä." TextWrapping="Wrap" Margin="0,10"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Click="ButtonSaveAs_Click" Padding="5">
+            <Button Click="ButtonUnrestrict_Click" Padding="5">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Icons/save.png"/>
-                    <Label>_Tallenna nimellä…</Label>
+                    <Image Source="/Icons/search.png"/>
+                    <Label>_Poista tietorajoitus valitulta…</Label>
                 </StackPanel>
             </Button>
             <Button Grid.Column="1" Click="ButtonClose_Click" Padding="5" Margin="10,0,0,0" IsCancel="True">

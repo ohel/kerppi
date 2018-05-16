@@ -36,8 +36,7 @@ namespace Kerppi.Views
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
-            var s = sender as Button;
-            if (s != null && s.Tag != null)
+            if (sender is Button s && s.Tag != null)
             {
                 var client = s.Tag as DataModel.Client;
                 if (!ViewModels.Clients.CanRemoveClient(client))
@@ -129,6 +128,27 @@ namespace Kerppi.Views
         private void PrintContactPersonData(object sender, RoutedEventArgs e)
         {
             PrintDataSubjectData(true);
+        }
+
+        private void RestrictData(object sender, RoutedEventArgs e)
+        {
+            var dc = (ViewModels.Clients)DataContext;
+            if (dc.CurrentClient.Id == null)
+            {
+                MessageBox.Show("Asiakasta ei ole valittu.", "Ei asiakasta", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+
+            if (MessageBox.Show(
+                "Asiakkaan tietojen käsittelyä rajoitetaan GDPR artiklan 18 mukaisesti." + Environment.NewLine +
+                "Voit palauttaa tietorajoitetun asiakkaan takaisin näkyviin päävalikon lisätoiminnoista.",
+                "Vahvista tietojen rajoitus",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Exclamation) == MessageBoxResult.OK)
+            {
+                dc.CurrentClient.ToggleRestricted();
+                dc.Reset();
+            }
         }
 
         private void PrintDataSubjectData(bool contactPersonDataOnly = false)
