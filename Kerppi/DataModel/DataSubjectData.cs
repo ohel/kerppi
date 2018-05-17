@@ -69,7 +69,8 @@ namespace Kerppi.DataModel
                         PostalAddress = client.ContactPersonPostalAddress,
                         PostalCode = client.ContactPersonPostalCode
                     },
-                    ClientName = client.Name
+                    ClientName = client.Name,
+                    ConsentContactInfo = client.ConsentContactPerson
                 };
                 return;
             }

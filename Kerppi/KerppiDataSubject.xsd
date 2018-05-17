@@ -61,11 +61,11 @@
             </xsd:element>
 
             <xsd:element name="ConsentContactInfo" type="xsd:boolean" nillable="true" minOccurs="0">
-                <xsd:annotation><xsd:documentation>Asiakas on suostunut yhteystietojensa käyttämiseen. Null tarkoittaa, että vastaus ei ole tiedossa/ei ole kysytty.</xsd:documentation></xsd:annotation>
+                <xsd:annotation><xsd:documentation>Henkilö on suostunut yhteystietojensa käyttämiseen. Null tarkoittaa, että vastaus ei ole tiedossa/ei ole kysytty.</xsd:documentation></xsd:annotation>
             </xsd:element>
 
             <xsd:element name="ConsentIdInfo" type="xsd:boolean" nillable="true" minOccurs="0">
-                <xsd:annotation><xsd:documentation>Asiakas on suostunut tunnistetietonsa käyttämiseen (järjestelmässä IdCode). Null tarkoittaa, että vastaus ei ole tiedossa/ei ole kysytty.</xsd:documentation></xsd:annotation>
+                <xsd:annotation><xsd:documentation>Asiakas on suostunut tunnistetietonsa käyttämiseen (järjestelmässä IdCode). Null tarkoittaa, että vastaus ei ole tiedossa/ei ole kysytty. Jos kyseessä on yhteyshenkilö eikä asiakas, tietoa ei tallenneta ikinä.</xsd:documentation></xsd:annotation>
             </xsd:element>
 
         </xsd:sequence>

@@ -54,7 +54,7 @@
                     <TextBlock Grid.Row="2" Text="Yhteystieto/puhelinnumero:"/>
                     <TextBlock Grid.Row="3" Text="Lähiosoite:"/>
                     <TextBlock Grid.Row="4" Text="Postinumero ja -toimipaikka:"/>
-                    <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,10,0,0">
+                    <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="0,10">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -125,6 +125,7 @@
                             <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=ContactPersonContactInfo}"/>
                             <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Path=ContactPersonPostalAddress}"/>
                             <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding Path=ContactPersonPostalCode}"/>
+                            <CheckBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Content="_Suostumus: yhteystiedot" IsThreeState="True" IsChecked="{Binding Path=ConsentContactPerson}"/>
                         </Grid>
                     </GroupBox>
                     <DockPanel Margin="0,10,0,0">

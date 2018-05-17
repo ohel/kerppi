@@ -61,6 +61,11 @@ namespace Kerppi.DataModel
         /// </summary>
         public bool? ConsentIdInfo { get; set; }
         /// <summary>
+        /// Has the contact person consented to using their contact information.
+        /// Corresponds to Name, PostalAddress, PostalCode and ContactInfo.
+        /// </summary>
+        public bool? ConsentContactPerson { get; set; }
+        /// <summary>
         /// The restricted flag is for the GDPR article 18.
         /// </summary>
         public bool Restricted { get; set; }
@@ -88,6 +93,7 @@ namespace Kerppi.DataModel
             ContactPersonContactInfo = null;
             ConsentContactInfo = null;
             ConsentIdInfo = null;
+            ConsentContactPerson = null;
             Restricted = false;
         }
 
@@ -112,6 +118,7 @@ namespace Kerppi.DataModel
                 ContactPersonContactInfo = ContactPersonContactInfo,
                 ConsentContactInfo =  ConsentContactInfo,
                 ConsentIdInfo = ConsentIdInfo,
+                ConsentContactPerson = ConsentContactPerson,
                 Restricted = Restricted
         };
             return copy;
@@ -259,6 +266,7 @@ namespace Kerppi.DataModel
                 ContactPersonContactInfo TEXT,
                 ConsentContactInfo INTEGER DEFAULT NULL,
                 ConsentIdInfo INTEGER DEFAULT NULL,
+                ConsentContactPerson INTEGER DEFAULT NULL,
                 Restricted INTEGER NOT NULL DEFAULT 0,
                 FOREIGN KEY (DefaultPayerContactId) REFERENCES contacts
                 );";
