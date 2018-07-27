@@ -72,6 +72,28 @@ namespace Kerppi.DataModel
             return copy;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType()) return false;
+            var sku = (SKU)obj;
+            return Id.Equals(sku.Id) &&
+                Code.Equals(sku.Code) &&
+                Description.Equals(sku.Description) &&
+                BuyPrice.Equals(sku.BuyPrice) &&
+                SellPriceFactor.Equals(sku.SellPriceFactor) &&
+                Timestamp.Equals(sku.Timestamp);
+        }
+
+        public override int GetHashCode()
+        {
+            return 17 +
+                31 * Id.GetHashCode() +
+                31 * Code.GetHashCode() +
+                31 * Description.GetHashCode() +
+                31 * BuyPrice.GetHashCode() +
+                31 * SellPriceFactor.GetHashCode();
+        }
+
         public void Save(IDbConnection conn = null, IDbTransaction t = null)
         {
             Timestamp = DateTime.Now;

@@ -49,11 +49,11 @@
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Kuvaus:"/>
                 <TextBlock Grid.Row="0" Grid.Column="4" Text="Ostohinta (€):"/>
                 <TextBlock Grid.Row="1" Grid.Column="4" Text="Myyntihintakerroin:"/>
-                <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Path=Code, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBox_GotFocus_SelectAll"/>
-                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBox_GotFocus_SelectAll"/>
-                <!-- Using PropertyChanged here as UpdateSourceTrigger makes typing decimal numbers a pain. -->
-                <TextBox Grid.Row="0" Grid.Column="6" Text="{Binding Path=BuyPrice, Converter={StaticResource decimalConverter}}" GotFocus="TextBox_GotFocus_SelectAll"/>
-                <TextBox Grid.Row="1" Grid.Column="6" Text="{Binding Path=SellPriceFactor, Converter={StaticResource decimalConverter}}" GotFocus="TextBox_GotFocus_CaretIndex"/>
+                <TextBox x:Name="textBoxCode" Grid.Row="0" Grid.Column="2" Text="{Binding Path=Code, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBox_GotFocus_SelectAll"/>
+                <TextBox x:Name="textBoxDescription" Grid.Row="1" Grid.Column="2" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" GotFocus="TextBox_GotFocus_SelectAll"/>
+                <!-- Using PropertyChanged here as UpdateSourceTrigger makes typing decimal numbers a pain, so we do it manually later. -->
+                <TextBox x:Name="textBoxBuyPrice" Grid.Row="0" Grid.Column="6" Text="{Binding Path=BuyPrice, Converter={StaticResource decimalConverter}}" GotFocus="TextBox_GotFocus_SelectAll"/>
+                <TextBox x:Name="textBoxSellPriceFactor" Grid.Row="1" Grid.Column="6" Text="{Binding Path=SellPriceFactor, Converter={StaticResource decimalConverter}}" GotFocus="TextBox_GotFocus_CaretIndex"/>
                 <TextBlock Grid.Row="2" Grid.RowSpan="2" Grid.Column="4" Text="Myyntihinta (€):"/>
                 <TextBox Grid.Row="2" Grid.Column="6" IsEnabled="False">
                     <TextBox.Text>
