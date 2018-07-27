@@ -1,5 +1,5 @@
 ﻿<!--
-    Copyright 2015, 2017 Olli Helin / GainIT
+    Copyright 2015, 2017, 2018 Olli Helin / GainIT
     This file is part of Kerppi, a free software released under the terms of the
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 -->
@@ -73,7 +73,7 @@
         </GroupBox>
 
         <GroupBox Grid.Row="1" Header="Kaikki nimikkeet" Margin="0,10,0,0">
-            <DataGrid ItemsSource="{Binding SKUHandlerInstance.SKUList}" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" SelectionMode="Single">
+            <DataGrid x:Name="dataGridSKUs" ItemsSource="{Binding SKUHandlerInstance.SKUList}" IsReadOnly="True" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" SelectionMode="Single">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Koodi" Binding="{Binding Path=Code}"/>
                     <DataGridTextColumn Header="Kuvaus" Width="*" Binding="{Binding Path=Description}"/>

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015, 2017 Olli Helin / GainIT
+    Copyright 2015, 2017, 2018 Olli Helin / GainIT
     This file is part of Kerppi, a free software released under the terms of the
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
@@ -62,7 +62,16 @@ namespace Kerppi.Views
             }
             try
             {
-                ((ViewModels.SKUs)DataContext).SaveCurrentSKU();
+                var dc = (ViewModels.SKUs)DataContext;
+                var savedSkuCode = dc.CurrentSKU.Code;
+                dc.SaveCurrentSKU();
+                var savedSku = dc.SKUHandlerInstance.SKUList.Where(item => item.Code == savedSkuCode).FirstOrDefault();
+                // There should always be at least one item after save.
+                // Scrolling to the bottom first makes the saved SKU be on top of the list after scrolling.
+                dataGridSKUs.ScrollIntoView(dataGridSKUs.Items[dataGridSKUs.Items.Count - 1]);
+                dataGridSKUs.UpdateLayout();
+                dataGridSKUs.ScrollIntoView(savedSku);
+                dataGridSKUs.SelectedItem = savedSku;
             }
             catch (Exception x)
             {
