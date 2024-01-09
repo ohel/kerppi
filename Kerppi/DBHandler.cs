@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015, 2017 Olli Helin / GainIT
+    Copyright 2015, 2017, 2024 Olli Helin / GainIT
     This file is part of Kerppi, a free software released under the terms of the
     GNU General Public License v3: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
@@ -37,7 +37,7 @@ namespace Kerppi
             Console.WriteLine("Method: CreateDBTables begins.");
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
 
-            var interfaceType = typeof(DataModel.DBTableCreator);
+            var interfaceType = typeof(DataModel.IKerppiDBTableCreator);
             var dbCreators = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(s => s.GetTypes())
                 .Where(dbcCandidate => interfaceType.IsAssignableFrom(dbcCandidate) && !dbcCandidate.IsInterface);

@@ -113,9 +113,9 @@
     <Compile Include="DataModel\SKUCollectionLink.cs" />
     <Compile Include="DataModel\StringConstant.cs" />
     <Compile Include="DataModel\Task.cs" />
-    <Compile Include="DataModel\DBWritable.cs" />
-    <Compile Include="DataModel\DBTableCreator.cs" />
-    <Compile Include="DataModel\Copyable.cs" />
+    <Compile Include="DataModel\IKerppiDBWritable.cs" />
+    <Compile Include="DataModel\IKerppiDBTableCreator.cs" />
+    <Compile Include="DataModel\IKerppiCopyable.cs" />
     <Compile Include="DataModel\InvoiceRow.cs" />
     <Compile Include="DataModel\Client.cs" />
     <Compile Include="ViewModels\DateConverter.cs" />
@@ -139,7 +139,7 @@
     <Compile Include="ViewModels\InverseBooleanConverter.cs" />
     <Compile Include="ViewModels\BooleanStringConverter.cs" />
     <Compile Include="ViewModels\PropertyHelper.cs" />
-    <Compile Include="ViewModels\Refreshable.cs" />
+    <Compile Include="ViewModels\IKerppiRefreshable.cs" />
     <Compile Include="ViewModels\SKUHandler.cs" />
     <Compile Include="ViewModels\Tasks.cs" />
     <Compile Include="ViewModels\SKUListConverter.cs" />
